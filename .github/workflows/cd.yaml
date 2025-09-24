@@ -1,0 +1,44 @@
+name: Client CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 🗄️ Cache Client Node Modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: 📦 Install Client Dependencies
+        run: npm ci
+
+      - name: 🛠️ Build Client
+        run: npm run build
+
+      - name: 🚀 Deploy and Run Client on EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            if [ -d ~/SastezatelBG ]; then
+              echo "📂 Папката ~/SastezatelBG намерена – деплойвам..."
+              cd ~/SastezatelBG
+              git pull origin main
+              npm ci
+              npm run build
+              pm2 restart WEBSITE || pm2 start npm --name "WEBSITE" -- start
+            else
+              echo "⚠️  Папката ~/SastezatelBG не съществува – завършвам успешно."
+            fi
