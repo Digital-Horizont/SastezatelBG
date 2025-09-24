@@ -32,13 +32,39 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
-            if [ -d ~/SastezatelBG ]; then
+            set -e
+
+            # 0) Load nvm for this non-interactive shell
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+            # 1) Make sure Node is available (install/use LTS)
+            nvm install --lts
+            nvm use --lts
+            node -v
+            npm -v
+
+            # 2) Make sure PM2 is available under this Node
+            npm i -g pm2
+            pm2 -v
+
+            # 3) Deploy
+            if [ -d "$HOME/SastezatelBG" ]; then
               echo "📂 Папката ~/SastezatelBG намерена – деплойвам..."
-              cd ~/SastezatelBG
+              cd "$HOME/SastezatelBG"
               git pull origin main
               npm ci
               npm run build
-              pm2 restart WEBSITE || pm2 start npm --name "WEBSITE" -- start
+
+              # 4) Start/Restart with PM2
+              if pm2 describe WEBSITE >/dev/null 2>&1; then
+                pm2 restart WEBSITE
+              else
+                pm2 start npm --name "WEBSITE" -- start
+              fi
+
+              # 5) Persist PM2 process list
+              pm2 save
             else
               echo "⚠️  Папката ~/SastezatelBG не съществува – завършвам успешно."
             fi
