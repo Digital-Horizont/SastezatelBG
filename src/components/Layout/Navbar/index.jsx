@@ -28,7 +28,6 @@ export default function Navbar() {
     <nav className={styles.nav}>
       <div className={styles.wrap}>
         <div className={styles.row}>
-          {/* Logo + Brand */}
           <div className={styles.brandWrap}>
             <div className={styles.brandMark}>
               <span className={styles.brandLetter}>С</span>

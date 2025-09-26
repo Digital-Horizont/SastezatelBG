@@ -63,12 +63,12 @@
   align-items: center;
   gap: 2rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .desktopNav { display: flex; }
 }
 
 .mobileToggle { display: block; }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .mobileToggle { display: none; }
 }
 
@@ -85,7 +85,7 @@
 .toggleIcon { width: 1.5rem; height: 1.5rem; }
 
 .mobileNav { display: block; }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .mobileNav { display: none; }
 }
 
