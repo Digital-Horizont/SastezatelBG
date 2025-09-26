@@ -1,0 +1,220 @@
+:root {
+	--background: oklch(1 0 0);
+	--foreground: oklch(0.145 0 0);
+	--card: oklch(1 0 0);
+	--card-foreground: oklch(0.145 0 0);
+	--popover: oklch(1 0 0);
+	--popover-foreground: oklch(0.145 0 0);
+
+	--primary: #14532d;
+	--primary-foreground: #f0fdf4;
+	--secondary: #f0fdf4;
+	--secondary-foreground: #14532d;
+	--muted: #f0fdf4;
+	--muted-foreground: #166534;
+	--accent: #86efac;
+	--accent-foreground: #14532d;
+
+	--destructive: oklch(0.577 0.245 27.325);
+	--destructive-foreground: oklch(0.577 0.245 27.325);
+
+	--border: oklch(0.922 0 0);
+	--input: oklch(0.922 0 0);
+	--ring: #15803d;
+
+	--chart-1: oklch(0.646 0.222 41.116);
+	--chart-2: oklch(0.6 0.118 184.704);
+	--chart-3: oklch(0.398 0.07 227.392);
+	--chart-4: oklch(0.828 0.189 84.429);
+	--chart-5: oklch(0.769 0.188 70.08);
+
+	--radius: 0.625rem;
+
+	--sidebar: oklch(0.985 0 0);
+	--sidebar-foreground: oklch(0.145 0 0);
+	--sidebar-primary: oklch(0.205 0 0);
+	--sidebar-primary-foreground: oklch(0.985 0 0);
+	--sidebar-accent: oklch(0.97 0 0);
+	--sidebar-accent-foreground: oklch(0.205 0 0);
+	--sidebar-border: oklch(0.922 0 0);
+	--sidebar-ring: oklch(0.708 0 0);
+
+	--green-900: #14532d;
+	--green-800: #166534;
+	--green-600: #15803d;
+	--green-200: #86efac;
+	--green-50: #f0fdf4;
+}
+
+.dark {
+	--background: oklch(0.145 0 0);
+	--foreground: oklch(0.985 0 0);
+	--card: oklch(0.145 0 0);
+	--card-foreground: oklch(0.985 0 0);
+	--popover: oklch(0.145 0 0);
+	--popover-foreground: oklch(0.985 0 0);
+
+	--primary: #86efac;
+	--primary-foreground: #14532d;
+	--secondary: oklch(0.269 0 0);
+	--secondary-foreground: oklch(0.985 0 0);
+	--muted: oklch(0.269 0 0);
+	--muted-foreground: oklch(0.708 0 0);
+	--accent: #15803d;
+	--accent-foreground: #f0fdf4;
+
+	--destructive: oklch(0.396 0.141 25.723);
+	--destructive-foreground: oklch(0.637 0.237 25.331);
+
+	--border: oklch(0.269 0 0);
+	--input: oklch(0.269 0 0);
+	--ring: oklch(0.439 0 0);
+
+	--chart-1: oklch(0.488 0.243 264.376);
+	--chart-2: oklch(0.696 0.17 162.48);
+	--chart-3: oklch(0.769 0.188 70.08);
+	--chart-4: oklch(0.627 0.265 303.9);
+	--chart-5: oklch(0.645 0.246 16.439);
+
+	--sidebar: oklch(0.205 0 0);
+	--sidebar-foreground: oklch(0.985 0 0);
+	--sidebar-primary: oklch(0.488 0.243 264.376);
+	--sidebar-primary-foreground: oklch(0.985 0 0);
+	--sidebar-accent: oklch(0.269 0 0);
+	--sidebar-accent-foreground: oklch(0.985 0 0);
+	--sidebar-border: oklch(0.269 0 0);
+	--sidebar-ring: oklch(0.439 0 0);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--background);
+	color: var(--foreground);
+	line-height: 1.65;
+	letter-spacing: 0.005em;
+	font-weight: 400;
+	font-family: var(--font-raleway, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-dancing-script, var(--font-raleway, var(--font-inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif)));
+	font-weight: 600;
+	line-height: 1.25;
+	letter-spacing: -0.015em;
+	margin: 0 0 0.5em;
+}
+
+h1 {
+	font-size: 2.75rem;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 2.25rem;
+	font-weight: 600;
+}
+
+h3 {
+	font-size: 1.75rem;
+	font-weight: 600;
+}
+
+h4 {
+	font-size: 1.25rem;
+	font-weight: 500;
+}
+
+h5 {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+h6 {
+	font-size: 0.75rem;
+	font-weight: 500;
+}
+
+p {
+	line-height: 1.7;
+	letter-spacing: 0.005em;
+	font-weight: 400;
+	margin: 0 0 1em;
+}
+
+:where(input, textarea, select, button) {
+	font: inherit;
+	color: inherit;
+}
+
+input,
+textarea,
+select {
+	border: 1px solid var(--border);
+	background: var(--input);
+	color: inherit;
+	border-radius: var(--radius);
+	padding: 0.5rem 0.75rem;
+}
+
+button {
+	border: 1px solid var(--border);
+	background: var(--secondary);
+	color: var(--secondary-foreground);
+	border-radius: var(--radius);
+	padding: 0.5rem 0.75rem;
+	cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+	outline: 2px solid color-mix(in oklab, var(--ring), white 20%);
+	outline-offset: 2px;
+	border-color: var(--ring);
+}
+
+.u-fontLight {
+	font-weight: 300;
+}
+
+.u-fontNormal {
+	font-weight: 400;
+}
+
+.u-fontMedium {
+	font-weight: 500;
+}
+
+.u-fontSemibold {
+	font-weight: 600;
+}
+
+.u-fontBold {
+	font-weight: 700;
+}
+
+.u-fontBlack {
+	font-weight: 900;
+}
+
+.u-handwritten {
+	font-family: var(--font-dancing-script, cursive);
+}
