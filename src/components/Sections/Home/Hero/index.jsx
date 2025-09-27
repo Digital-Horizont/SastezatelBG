@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaBullseye, FaFlag, FaHandshake } from "react-icons/fa";
 import styles from "./HeroSection.module.css";
 
 export default function HeroSection() {
-  const [active, setActive] = useState(0); // which card is expanded on mobile
+  const [active, setActive] = useState(null);
+  const contentRefs = useRef([]);
 
   const cards = [
     {
@@ -28,9 +29,26 @@ export default function HeroSection() {
     },
   ];
 
-  // toggle on mobile
-  const handleMobileClick = (idx) => {
+  const toggle = (idx) => {
     setActive((prev) => (prev === idx ? null : idx));
+  };
+
+  // ripple позиция + toggle
+  const handlePress = (e, idx) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    e.currentTarget.style.setProperty("--rx", `${x}%`);
+    e.currentTarget.style.setProperty("--ry", `${y}%`);
+    toggle(idx);
+  };
+
+  // достъпност: Enter/Space
+  const handleKey = (e, idx) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggle(idx);
+    }
   };
 
   return (
@@ -45,7 +63,7 @@ export default function HeroSection() {
           Кои сме{" "}
           <span className={styles.highlight}>
             ние
-            <div className={styles.underline}></div>
+            <div className={styles.underline} />
           </span>
         </h1>
         <p>
@@ -56,8 +74,8 @@ export default function HeroSection() {
         </p>
       </div>
 
-      {/* Desktop grid (equally spaced) */}
-      <div className={styles.desktopGrid}>
+      {/* Desktop grid */}
+      <div className={styles.desktopGrid} role="list">
         {cards.map((c) => (
           <article key={c.title} className={styles.card} role="listitem">
             <div className={styles.icon}>{c.icon}</div>
@@ -67,20 +85,26 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* Mobile stacked list */}
+      {/* Mobile accordeon */}
       <div className={styles.mobileList} role="list">
         {cards.map((c, idx) => {
           const isActive = active === idx;
+          const panelId = `panel-${idx}`;
+          const btnId = `accordion-${idx}`;
+
           return (
             <button
               key={c.title}
+              id={btnId}
               className={`${styles.mobileCard} ${isActive ? styles.active : ""}`}
-              onClick={() => handleMobileClick(idx)}
+              onClick={(e) => handlePress(e, idx)}
+              onKeyDown={(e) => handleKey(e, idx)}
               aria-expanded={isActive}
+              aria-controls={panelId}
             >
               <div className={styles.mobileHeader}>
                 <div className={styles.icon}>{c.icon}</div>
-                <h2>{c.title}</h2>
+                <h2 className={styles.mobileTitle}>{c.title}</h2>
                 <span
                   className={`${styles.chevron} ${
                     isActive ? styles.chevronOpen : ""
@@ -89,12 +113,23 @@ export default function HeroSection() {
                 />
               </div>
 
-              {/* animated content reveal */}
-              <div className={styles.revealWrap}>
+              {/* Animated content reveal */}
+              <div
+                id={panelId}
+                role="region"
+                aria-labelledby={btnId}
+                ref={(el) => (contentRefs.current[idx] = el)}
+                className={styles.revealWrap}
+                style={{
+                  height: isActive
+                    ? contentRefs.current[idx]?.scrollHeight ?? "auto"
+                    : 0,
+                }}
+              >
                 <p className={styles.revealContent}>{c.content}</p>
               </div>
 
-              {/* click ripple */}
+              {/* ripple */}
               <span className={styles.ripple} aria-hidden />
             </button>
           );

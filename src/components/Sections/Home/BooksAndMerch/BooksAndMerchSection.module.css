@@ -1,243 +1,237 @@
 .section {
-	position: relative;
-	padding: 5rem 1rem;
-	background: var(--slate-800);
-	overflow: hidden;
+  position: relative;
+  padding: 5rem 1rem;
+  background: var(--forest-dark);
+  overflow: hidden;
 }
 
 .decorOne,
 .decorTwo {
-	position: absolute;
-	border-radius: 9999px;
-	filter: blur(28px);
-	pointer-events: none;
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(28px);
+  pointer-events: none;
 }
 
 .decorOne {
-	top: 2.5rem;
-	left: 2.5rem;
-	width: 10rem;
-	height: 10rem;
-	background: var(--emerald-500);
-	opacity: 0.1;
+  top: 2.5rem;
+  left: 2.5rem;
+  width: 10rem;
+  height: 10rem;
+  background: var(--path-gold);
+  opacity: 0.1;
 }
 
 .decorTwo {
-	right: 5rem;
-	bottom: 5rem;
-	width: 8rem;
-	height: 8rem;
-	background: var(--teal-500);
-	opacity: 0.15;
-	filter: blur(20px);
+  right: 5rem;
+  bottom: 5rem;
+  width: 8rem;
+  height: 8rem;
+  background: var(--sky-blue);
+  opacity: 0.15;
+  filter: blur(20px);
 }
 
 .container {
-	max-width: 80rem;
-	margin: 0 auto;
-	text-align: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .header {
-	margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 
 .title {
-	color: var(--white);
-	font-weight: 900;
-	line-height: 1.1;
-	margin: 0 0 2rem;
-	font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-	font-size: 2.25rem;
+  color: var(--cream);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 2rem;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 2.25rem;
 }
 
 @media (min-width: 768px) {
-	.title {
-		font-size: 3.75rem;
-	}
+  .title {
+    font-size: 3.75rem;
+  }
 }
 
 .highlight {
-	position: relative;
-	color: var(--emerald-400);
-	display: inline-block;
+  position: relative;
+  color: var(--path-gold);
+  display: inline-block;
 }
 
 .highlightUnderline {
-	position: absolute;
-	left: 0;
-	right: 0;
-	height: 0.25rem;
-	bottom: -0.5rem;
-	background: var(--emerald-400);
-	transform: rotate(1deg);
-	content: "";
-	display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  bottom: -0.5rem;
+  background: var(--path-gold);
+  transform: rotate(1deg);
+  content: "";
+  display: block;
 }
 
 .subtitle {
-	color: var(--slate-300);
-	font-size: 1.25rem;
-	line-height: 1.7;
-	max-width: 48rem;
-	margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  max-width: 48rem;
+  margin: 0 auto;
 }
 
 .grid {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 2rem;
-	margin: 0 auto 3rem;
-	max-width: 64rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 0 auto 3rem;
+  max-width: 64rem;
 }
 
 @media (min-width: 768px) {
-	.grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .card {
-	position: relative;
-	background: var(--white);
-	border-radius: var(--radius-3xl);
-	box-shadow: var(--shadow-xl);
-	overflow: hidden;
-	transform: translateZ(0);
-	transition: transform var(--transition-slow), box-shadow var(--transition);
+  position: relative;
+  background: var(--cream);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: transform var(--transition-slow), box-shadow var(--transition);
 }
 
 .card:hover {
-	transform: scale(1.05) rotate(-2deg);
-	box-shadow: var(--shadow-2xl);
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: var(--shadow-2xl);
 }
 
 .card:nth-child(2):hover {
-	transform: scale(1.05) rotate(2deg);
+  transform: scale(1.05) rotate(2deg);
 }
 
 .media {
-	position: relative;
-	width: 100%;
-	aspect-ratio: 4 / 3;
-	overflow: hidden;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
 }
 
 .mediaBooks {
-	background: linear-gradient(135deg, var(--emerald-100), var(--teal-100));
+  background: linear-gradient(135deg, var(--path-gold), var(--sky-blue));
 }
 
 .mediaMerch {
-	background: linear-gradient(135deg, var(--teal-100), var(--emerald-100));
+  background: linear-gradient(135deg, var(--sky-blue), var(--path-gold));
 }
 
 .mediaImg {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: transform var(--transition-slow);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
 }
 
 .card:hover .mediaImg {
-	transform: scale(1.10);
+  transform: scale(1.10);
 }
 
 .cardBody {
-	padding: 1.5rem;
+  padding: 1.5rem;
 }
 
 .cardTitle {
-	font-size: 1.5rem;
-	font-weight: 800;
-	color: #0f172a;
-	margin: 0 0 .5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--forest-dark);
+  margin: 0 0 .5rem;
 }
 
 .cardText {
-	margin: 0;
-	color: var(--slate-600);
+  margin: 0;
+  color: var(--forest-mid);
 }
 
 .overlay {
-	position: absolute;
-	inset: 0;
-	opacity: 0;
-	transition: opacity var(--transition);
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .overlayEmerald {
-	background: color-mix(in oklab, var(--emerald-500) 20%, transparent);
+  background: color-mix(in oklab, var(--path-gold) 20%, transparent);
 }
 
 .overlayTeal {
-	background: color-mix(in oklab, var(--teal-500) 20%, transparent);
+  background: color-mix(in oklab, var(--sky-blue) 20%, transparent);
 }
 
 @supports not (background: color-mix(in oklab, white 10%, black)) {
-	.overlayEmerald {
-		background: rgba(16, 185, 129, 0.2);
-	}
+  .overlayEmerald {
+    background: rgba(242, 184, 75, 0.2); /* path gold fallback */
+  }
 
-	.overlayTeal {
-		background: rgba(20, 184, 166, 0.2);
-	}
+  .overlayTeal {
+    background: rgba(127, 181, 230, 0.2); /* sky blue fallback */
+  }
 }
 
 .overlay i {
-	color: var(--white);
-	font-size: 1.875rem;
+  color: var(--cream);
+  font-size: 1.875rem;
 }
 
 .card:hover .overlay {
-	opacity: 1;
+  opacity: 1;
 }
 
 .ctaBtn {
-	display: inline-block;
-	border: 0;
-	cursor: pointer;
-	border-radius: var(--radius-2xl);
-	padding: 1rem 2rem;
-	font-weight: 600;
-	font-size: 1.125rem;
-	color: var(--white);
-	background: linear-gradient(90deg, var(--emerald-500), var(--teal-500));
-	box-shadow: var(--shadow-lg);
-	transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+  display: inline-block;
+  border: 0;
+  cursor: pointer;
+  border-radius: var(--radius-2xl);
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--cream);
+  background: linear-gradient(90deg, var(--path-gold), var(--sky-blue));
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
 }
 
 .ctaBtn:hover {
-	transform: scale(1.05) rotate(1deg);
-	box-shadow: var(--shadow-xl);
-	filter: brightness(1.05);
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: var(--shadow-xl);
+  filter: brightness(1.05);
 }
 
 .ctaContent {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .ctaIcon {
-	display: inline-block;
-	transition: transform var(--transition);
+  display: inline-block;
+  transition: transform var(--transition);
+  font-size: 1.125rem;
 }
 
 .ctaBtn:hover .ctaIcon {
-	transform: translateX(0.25rem);
+  transform: translateX(0.25rem);
 }
-
 
 .icon {
-	color: var(--white);
-	font-size: 1.875rem;
-}
-
-.ctaIcon {
-	display: inline-block;
-	transition: transform var(--transition);
-	font-size: 1.125rem;
+  color: var(--cream);
+  font-size: 1.875rem;
 }

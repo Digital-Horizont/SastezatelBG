@@ -2,41 +2,42 @@
 	position: relative;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 5rem 1rem;
+	padding: 3.5rem 1rem;
 	overflow: hidden;
+	background: var(--cream);
 }
 
 .header {
 	max-width: 800px;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 
 .header h1 {
-	font-size: 3rem;
+	font-size: clamp(2rem, 6vw, 3rem);
 	font-weight: 900;
-	color: #1e293b;
+	color: var(--forest-dark);
 	line-height: 1.2;
-	margin-bottom: 1.5rem;
+	margin-bottom: 1rem;
 }
 
 .header p {
-	font-size: 1.25rem;
-	color: #475569;
-	line-height: 1.6;
+	font-size: clamp(1rem, 2.8vw, 1.25rem);
+	color: var(--pine-leaf);
+	line-height: 1.7;
 }
 
 .highlight {
-	color: #0d9488;
+	color: var(--path-gold);
 	position: relative;
 }
 
 .underline {
 	position: absolute;
-	bottom: -0.5rem;
+	bottom: -0.45rem;
 	left: 0;
 	width: 100%;
 	height: 0.25rem;
-	background: #14b8a6;
+	background: var(--path-gold);
 	transform: rotate(-2deg);
 }
 
@@ -52,7 +53,7 @@
 	left: 2.5rem;
 	width: 8rem;
 	height: 8rem;
-	background: #5eead4;
+	background: var(--sky-blue);
 }
 
 .bubble2 {
@@ -60,7 +61,7 @@
 	right: 5rem;
 	width: 12rem;
 	height: 12rem;
-	background: #a7f3d0;
+	background: var(--path-gold);
 	opacity: 0.15;
 }
 
@@ -69,8 +70,8 @@
 	left: 25%;
 	width: 6rem;
 	height: 6rem;
-	background: #c7d2fe;
-	opacity: 0.1;
+	background: var(--forest-mid);
+	opacity: 0.12;
 }
 
 .desktopGrid {
@@ -78,13 +79,17 @@
 }
 
 .card {
-	background: linear-gradient(to bottom right, #fff, #ecfdf5);
-	border: 1px solid #a7f3d0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.25rem;
+	background: var(--cream);
+	border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
 	border-radius: 1rem;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 	padding: 2rem;
 	text-align: center;
-	transition: transform 300ms ease, box-shadow 300ms ease, translate 300ms ease;
+	transition: transform 300ms ease, box-shadow 300ms ease;
 	will-change: transform, box-shadow;
 }
 
@@ -94,9 +99,9 @@
 }
 
 .icon {
-	width: 5rem;
-	height: 5rem;
-	background: linear-gradient(to bottom right, #a7f3d0, #2dd4bf);
+	width: 4rem;
+	height: 4rem;
+	background: linear-gradient(to bottom right, var(--sky-blue), var(--path-gold));
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
@@ -104,67 +109,72 @@
 }
 
 .card h2 {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	font-weight: 800;
-	color: #1e293b;
-	margin-bottom: 0.75rem;
+	color: var(--forest-dark);
+	margin-bottom: 0.5rem;
 }
 
 .card p {
 	font-size: 1rem;
-	color: #475569;
+	color: var(--pine-leaf);
 	line-height: 1.6;
 }
 
 .mobileList {
 	display: grid;
-	gap: 1rem;
+	gap: 0.75rem;
 }
 
 .mobileCard {
 	position: relative;
 	width: 100%;
 	text-align: left;
-	border: 1px solid #a7f3d0;
-	background: linear-gradient(180deg, #ffffff, #ecfdf5);
+	border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+	background: var(--cream);
 	border-radius: 1rem;
 	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-	padding: 1rem 1rem 0.75rem;
+	padding: 0.875rem 1rem;
 	cursor: pointer;
 	overflow: hidden;
 	transform: translateZ(0);
-	transition:
-		box-shadow 240ms ease,
-		transform 180ms ease;
+	transition: box-shadow 240ms ease, transform 180ms ease, background 180ms ease;
 }
 
 .mobileCard:active {
-	transform: scale(0.98);
+	transform: scale(0.985);
 }
 
 .mobileCard:hover {
 	box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
+.mobileCard:focus-visible {
+	outline: none;
+	box-shadow:
+		0 0 0 3px color-mix(in oklab, var(--sky-blue) 40%, transparent),
+		0 0 0 6px color-mix(in oklab, var(--path-gold) 35%, transparent);
+}
+
 .mobileHeader {
 	display: grid;
-	grid-template-columns: 64px 1fr 20px;
-	gap: 1.75rem;
+	grid-template-columns: 56px 1fr 18px;
+	gap: 1rem;
 	align-items: center;
 }
 
-.mobileCard h2 {
-	font-size: 1.1rem;
+.mobileTitle {
+	font-size: 1.05rem;
 	font-weight: 800;
-	color: #1e293b;
+	color: var(--forest-dark);
 	margin: 0;
 }
 
 .chevron {
 	width: 10px;
 	height: 10px;
-	border-right: 2px solid #0f766e;
-	border-bottom: 2px solid #0f766e;
+	border-right: 2px solid var(--forest-mid);
+	border-bottom: 2px solid var(--forest-mid);
 	transform: rotate(-45deg);
 	transition: transform 250ms ease;
 	justify-self: end;
@@ -175,29 +185,28 @@
 }
 
 .revealWrap {
-	max-height: 0;
+	height: 0;
 	overflow: hidden;
-	transition: max-height 380ms ease, opacity 280ms ease;
+	transition: height 320ms ease, opacity 220ms ease;
 	opacity: 0;
 }
 
 .revealContent {
-	font-size: 0.95rem;
-	color: #475569;
-	line-height: 1.5;
-	padding: 0 0.25rem 1rem 0.25rem;
+	font-size: 0.975rem;
+	color: var(--pine-leaf);
+	line-height: 1.6;
+	padding: 0.5rem 0.25rem 0.9rem 0.25rem;
 }
 
 .active {
 	box-shadow:
-		0 8px 28px rgba(16, 185, 129, 0.20),
-		0 0 0 2px rgba(45, 212, 191, 0.35) inset;
-	transform: translateY(-2px);
+		0 8px 28px color-mix(in oklab, var(--sky-blue) 25%, transparent),
+		0 0 0 2px color-mix(in oklab, var(--path-gold) 30%, transparent) inset;
+	transform: translateY(-1px);
+	background: color-mix(in oklab, var(--cream) 92%, white);
 }
 
 .active .revealWrap {
-	margin-top: 1rem;
-	max-height: 200px;
 	opacity: 1;
 }
 
@@ -205,7 +214,9 @@
 	pointer-events: none;
 	position: absolute;
 	inset: 0;
-	background: radial-gradient(circle at var(--rx, 50%) var(--ry, 50%), rgba(45, 212, 191, 0.35), transparent 40%);
+	background: radial-gradient(circle at var(--rx, 50%) var(--ry, 50%),
+			color-mix(in oklab, var(--path-gold) 30%, transparent),
+			transparent 40%);
 	opacity: 0;
 	animation: none;
 }
@@ -242,5 +253,14 @@
 
 	.mobileList {
 		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.mobileCard,
+	.revealWrap,
+	.chevron {
+		transition: none;
 	}
 }

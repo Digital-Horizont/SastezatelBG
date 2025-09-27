@@ -1,7 +1,7 @@
 .footer {
 	position: relative;
-	background-color: #1e293b;
-	color: var(--green-50);
+	background-color: var(--forest-dark);
+	color: var(--cream);
 	padding: 4rem 1rem;
 	overflow: clip;
 }
@@ -13,7 +13,7 @@
 }
 
 .hr {
-	border-top: 1px solid oklch(0.32 0 0);
+	border-top: 1px solid var(--forest-mid);
 	margin-bottom: 3rem;
 }
 
@@ -22,7 +22,7 @@
 	inset-inline: 0;
 	top: 0;
 	height: 8rem;
-	background: #1e293b;
+	background: var(--forest-dark);
 	pointer-events: none;
 }
 
@@ -32,10 +32,10 @@
 	right: 2.5rem;
 	width: 10rem;
 	height: 10rem;
-	background: var(--green-600);
+	background: var(--path-gold);
 	border-radius: 999px;
 	filter: blur(40px);
-	opacity: 0.06;
+	opacity: 0.08;
 	pointer-events: none;
 }
 
@@ -45,7 +45,7 @@
 	left: 5rem;
 	width: 8rem;
 	height: 8rem;
-	background: var(--chart-4);
+	background: var(--sky-blue);
 	border-radius: 999px;
 	filter: blur(24px);
 	opacity: 0.12;
@@ -82,21 +82,21 @@
 }
 
 .brandTitle {
-	color: var(--accent);
+	color: var(--path-gold);
 	font-size: 1.5rem;
 	font-weight: 700;
 	margin-bottom: 1rem;
 }
 
 .brandText {
-	color: oklch(0.8 0 0);
+	color: var(--muted);
 	font-size: 1.125rem;
 	line-height: 1.75;
 	max-width: 32rem;
 }
 
 .columnTitle {
-	color: var(--background);
+	color: var(--cream);
 	font-size: 1.125rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
@@ -114,14 +114,14 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 0.5rem;
-	color: oklch(0.8 0 0);
+	color: var(--muted-2);
 	text-decoration: none;
 	transition: color 200ms ease, transform 200ms ease;
 }
 
 .link:hover,
 .link:focus-visible {
-	color: var(--accent);
+	color: var(--path-gold);
 	transform: translateX(2px);
 }
 
@@ -136,7 +136,7 @@
 	flex-direction: column;
 	gap: 1.5rem;
 	padding-top: 2rem;
-	border-top: 1px solid oklch(0.32 0 0);
+	border-top: 1px solid var(--forest-mid);
 }
 
 @media (min-width: 768px) {
@@ -154,7 +154,7 @@
 }
 
 .followText {
-	color: oklch(0.74 0 0);
+	color: var(--muted);
 }
 
 .socials {
@@ -168,11 +168,11 @@
 	width: 3rem;
 	height: 3rem;
 	border-radius: 999px;
-	background: oklch(0.22 0 0);
-	color: white;
+	background: var(--forest-mid);
+	color: var(--cream);
 	text-decoration: none;
 	transition: transform 200ms ease, background 200ms ease, rotate 200ms ease;
-	border: 1px solid oklch(0.28 0 0);
+	border: 1px solid var(--stroke);
 	will-change: transform;
 }
 
@@ -201,23 +201,23 @@
 }
 
 .copy {
-	color: oklch(0.74 0 0);
+	color: var(--muted);
 	margin: 0;
 }
 
 .credit {
-	color: oklch(0.6 0 0);
+	color: var(--muted-2);
 	font-size: 0.875rem;
 	margin: 0;
 }
 
 .creditLink {
-	color: var(--accent);
+	color: var(--path-gold);
 	text-decoration: none;
 	font-weight: 600;
 }
 
 .creditLink:hover,
 .creditLink:focus-visible {
-	color: color-mix(in oklab, var(--accent), black 12%);
+	color: color-mix(in oklab, var(--path-gold), black 12%);
 }
