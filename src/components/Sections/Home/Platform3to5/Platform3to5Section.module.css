@@ -1,0 +1,203 @@
+.section {
+  position: relative;
+  background: var(--slate-800);
+  padding: 5rem 1rem;
+  overflow: hidden;
+}
+
+.decoTopRight {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  width: 10rem; height: 10rem;
+  background: var(--teal-500);
+  border-radius: 9999px;
+  opacity: 0.1;
+  filter: blur(32px);
+  pointer-events: none;
+}
+
+.decoBottomLeft {
+  position: absolute;
+  bottom: 5rem;
+  left: 5rem;
+  width: 8rem; height: 8rem;
+  background: var(--emerald-500);
+  border-radius: 9999px;
+  opacity: 0.15;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--white);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 2rem 0;
+  font-size: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3.75rem;
+  }
+}
+
+.titleAccent {
+  color: var(--teal-400);
+  position: relative;
+  display: inline-block;
+}
+
+.titleUnderline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.5rem;
+  height: 0.25rem;
+  background: var(--teal-400);
+  transform: rotate(1deg);
+}
+
+.paragraphs {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  color: var(--slate-300);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.cta {
+  border: none;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--white);
+  background-image: linear-gradient(90deg, var(--teal-500), var(--emerald-500));
+  box-shadow: var(--shadow-lg);
+  transition: transform 300ms ease, box-shadow 300ms ease, filter 300ms ease, background 300ms ease;
+}
+
+.cta:hover {
+  background-image: linear-gradient(90deg, var(--teal-400), var(--emerald-400));
+  box-shadow: var(--shadow-xl);
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.ctaInner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ctaIcon {
+  transition: transform 300ms ease;
+}
+
+.cta:hover .ctaIcon {
+  transform: translateX(0.25rem);
+}
+
+.mediaGroup {
+  position: relative;
+}
+
+.mediaGlow {
+  position: absolute;
+  inset: -1.5rem;
+  border-radius: 1.5rem;
+  background-image: linear-gradient(90deg, rgba(45,212,191,0.2), rgba(52,211,153,0.2));
+  filter: blur(32px);
+  transition: filter 500ms ease;
+  pointer-events: none;
+}
+
+.mediaGroup:hover .mediaGlow {
+  filter: blur(24px);
+}
+
+.card {
+  position: relative;
+  background: var(--white);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 30px 50px rgba(0,0,0,0.35);
+  border: 4px solid rgba(255,255,255,0.1);
+  transform: translateZ(0);
+  transition: transform 500ms ease;
+}
+
+.mediaGroup:hover .card {
+  transform: scale(1.05);
+}
+
+.cardImg {
+  display: block;
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .cardImg { height: 20rem; }
+}
+@media (min-width: 1024px) {
+  .cardImg { height: 24rem; }
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15,23,42,0.3), rgba(15,23,42,0));
+  pointer-events: none;
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem; height: 3rem;
+  background: var(--teal-400);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.badge i {
+  color: var(--white);
+  font-size: 1.125rem;
+}

@@ -1,0 +1,14 @@
+.waveWrapper {
+  position: relative;
+}
+
+.waveSvg {
+  width: 100%;
+  height: 6rem;
+  fill: #1e293b;
+  display: block;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+}
