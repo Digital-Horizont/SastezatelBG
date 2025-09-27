@@ -1,7 +1,8 @@
-export default function Home() {
+import HeroSection from "@/components/Sections/Home/Hero";
+export default function HomePage() {
   return (
-    <div>
-      Useless code removed
-    </div>
+    <main>
+      <HeroSection />
+    </main>
   );
 }
