@@ -130,7 +130,7 @@
 	padding-bottom: 0.75rem;
 	display: grid;
 	gap: 0.25rem;
-	background: var(--cream);
+	background: var(--forest-dark);
 	border-top: 1px solid var(--forest-mid);
 }
 
@@ -176,12 +176,12 @@
 }
 
 .inactiveMobile {
-	color: var(--forest-dark);
+	color: var(--cream);
 }
 
 .inactiveMobile:hover {
 	color: var(--path-gold);
-	background: color-mix(in oklab, var(--cream) 15%, transparent);
+	background: color-mix(in oklab, var(--forest-dark) 85%, transparent);
 }
 
 .activeMobile {
