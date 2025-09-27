@@ -1,6 +1,6 @@
 .footer {
 	position: relative;
-	background: oklch(0.18 0 0);
+	background-color: #1e293b;
 	color: var(--green-50);
 	padding: 4rem 1rem;
 	overflow: clip;
@@ -22,7 +22,7 @@
 	inset-inline: 0;
 	top: 0;
 	height: 8rem;
-	background: linear-gradient(to bottom, oklch(0.24 0 0), oklch(0.18 0 0));
+	background: #1e293b;
 	pointer-events: none;
 }
 
