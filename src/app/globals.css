@@ -44,6 +44,16 @@
 	--green-600: #15803d;
 	--green-200: #86efac;
 	--green-50: #f0fdf4;
+
+	--slate-800: #1f2937;
+  --slate-300: #cbd5e1;
+  --white: #ffffff;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --emerald-400: #34d399;
+  --emerald-500: #10b981;
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.25);
+  --shadow-xl: 0 20px 35px rgba(0,0,0,0.35);
 }
 
 .dark {
