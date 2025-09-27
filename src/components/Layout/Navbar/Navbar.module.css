@@ -3,8 +3,8 @@
 	top: 0;
 	z-index: 50;
 	backdrop-filter: blur(6px);
-	background: rgba(255, 255, 255, 0.95);
-	border-bottom: 1px solid #d1fae5;
+	background: var(--forest-dark);
+	border-bottom: 1px solid var(--forest-mid);
 }
 
 .wrap {
@@ -44,8 +44,7 @@
 .brandMark {
 	width: 2.5rem;
 	height: 2.5rem;
-	background-image: linear-gradient(to bottom right, #059669, #0d9488);
-	/* emerald-600 -> teal-600 */
+	background-image: linear-gradient(to bottom right, var(--sky-blue), var(--path-gold));
 	border-radius: 0.5rem;
 	display: flex;
 	align-items: center;
@@ -54,10 +53,10 @@
 }
 
 .brandLetter {
-	color: #047857;
+	color: var(--forest-dark);
 	font-weight: 700;
 	font-size: 1.125rem;
-	background: #ffffff;
+	background: var(--cream);
 	border-radius: 9999px;
 	width: 2rem;
 	height: 2rem;
@@ -70,7 +69,7 @@
 	font-family: var(--handwritten, ui-rounded, "Comic Neue", cursive);
 	font-size: 1.5rem;
 	font-weight: 700;
-	color: #047857;
+	color: var(--cream);
 }
 
 .desktopNav {
@@ -96,7 +95,7 @@
 }
 
 .toggleBtn {
-	color: #334155;
+	color: var(--cream);
 	transition: color 200ms;
 	background: transparent;
 	border: none;
@@ -106,7 +105,7 @@
 
 .toggleBtn:hover,
 .toggleBtn:focus {
-	color: #059669;
+	color: var(--path-gold);
 }
 
 .toggleIcon {
@@ -114,6 +113,7 @@
 	height: 1.5rem;
 }
 
+/* Mobile nav */
 .mobileNav {
 	display: block;
 }
@@ -130,10 +130,11 @@
 	padding-bottom: 0.75rem;
 	display: grid;
 	gap: 0.25rem;
-	background: #ffffff;
-	border-top: 1px solid #d1fae5;
+	background: var(--cream);
+	border-top: 1px solid var(--forest-mid);
 }
 
+/* Desktop link states */
 .linkBaseDesktop {
 	font-weight: 500;
 	position: relative;
@@ -141,25 +142,17 @@
 	text-decoration: none;
 }
 
-.linkBaseMobile {
-	display: block;
-	padding: 0.5rem 0.75rem;
-	border-radius: 0.375rem;
-	font-weight: 500;
-	transition: color 200ms, background-color 200ms;
-	text-decoration: none;
-}
-
 .inactiveDesktop {
-	color: #334155;
+	color: var(--cream);
+	opacity: 0.85;
 }
 
 .inactiveDesktop:hover {
-	color: #059669;
+	color: var(--path-gold);
 }
 
 .activeDesktop {
-	color: #047857;
+	color: var(--path-gold);
 }
 
 .activeDesktop::after {
@@ -169,19 +162,29 @@
 	right: 0;
 	bottom: -0.25rem;
 	height: 2px;
-	background: #059669;
+	background: var(--path-gold);
+}
+
+/* Mobile link states */
+.linkBaseMobile {
+	display: block;
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.375rem;
+	font-weight: 500;
+	transition: color 200ms, background-color 200ms;
+	text-decoration: none;
 }
 
 .inactiveMobile {
-	color: #334155;
+	color: var(--forest-dark);
 }
 
 .inactiveMobile:hover {
-	color: #059669;
-	background: #f0fdf4;
+	color: var(--path-gold);
+	background: color-mix(in oklab, var(--cream) 15%, transparent);
 }
 
 .activeMobile {
-	color: #047857;
-	background: #dcfce7;
+	color: var(--path-gold);
+	background: color-mix(in oklab, var(--forest-mid) 25%, transparent);
 }

@@ -7,6 +7,7 @@ import BooksAndMerchSection from "@/components/Sections/Home/BooksAndMerch";
 export default function HomePage() {
   return (
     <main>
+      <DecorativeWave />
       <HeroSection />
       <DecorativeWave rotated={true}/>
       <Platform3to5Section />

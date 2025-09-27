@@ -1,246 +1,249 @@
 .hero {
-	position: relative;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 5rem 1rem;
-	overflow: hidden;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  overflow: hidden;
+  background: var(--cream);
 }
 
 .header {
-	max-width: 800px;
-	margin-bottom: 3rem;
+  max-width: 800px;
+  margin-bottom: 3rem;
 }
 
 .header h1 {
-	font-size: 3rem;
-	font-weight: 900;
-	color: #1e293b;
-	line-height: 1.2;
-	margin-bottom: 1.5rem;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--forest-dark);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
 }
 
 .header p {
-	font-size: 1.25rem;
-	color: #475569;
-	line-height: 1.6;
+  font-size: 1.25rem;
+  color: var(--pine-leaf);
+  line-height: 1.6;
 }
 
 .highlight {
-	color: #0d9488;
-	position: relative;
+  color: var(--path-gold);
+  position: relative;
 }
 
 .underline {
-	position: absolute;
-	bottom: -0.5rem;
-	left: 0;
-	width: 100%;
-	height: 0.25rem;
-	background: #14b8a6;
-	transform: rotate(-2deg);
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 0.25rem;
+  background: var(--path-gold);
+  transform: rotate(-2deg);
 }
 
 .bubble {
-	position: absolute;
-	border-radius: 50%;
-	filter: blur(40px);
-	opacity: 0.2;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.2;
 }
 
 .bubble1 {
-	top: 5rem;
-	left: 2.5rem;
-	width: 8rem;
-	height: 8rem;
-	background: #5eead4;
+  top: 5rem;
+  left: 2.5rem;
+  width: 8rem;
+  height: 8rem;
+  background: var(--sky-blue);
 }
 
 .bubble2 {
-	bottom: 10rem;
-	right: 5rem;
-	width: 12rem;
-	height: 12rem;
-	background: #a7f3d0;
-	opacity: 0.15;
+  bottom: 10rem;
+  right: 5rem;
+  width: 12rem;
+  height: 12rem;
+  background: var(--path-gold);
+  opacity: 0.15;
 }
 
 .bubble3 {
-	top: 50%;
-	left: 25%;
-	width: 6rem;
-	height: 6rem;
-	background: #c7d2fe;
-	opacity: 0.1;
+  top: 50%;
+  left: 25%;
+  width: 6rem;
+  height: 6rem;
+  background: var(--forest-mid);
+  opacity: 0.12;
 }
 
 .desktopGrid {
-	display: none;
+  display: none;
 }
 
 .card {
-	background: linear-gradient(to bottom right, #fff, #ecfdf5);
-	border: 1px solid #a7f3d0;
-	border-radius: 1rem;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-	padding: 2rem;
-	text-align: center;
-	transition: transform 300ms ease, box-shadow 300ms ease, translate 300ms ease;
-	will-change: transform, box-shadow;
+  background: var(--cream);
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  will-change: transform, box-shadow;
 }
 
 .card:hover {
-	transform: rotate(0.5deg) scale(1.03);
-	box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+  transform: rotate(0.5deg) scale(1.03);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
 }
 
 .icon {
-	width: 5rem;
-	height: 5rem;
-	background: linear-gradient(to bottom right, #a7f3d0, #2dd4bf);
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(to bottom right, var(--sky-blue), var(--path-gold));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card h2 {
-	font-size: 1.5rem;
-	font-weight: 800;
-	color: #1e293b;
-	margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--forest-dark);
+  margin-bottom: 0.75rem;
 }
 
 .card p {
-	font-size: 1rem;
-	color: #475569;
-	line-height: 1.6;
+  font-size: 1rem;
+  color: var(--pine-leaf);
+  line-height: 1.6;
 }
 
 .mobileList {
-	display: grid;
-	gap: 1rem;
+  display: grid;
+  gap: 1rem;
 }
 
 .mobileCard {
-	position: relative;
-	width: 100%;
-	text-align: left;
-	border: 1px solid #a7f3d0;
-	background: linear-gradient(180deg, #ffffff, #ecfdf5);
-	border-radius: 1rem;
-	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-	padding: 1rem 1rem 0.75rem;
-	cursor: pointer;
-	overflow: hidden;
-	transform: translateZ(0);
-	transition:
-		box-shadow 240ms ease,
-		transform 180ms ease;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  background: var(--cream);
+  border-radius: 1rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  padding: 1rem 1rem 0.75rem;
+  cursor: pointer;
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: box-shadow 240ms ease, transform 180ms ease;
 }
 
 .mobileCard:active {
-	transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 .mobileCard:hover {
-	box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
 .mobileHeader {
-	display: grid;
-	grid-template-columns: 64px 1fr 20px;
-	gap: 1.75rem;
-	align-items: center;
+  display: grid;
+  grid-template-columns: 64px 1fr 20px;
+  gap: 1.75rem;
+  align-items: center;
 }
 
 .mobileCard h2 {
-	font-size: 1.1rem;
-	font-weight: 800;
-	color: #1e293b;
-	margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--forest-dark);
+  margin: 0;
 }
 
 .chevron {
-	width: 10px;
-	height: 10px;
-	border-right: 2px solid #0f766e;
-	border-bottom: 2px solid #0f766e;
-	transform: rotate(-45deg);
-	transition: transform 250ms ease;
-	justify-self: end;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--forest-mid);
+  border-bottom: 2px solid var(--forest-mid);
+  transform: rotate(-45deg);
+  transition: transform 250ms ease;
+  justify-self: end;
 }
 
 .chevronOpen {
-	transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .revealWrap {
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height 380ms ease, opacity 280ms ease;
-	opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 380ms ease, opacity 280ms ease;
+  opacity: 0;
 }
 
 .revealContent {
-	font-size: 0.95rem;
-	color: #475569;
-	line-height: 1.5;
-	padding: 0 0.25rem 1rem 0.25rem;
+  font-size: 0.95rem;
+  color: var(--pine-leaf);
+  line-height: 1.5;
+  padding: 0 0.25rem 1rem 0.25rem;
 }
 
 .active {
-	box-shadow:
-		0 8px 28px rgba(16, 185, 129, 0.20),
-		0 0 0 2px rgba(45, 212, 191, 0.35) inset;
-	transform: translateY(-2px);
+  box-shadow:
+    0 8px 28px color-mix(in oklab, var(--sky-blue) 25%, transparent),
+    0 0 0 2px color-mix(in oklab, var(--path-gold) 30%, transparent) inset;
+  transform: translateY(-2px);
 }
 
 .active .revealWrap {
-	margin-top: 1rem;
-	max-height: 200px;
-	opacity: 1;
+  margin-top: 1rem;
+  max-height: 200px;
+  opacity: 1;
 }
 
 .ripple {
-	pointer-events: none;
-	position: absolute;
-	inset: 0;
-	background: radial-gradient(circle at var(--rx, 50%) var(--ry, 50%), rgba(45, 212, 191, 0.35), transparent 40%);
-	opacity: 0;
-	animation: none;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--rx, 50%) var(--ry, 50%),
+    color-mix(in oklab, var(--path-gold) 30%, transparent),
+    transparent 40%
+  );
+  opacity: 0;
+  animation: none;
 }
 
 .mobileCard:active .ripple {
-	opacity: 1;
-	animation: ripple 600ms ease-out;
+  opacity: 1;
+  animation: ripple 600ms ease-out;
 }
 
 @keyframes ripple {
-	0% {
-		transform: scale(0.6);
-		opacity: 0.35;
-	}
+  0% {
+    transform: scale(0.6);
+    opacity: 0.35;
+  }
 
-	80% {
-		transform: scale(1.4);
-		opacity: 0.12;
-	}
+  80% {
+    transform: scale(1.4);
+    opacity: 0.12;
+  }
 
-	100% {
-		transform: scale(1.8);
-		opacity: 0;
-	}
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
 }
 
 @media (min-width: 768px) {
-	.desktopGrid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1.5rem;
-		align-items: stretch;
-	}
+  .desktopGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+  }
 
-	.mobileList {
-		display: none;
-	}
+  .mobileList {
+    display: none;
+  }
 }

@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  background: var(--slate-800);
+  background: var(--forest-dark);
   padding: 5rem 1rem;
   overflow: hidden;
 }
@@ -9,10 +9,11 @@
   position: absolute;
   top: 2.5rem;
   right: 2.5rem;
-  width: 10rem; height: 10rem;
-  background: var(--teal-500);
+  width: 10rem;
+  height: 10rem;
+  background: var(--sky-blue);
   border-radius: 9999px;
-  opacity: 0.1;
+  opacity: 0.18;
   filter: blur(32px);
   pointer-events: none;
 }
@@ -21,10 +22,11 @@
   position: absolute;
   bottom: 5rem;
   left: 5rem;
-  width: 8rem; height: 8rem;
-  background: var(--emerald-500);
+  width: 8rem;
+  height: 8rem;
+  background: var(--path-gold);
   border-radius: 9999px;
-  opacity: 0.15;
+  opacity: 0.22;
   filter: blur(20px);
   pointer-events: none;
 }
@@ -56,7 +58,7 @@
 
 .title {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  color: var(--white);
+  color: var(--cream);
   font-weight: 900;
   line-height: 1.1;
   margin: 0 0 2rem 0;
@@ -70,7 +72,7 @@
 }
 
 .titleAccent {
-  color: var(--teal-400);
+  color: var(--path-gold);
   position: relative;
   display: inline-block;
 }
@@ -81,7 +83,7 @@
   right: 0;
   bottom: -0.5rem;
   height: 0.25rem;
-  background: var(--teal-400);
+  background: var(--path-gold);
   transform: rotate(1deg);
 }
 
@@ -92,7 +94,7 @@
 
 .lead {
   font-size: 1.25rem;
-  color: var(--slate-300);
+  color: var(--muted);
   line-height: 1.75;
   margin: 0;
 }
@@ -104,16 +106,17 @@
   border-radius: 1rem;
   font-weight: 600;
   font-size: 1.125rem;
-  color: var(--white);
-  background-image: linear-gradient(90deg, var(--teal-500), var(--emerald-500));
+  color: var(--forest-dark);
+  background-image: linear-gradient(90deg, var(--path-gold), var(--sky-blue));
   box-shadow: var(--shadow-lg);
   transition: transform 300ms ease, box-shadow 300ms ease, filter 300ms ease, background 300ms ease;
 }
 
 .cta:hover {
-  background-image: linear-gradient(90deg, var(--teal-400), var(--emerald-400));
+  background-image: linear-gradient(90deg, var(--path-gold), var(--sky-blue));
   box-shadow: var(--shadow-xl);
   transform: scale(1.05) rotate(-1deg);
+  filter: brightness(1.05);
 }
 
 .ctaInner {
@@ -138,7 +141,11 @@
   position: absolute;
   inset: -1.5rem;
   border-radius: 1.5rem;
-  background-image: linear-gradient(90deg, rgba(45,212,191,0.2), rgba(52,211,153,0.2));
+  background-image: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--sky-blue) 25%, transparent),
+    color-mix(in oklab, var(--path-gold) 25%, transparent)
+  );
   filter: blur(32px);
   transition: filter 500ms ease;
   pointer-events: none;
@@ -150,11 +157,11 @@
 
 .card {
   position: relative;
-  background: var(--white);
+  background: var(--cream);
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 30px 50px rgba(0,0,0,0.35);
-  border: 4px solid rgba(255,255,255,0.1);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.35);
+  border: 4px solid color-mix(in oklab, var(--cream) 10%, transparent);
   transform: translateZ(0);
   transition: transform 500ms ease;
 }
@@ -171,16 +178,24 @@
 }
 
 @media (min-width: 768px) {
-  .cardImg { height: 20rem; }
+  .cardImg {
+    height: 20rem;
+  }
 }
 @media (min-width: 1024px) {
-  .cardImg { height: 24rem; }
+  .cardImg {
+    height: 24rem;
+  }
 }
 
 .cardOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15,23,42,0.3), rgba(15,23,42,0));
+  background: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--forest-dark) 35%, transparent),
+    transparent
+  );
   pointer-events: none;
 }
 
@@ -188,8 +203,9 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  width: 3rem; height: 3rem;
-  background: var(--teal-400);
+  width: 3rem;
+  height: 3rem;
+  background: var(--sky-blue);
   border-radius: 9999px;
   display: flex;
   align-items: center;
@@ -198,6 +214,6 @@
 }
 
 .badge i {
-  color: var(--white);
+  color: var(--forest-dark);
   font-size: 1.125rem;
 }
