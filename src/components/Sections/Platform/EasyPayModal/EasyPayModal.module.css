@@ -1,0 +1,80 @@
+.mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 50;
+}
+
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  max-width: 520px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 22px 55px rgba(0,0,0,0.25);
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 0;
+  background: transparent;
+  color: var(--slate-400);
+  cursor: pointer;
+}
+.close:hover { color: var(--slate-600); }
+.closeIcon { width: 24px; height: 24px; }
+
+.header { text-align: center; margin-bottom: 16px; }
+.logoCircle {
+  width: 64px; height: 64px; margin: 0 auto 12px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--teal-500), var(--emerald-600));
+  display: grid; place-items: center;
+}
+.logoIcon { width: 32px; height: 32px; color: #fff; }
+
+.title { font-size: 1.5rem; font-weight: 800; color: var(--slate-800); }
+.subtitle { color: var(--slate-600); }
+
+.form { display: grid; gap: 12px; margin-top: 8px; }
+.label { font-weight: 600; color: #334155; }
+
+.inputWrap { position: relative; }
+.inputIcon {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  width: 20px; height: 20px; color: var(--slate-400);
+}
+.input {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
+  border: 1px solid var(--slate-300);
+  border-radius: 12px;
+  outline: none;
+}
+.input:focus {
+  border-color: var(--emerald-600);
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.2);
+}
+
+.checkboxRow { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
+.checkbox { width: 16px; height: 16px; accent-color: var(--emerald-600); }
+.checkboxLabel { color: var(--slate-600); }
+.link { color: var(--emerald-600); text-decoration: underline; }
+.link:hover { color: var(--emerald-700); }
+
+.submit {
+  margin-top: 4px;
+  width: 100%;
+  display: inline-flex; justify-content: center; align-items: center; gap: 8px;
+  border: 0; border-radius: 12px; padding: 12px 18px;
+  color: #fff; font-weight: 800; cursor: pointer;
+  background: linear-gradient(135deg, var(--teal-500), var(--emerald-600));
+}
+.submit:disabled { background: linear-gradient(135deg, #cbd5e1, #94a3b8); cursor: not-allowed; }
+.submitIcon { width: 20px; height: 20px; color: #fff; }

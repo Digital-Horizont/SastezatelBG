@@ -26,6 +26,43 @@
 	--radius: 0.625rem;
 	--radius-2xl: 1.25rem;
 	--radius-3xl: 1.5rem;
+
+
+
+
+
+
+
+
+
+
+	  --emerald-400: #34d399;
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --teal-500: #14b8a6;
+  --slate-50: #f8fafc;
+  --slate-300: #cbd5e1;
+  --slate-600: #475569;
+  --slate-800: #1f2937;
+    --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --slate-50: #f8fafc;
+  --slate-200: #e2e8f0;
+  --slate-800: #1f2937;
+    --emerald-200: #a7f3d0; 
+  --emerald-600: #059669;
+  --emerald-700: #047857;
+  --teal-500: #14b8a6;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-600: #475569;
+  --slate-800: #1f2937;
+
+    --emerald-50: #ecfdf5;
+  --emerald-200: #a7f3d0;
+  --teal-200: #99f6e4;
+  --slate-50: #f8fafc;
+  --white: #ffffff;
 }
 
 /* Dark mode palette */
