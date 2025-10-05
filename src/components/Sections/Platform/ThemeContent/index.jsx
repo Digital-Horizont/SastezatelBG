@@ -10,28 +10,36 @@ const getYouTubeVideoId = (url) => {
   const match = url?.match(regex);
   return match ? match[1] : null;
 };
-const getYouTubeThumbnail = (id) => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+const getYouTubeThumbnail = (id) =>
+  `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
 
 export default function ThemeContent() {
-  const selectedTheme = useSelectedTheme();          // ✅ re-renders on change
+  const selectedTheme = useSelectedTheme();
   const openEasyPay = useEasyPayStore((s) => s.open);
   const [showVideo, setShowVideo] = useState(false);
 
-  // Reset poster → iframe when theme changes
   useEffect(() => setShowVideo(false), [selectedTheme?.key]);
 
   const videoId = useMemo(
-    () => (selectedTheme?.yt_video ? getYouTubeVideoId(selectedTheme.yt_video) : null),
+    () =>
+      selectedTheme?.yt_video
+        ? getYouTubeVideoId(selectedTheme.yt_video)
+        : null,
     [selectedTheme?.yt_video]
   );
 
   if (!selectedTheme) {
     return (
-      <section className={styles.wrap}>
+      <section className={styles.wrap} aria-live="polite">
+        <div className={`${styles.bubble} ${styles.bubble1}`} />
+        <div className={`${styles.bubble} ${styles.bubble2}`} />
+        <div className={`${styles.bubble} ${styles.bubble3}`} />
         <div className={styles.card}>
-          <div className={styles.empty}>
-            <BookOpen className={styles.emptyIcon} />
-            <p>Изберете тема от лявото меню</p>
+          <div className={styles.pad}>
+            <div className={styles.empty}>
+              <BookOpen className={styles.emptyIcon} aria-hidden />
+              <p>Изберете тема от лявото меню</p>
+            </div>
           </div>
         </div>
       </section>
@@ -40,49 +48,56 @@ export default function ThemeContent() {
 
   return (
     <section className={styles.wrap}>
-      <div className={styles.headerCard}>
-        <h1 className={styles.title}>
-          Платформа 3-5 кл
-          <span className={styles.underline} />
-        </h1>
+      {/* background bubbles */}
+      <div className={`${styles.bubble} ${styles.bubble1}`} />
+      <div className={`${styles.bubble} ${styles.bubble2}`} />
+      <div className={`${styles.bubble} ${styles.bubble3}`} />
+
+      <div className={styles.card}>
+        <div className={styles.pad}>
+          <h1 className={styles.title}>
+            <span className={styles.titleIconWrap} aria-hidden>
+              <BookOpen className={styles.titleIcon} />
+            </span>
+            <span>Платформа 3-5 кл</span>
+          </h1>
+        </div>
       </div>
 
       <div className={styles.card}>
-        <div className={styles.contentStack}>
+        <div className={`${styles.pad} ${styles.contentStack}`}>
           <div>
-            {/* ✅ Title & description update automatically */}
             <h2 className={styles.themeHeading}>{selectedTheme.title}</h2>
             <p className={styles.desc}>{selectedTheme.description}</p>
           </div>
 
-          {/* ✅ Video section toggles based on whether theme has a video */}
           {videoId ? (
             <div>
               <h3 className={styles.videoTitle}>
-                <Video className={styles.videoIcon} />
+                <Video className={styles.videoIcon} aria-hidden />
                 Видео урок
               </h3>
 
               {!showVideo ? (
-                <div
+                <button
                   className={styles.poster}
                   onClick={() => setShowVideo(true)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => e.key === "Enter" && setShowVideo(true)}
+                  aria-label={`Пусни видеото: ${selectedTheme.title}`}
                 >
                   <img
                     src={getYouTubeThumbnail(videoId)}
-                    alt={`Видео за ${selectedTheme.title}`}
+                    alt=""
                     className={styles.posterImg}
-                    onError={(e) => (e.currentTarget.src = "/placeholder.svg")}
+                    onError={(e) =>
+                      (e.currentTarget.src = "/placeholder.svg")
+                    }
                   />
-                  <div className={styles.posterOverlay}>
+                  <span className={styles.posterOverlay} aria-hidden>
                     <span className={styles.playCircle}>
                       <Play className={styles.playIcon} />
                     </span>
-                  </div>
-                </div>
+                  </span>
+                </button>
               ) : (
                 <div className={styles.iframeWrap}>
                   <iframe
@@ -97,7 +112,7 @@ export default function ThemeContent() {
 
               <div className={styles.ctaRow}>
                 <button className={styles.primaryBtn} onClick={openEasyPay}>
-                  <Smartphone className={styles.btnIcon} />
+                  <Smartphone className={styles.btnIcon} aria-hidden />
                   Абонамент с ИзиПей
                 </button>
               </div>
@@ -105,7 +120,7 @@ export default function ThemeContent() {
           ) : (
             <div className={styles.ctaRow}>
               <button className={styles.primaryBtn} onClick={openEasyPay}>
-                <Smartphone className={styles.btnIcon} />
+                <Smartphone className={styles.btnIcon} aria-hidden />
                 Абонамент с ИзиПей
               </button>
             </div>

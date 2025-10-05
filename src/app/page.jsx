@@ -1,4 +1,4 @@
-import DecorativeWave from "@/components/Sections/Home/DecorativeWave";
+import DecorativeWave from "@/components/Sections/Shared/DecorativeWave";
 import HeroSection from "@/components/Sections/Home/Hero";
 import Platform3to5Section from "@/components/Sections/Home/Platform3to5";
 import Platform5to7Section from "@/components/Sections/Home/Platform5to7";

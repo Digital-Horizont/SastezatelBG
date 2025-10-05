@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, Smartphone, Mail, Check } from "lucide-react";
 import styles from "./EasyPayModal.module.css";
 import { useEasyPayStore } from "@/stores/Platform/useEasyPayStore";
@@ -9,6 +9,18 @@ export default function EasyPayModal() {
 
   const [email, setEmail] = useState("");
   const [agreed, setAgreed] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -24,7 +36,12 @@ export default function EasyPayModal() {
 
   return (
     <div className={styles.mask}>
-      <div className={styles.card} role="dialog" aria-modal="true" aria-label="Абонамент с ИзиПей">
+      <div
+        className={styles.card}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Абонамент с ИзиПей"
+      >
         <button className={styles.close} onClick={close} aria-label="Затвори">
           <X className={styles.closeIcon} />
         </button>
@@ -34,7 +51,9 @@ export default function EasyPayModal() {
             <Smartphone className={styles.logoIcon} />
           </div>
           <h3 className={styles.title}>Абонамент с ИзиПей</h3>
-          <p className={styles.subtitle}>Въведете вашия имейл за да получите код за плащане</p>
+          <p className={styles.subtitle}>
+            Въведете вашия имейл за да получите код за плащане
+          </p>
         </div>
 
         <form onSubmit={onSubmit} className={styles.form}>
@@ -62,11 +81,17 @@ export default function EasyPayModal() {
             />
             <label htmlFor="privacy" className={styles.checkboxLabel}>
               Съгласявам се с{" "}
-              <a href="/privacy-policy" className={styles.link}>политиката за поверителност</a>
+              <a href="/privacy-policy" className={styles.link}>
+                политиката за поверителност
+              </a>
             </label>
           </div>
 
-          <button type="submit" disabled={!email || !agreed} className={styles.submit}>
+          <button
+            type="submit"
+            disabled={!email || !agreed}
+            className={styles.submit}
+          >
             <Check className={styles.submitIcon} />
             Изпрати код за плащане
           </button>

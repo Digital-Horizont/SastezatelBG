@@ -3,10 +3,10 @@
 import React, { useEffect } from "react";
 import { useParams } from "next/navigation";
 
-import Background from "@/components/Sections/Platform/Background";
 import SideBar from "@/components/Sections/Platform/SideBar";
 import ThemeContent from "@/components/Sections/Platform/ThemeContent";
 import EasyPayModal from "@/components/Sections/Platform/EasyPayModal";
+import DecorativeWave from "@/components/Sections/Shared/DecorativeWave";
 
 import { useThemeStore } from "@/stores/Platform/useThemeStore";
 
@@ -22,12 +22,13 @@ export default function ThemePageClient() {
 
   return (
     <>
-      <Background />
+      <DecorativeWave />
       <div className={styles.grid}>
         <SideBar className={styles.sideBar} />
         <ThemeContent className={styles.themeContent} />
         <EasyPayModal className={styles.easyPayModal} />
       </div>
+      <DecorativeWave rotated={true}/>
     </>
   );
 }
