@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Platform3to5Section.module.css";
 import { FaArrowRight, FaGraduationCap } from "react-icons/fa";
 
-export default function Platform3to5Section() {
+export default function Platform3to4Section() {
   return (
     <section className={styles.section}>
       {/* Decorative Elements */}
