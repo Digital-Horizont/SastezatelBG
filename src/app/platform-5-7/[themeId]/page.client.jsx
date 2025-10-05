@@ -24,7 +24,7 @@ export default function ThemePageClient() {
     <>
       <DecorativeWave />
       <div className={styles.grid}>
-        <SideBar className={styles.sideBar} platform_url="platform-3-5" />
+        <SideBar className={styles.sideBar} platform_url="platform-5-7" />
         <ThemeContent className={styles.themeContent} />
         <EasyPayModal className={styles.easyPayModal} />
       </div>

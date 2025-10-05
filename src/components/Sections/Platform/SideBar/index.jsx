@@ -5,7 +5,7 @@ import { BookOpen, Video } from "lucide-react";
 import styles from "./SideBar.module.css";
 import { useThemeStore, useSelectedTheme } from "@/stores/Platform/useThemeStore";
 
-export default function SideBar() {
+export default function SideBar({platform_url}) {
   const themes = useThemeStore((s) => s.themes);
   const setSelectedThemeByKey = useThemeStore((s) => s.setSelectedThemeByKey);
   const selectedTheme = useSelectedTheme();
@@ -25,8 +25,8 @@ export default function SideBar() {
               return (
                 <Link
                   key={t.key}
-                  href={`/platform-3-5/${t.key}`}
-                  onClick={() => setSelectedThemeByKey(t.key)}  // ✅ instant UI update
+                  href={`/${platform_url}/${t.key}`}
+                  onClick={() => setSelectedThemeByKey(t.key)}
                   className={`${styles.item} ${active ? styles.itemActive : styles.itemInactive}`}
                 >
                   <span className={styles.itemTitle}>{t.title}</span>
