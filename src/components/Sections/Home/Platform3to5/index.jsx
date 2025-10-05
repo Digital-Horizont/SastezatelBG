@@ -46,7 +46,7 @@ export default function Platform3to5Section() {
             <div className={styles.card}>
               <img
                 src="/children-learning-on-tablets-and-computers-in-colo.png"
-                alt="Платформа за ученици 3-5 клас"
+                alt="Платформа за ученици 3-4 клас"
                 className={styles.cardImg}
               />
               <div className={styles.cardOverlay} />

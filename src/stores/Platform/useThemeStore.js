@@ -1,9 +1,9 @@
 import { create } from "zustand";
-import themesJson from "@/data/platform-3-5.json";
+import themesJson from "@/data/platform-3-4.json";
 
 export const useThemeStore = create((set, get) => ({
   platformLink: "https://example.com/subscribe",
-  themes: themesJson, // full objects with meta_*
+  themes: themesJson,
   selectedThemeKey: themesJson[0]?.key || null,
 
   setSelectedThemeByKey: (key) => {
@@ -12,6 +12,5 @@ export const useThemeStore = create((set, get) => ({
   }
 }));
 
-// Hook that re-renders when the selected theme changes (for UI)
 export const useSelectedTheme = () =>
   useThemeStore((s) => s.themes.find((t) => t.key === s.selectedThemeKey) || null);

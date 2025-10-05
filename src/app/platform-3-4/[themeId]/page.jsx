@@ -1,4 +1,4 @@
-import data from "@/data/platform-3-5.json";
+import data from "@/data/platform-3-4.json";
 import ClientPage from "./page.client";
 
 export const dynamicParams = false;

@@ -59,7 +59,7 @@ export default function ThemeContent() {
             <span className={styles.titleIconWrap} aria-hidden>
               <BookOpen className={styles.titleIcon} />
             </span>
-            <span>Платформа 3-5 кл</span>
+            <span>Платформа 3-4 кл</span>
           </h1>
         </div>
       </div>
