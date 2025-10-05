@@ -12,13 +12,19 @@ import { useThemeStore } from "@/stores/Platform/useThemeStore";
 
 import styles from "./page.module.css";
 
-export default function ThemePageClient() {
+export default function ThemePageClient({ themes, initialSelectedKey, platformLink }) {
   const { themeId } = useParams();
+  const hydrate = useThemeStore((s) => s.hydrate);
   const setSelectedThemeByKey = useThemeStore((s) => s.setSelectedThemeByKey);
 
   useEffect(() => {
-    if (themeId) setSelectedThemeByKey(themeId);
-  }, [themeId, setSelectedThemeByKey]);
+    hydrate(themes || [], platformLink);
+  }, [hydrate, themes, platformLink]);
+
+  useEffect(() => {
+    const key = themeId ?? initialSelectedKey;
+    if (key) setSelectedThemeByKey(key);
+  }, [themeId, initialSelectedKey, setSelectedThemeByKey]);
 
   return (
     <>
@@ -28,7 +34,7 @@ export default function ThemePageClient() {
         <ThemeContent className={styles.themeContent} />
         <EasyPayModal className={styles.easyPayModal} />
       </div>
-      <DecorativeWave rotated={true}/>
+      <DecorativeWave rotated />
     </>
   );
 }

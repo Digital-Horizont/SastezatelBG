@@ -1,5 +1,5 @@
 import data from "@/data/platform-3-4.json";
-import ClientPage from "./page.client";
+import ThemePageClient from "./page.client";
 
 export const dynamicParams = false;
 
@@ -9,15 +9,13 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   const theme = data.find((t) => t.key === params.themeId);
-
   if (!theme) {
     return {
-      title: "Платформа 3–5 кл",
-      description: "Образователни теми за 3–5 клас.",
+      title: "Платформа 3–4 кл",
+      description: "Образователни теми за 3–4 клас.",
       keywords: [],
     };
   }
-
   return {
     title: theme.meta_title || theme.title,
     description: theme.meta_description || theme.description,
@@ -25,6 +23,12 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function Page(props) {
-  return <ClientPage {...props} />;
+export default function Page({ params }) {
+  return (
+    <ThemePageClient
+      themes={data}
+      initialSelectedKey={params.themeId}
+      platformLink="https://example.com/subscribe"
+    />
+  );
 }
