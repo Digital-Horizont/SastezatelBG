@@ -36,7 +36,7 @@ export default function Footer() {
               <li>
                 <a href="#" className={styles.link}>
                   <LuUser className={styles.icon} aria-hidden="true" />
-                  <span>Платформа 3-5 клас</span>
+                  <span>Платформа 3-4 клас</span>
                 </a>
               </li>
               <li>

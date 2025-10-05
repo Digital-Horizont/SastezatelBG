@@ -40,8 +40,8 @@ export default function Navbar() {
             <Link href="/" className={getLinkClasses("/")}>
               Начало
             </Link>
-            <Link href="/platform-3-5" className={getLinkClasses("/platform-3-5")}>
-              Платформа 3 - 5 клас
+            <Link href="/platform-3-4" className={getLinkClasses("/platform-3-4")}>
+              Платформа 3 - 4 клас
             </Link>
             <Link href="/platform-5-7" className={getLinkClasses("/platform-5-7")}>
               Платформа 5 - 7 клас
@@ -73,8 +73,8 @@ export default function Navbar() {
                 Начало
               </Link>
               <Link
-                href="/platform-3-5"
-                className={getLinkClasses("/platform-3-5", true)}
+                href="/platform-3-4"
+                className={getLinkClasses("/platform-3-4", true)}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Платформа 3 - 5 клас
