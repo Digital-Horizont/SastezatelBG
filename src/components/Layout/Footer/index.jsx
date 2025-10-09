@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Footer.module.css";
 import {
   LuUser,
@@ -9,7 +8,9 @@ import {
   LuCookie,
   LuFacebook,
   LuInstagram,
-} from "react-icons/lu";
+  LuMail,
+  LuPhone,
+} from "react-icons/lu"
 
 export default function Footer() {
   return (
@@ -25,8 +26,8 @@ export default function Footer() {
           <div className={styles.brand}>
             <h3 className={styles.brandTitle}>Образователна платформа</h3>
             <p className={styles.brandText}>
-              Вдъхновяваме младите умове да учат, растат и създават бъдещето
-              чрез иновативни образователни решения и технологии.
+              Вдъхновяваме младите умове да учат, растат и създават бъдещето чрез иновативни образователни решения и
+              технологии.
             </p>
           </div>
 
@@ -73,6 +74,24 @@ export default function Footer() {
                 <a href="#" className={styles.link}>
                   <LuCookie className={styles.icon} aria-hidden="true" />
                   <span>Бисквитки</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <nav className={styles.column} aria-label="Контакти">
+            <h4 className={styles.columnTitle}>Контакти</h4>
+            <ul className={styles.list}>
+              <li>
+                <a href="tel:+359899856334" className={styles.link}>
+                  <LuPhone className={styles.icon} aria-hidden="true" />
+                  <span>+359 899 856 334</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:support@sastezatel.bg" className={styles.link}>
+                  <LuMail className={styles.icon} aria-hidden="true" />
+                  <span>support@sastezatel.bg</span>
                 </a>
               </li>
             </ul>
