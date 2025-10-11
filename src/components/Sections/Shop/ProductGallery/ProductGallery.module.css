@@ -1,0 +1,27 @@
+.wrap {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.bordered{
+    width: 100%;
+    max-width: 252px;
+    max-height: 380px;
+}
+
+.image {
+  width: 100%;
+  max-width: 300px;
+  max-height: 380px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+@media (min-width: 1200px) {
+  .image {
+    max-width: 320px;
+    max-height: 420px;
+  }
+}

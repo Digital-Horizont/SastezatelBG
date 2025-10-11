@@ -1,0 +1,17 @@
+.back {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--forest-dark);
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 35%, transparent);
+  background: color-mix(in oklab, var(--cream) 92%, white);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: transform 120ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.back:hover {
+  transform: translateY(-1px);
+  background: color-mix(in oklab, var(--cream) 88%, white);
+  border-color: color-mix(in oklab, var(--path-gold) 45%, transparent);
+}

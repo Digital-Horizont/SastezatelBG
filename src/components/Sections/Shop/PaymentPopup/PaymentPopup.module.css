@@ -1,0 +1,299 @@
+.mask {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 60;
+  background: color-mix(in oklab, black 28%, transparent);
+  backdrop-filter: blur(2px) saturate(1.02);
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 1rem;
+  background: var(--cream);
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22), 0 0 0 1px color-mix(in oklab, var(--path-gold) 12%, transparent) inset;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+  transition: transform 200ms ease, box-shadow 220ms ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.card:focus-within {
+  box-shadow: 0 26px 76px rgba(0, 0, 0, 0.24), 0 0 0 2px color-mix(in oklab, var(--sky-blue) 35%, transparent) inset;
+}
+
+.bubble1,
+.bubble2,
+.bubble3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.bubble1 {
+  top: -2rem;
+  left: -2rem;
+  width: 8rem;
+  height: 8rem;
+  background: var(--sky-blue);
+}
+
+.bubble2 {
+  bottom: -2rem;
+  right: -3rem;
+  width: 10rem;
+  height: 10rem;
+  background: var(--path-gold);
+  opacity: 0.15;
+}
+
+.bubble3 {
+  top: 45%;
+  left: 55%;
+  width: 6rem;
+  height: 6rem;
+  background: var(--forest-mid);
+  opacity: 0.12;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  border: 0;
+  background: transparent;
+  color: var(--forest-mid);
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 6px;
+  transition: background 160ms ease, transform 120ms ease, color 160ms ease;
+}
+
+.close:hover {
+  background: color-mix(in oklab, var(--cream) 70%, white);
+  color: var(--forest-dark);
+}
+
+.close:active {
+  transform: scale(0.96);
+}
+
+.closeIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.content {
+  padding: 32px 24px 24px;
+}
+
+.title {
+  color: var(--forest-dark);
+  font-weight: 900;
+  font-size: 1.75rem;
+  margin: 0 0 24px 0;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+}
+
+/* Added styles for bank account details section */
+.bankDetails {
+  background: color-mix(in oklab, var(--sky-blue) 8%, transparent);
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 25%, transparent);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.bankDetailsTitle {
+  color: var(--forest-dark);
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0 0 16px 0;
+}
+
+.bankInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.bankInfoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.bankLabel {
+  color: var(--forest-mid);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.bankValue {
+  color: var(--forest-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: monospace;
+  background: color-mix(in oklab, var(--cream) 95%, white);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in oklab, var(--path-gold) 20%, transparent);
+}
+
+.bankWarning {
+  background: color-mix(in oklab, var(--path-gold) 15%, transparent);
+  border: 1px solid color-mix(in oklab, var(--path-gold) 35%, transparent);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--forest-dark);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.bankWarning strong {
+  color: var(--forest-dark);
+  font-weight: 800;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: var(--forest-dark);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--cream) 92%, white);
+  color: var(--forest-dark);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: color-mix(in oklab, var(--path-gold) 50%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--path-gold) 10%, transparent);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.hint {
+  color: var(--forest-mid);
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.checkboxField {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--path-gold);
+}
+
+.checkboxLabel {
+  color: var(--forest-mid);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.link {
+  color: var(--sky-blue);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 160ms ease;
+}
+
+.link:hover {
+  color: var(--path-gold);
+}
+
+.submitBtn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-weight: 900;
+  cursor: pointer;
+  background: color-mix(in oklab, var(--cream) 92%, white);
+  color: var(--forest-dark);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
+  transition: transform 140ms ease, box-shadow 200ms ease, border-color 160ms ease, background 160ms ease;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.submitBtn:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--path-gold) 38%, transparent);
+  background: color-mix(in oklab, var(--cream) 90%, white);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+}
+
+.submitBtn:active {
+  transform: scale(0.992);
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 24px 16px 16px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .close,
+  .submitBtn,
+  .input,
+  .textarea {
+    transition: none;
+  }
+}

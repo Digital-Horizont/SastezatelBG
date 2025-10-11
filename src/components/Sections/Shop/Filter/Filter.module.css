@@ -1,0 +1,92 @@
+.filterCard {
+  background: var(--cream);
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  border-radius: 1rem;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  backdrop-filter: saturate(1.05) blur(2px);
+}
+
+.filterPad {
+  padding: 20px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--forest-dark);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin: 0 0 20px 0;
+}
+
+.titleIconWrap {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, var(--sky-blue), var(--path-gold));
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.titleIcon {
+  width: 22px;
+  height: 22px;
+  color: white;
+}
+
+.filterButtons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  background: color-mix(in oklab, var(--cream) 92%, white);
+  color: var(--forest-dark);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 220ms ease, background 160ms ease, border-color 160ms ease;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.filterBtn:hover {
+  border-color: color-mix(in oklab, var(--path-gold) 38%, transparent);
+  background: color-mix(in oklab, var(--cream) 90%, white);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.filterBtn:active {
+  transform: scale(0.992);
+}
+
+.filterBtnActive {
+  border-color: color-mix(in oklab, var(--path-gold) 35%, transparent);
+  background: color-mix(in oklab, var(--cream) 92%, white);
+  box-shadow: 0 8px 28px color-mix(in oklab, var(--sky-blue) 25%, transparent), 0 0 0 2px
+    color-mix(in oklab, var(--path-gold) 30%, transparent) inset;
+  transform: translateY(-1px);
+}
+
+.filterIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--forest-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filterBtn {
+    transition: none;
+  }
+}

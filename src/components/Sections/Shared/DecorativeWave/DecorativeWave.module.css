@@ -1,7 +1,6 @@
 .waveWrapper {
   position: relative;
   line-height: 0;
-  background: var(--cream);
 }
 
 .waveWrapper.top {
