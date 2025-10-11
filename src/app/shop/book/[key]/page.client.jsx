@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { Suspense, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { useShopStore } from "@/stores/Shop/useShopStore";
 
@@ -10,18 +10,25 @@ import ProductGallery from "@/components/Sections/Shop/ProductGallery";
 import ProductInfo from "@/components/Sections/Shop/ProductInfo";
 import ProductActions from "@/components/Sections/Shop/ProductActions";
 
-export default function BookDetailClientPage({ product }) {
-  const searchParams = useSearchParams();
-  const from = searchParams.get("from");
+function FromAwareBackLink({ fallbackType = "books" }) {
+  const sp = useSearchParams();
+  const from = sp?.get("from");
+  const type = from === "merch" ? "merch" : from === "books" ? "books" : fallbackType;
+  return <BackLink type={type} />;
+}
 
+export default function BookDetailClientPage({ product }) {
   const { openPaymentPopup, setSelectedProduct } = useShopStore();
-  const view = useMemo(() => ({
-    type: "books",
-    name: product.book_name,
-    img: product.book_img,
-    description: product.book_description,
-    price: product.book_price_in_euro,
-  }), [product]);
+
+  const view = useMemo(
+    () => ({
+      name: product.book_name,
+      img: product.book_img,
+      description: product.book_description,
+      price: product.book_price_in_euro,
+    }),
+    [product]
+  );
 
   useEffect(() => {
     setSelectedProduct(product);
@@ -29,7 +36,11 @@ export default function BookDetailClientPage({ product }) {
 
   return (
     <ProductDetail
-      backSlot={<BackLink type={from === "merch" ? "merch" : "books"} />}
+      backSlot={
+        <Suspense fallback={<BackLink type="books" />}>
+          <FromAwareBackLink fallbackType="books" />
+        </Suspense>
+      }
       gallerySlot={<ProductGallery src={view.img} alt={view.name} />}
       infoSlot={<ProductInfo title={view.name} description={view.description} price={view.price} />}
       actionsSlot={

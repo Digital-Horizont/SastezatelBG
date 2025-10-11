@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { Suspense, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { useShopStore } from "@/stores/Shop/useShopStore";
 
@@ -10,18 +10,25 @@ import ProductGallery from "@/components/Sections/Shop/ProductGallery";
 import ProductInfo from "@/components/Sections/Shop/ProductInfo";
 import ProductActions from "@/components/Sections/Shop/ProductActions";
 
-export default function MerchDetailClientPage({ product }) {
-  const searchParams = useSearchParams();
-  const from = searchParams.get("from");
+function FromAwareBackLink({ fallbackType = "merch" }) {
+  const sp = useSearchParams();
+  const from = sp?.get("from");
+  const type = from === "books" ? "books" : from === "merch" ? "merch" : fallbackType;
+  return <BackLink type={type} />;
+}
 
+export default function MerchDetailClientPage({ product }) {
   const { openPaymentPopup, setSelectedProduct } = useShopStore();
-  const view = useMemo(() => ({
-    type: "merch",
-    name: product.merch_name,
-    img: product.merch_img,
-    description: product.merch_description,
-    price: product.merch_price_in_euro,
-  }), [product]);
+
+  const view = useMemo(
+    () => ({
+      name: product.merch_name,
+      img: product.merch_img,
+      description: product.merch_description,
+      price: product.merch_price_in_euro,
+    }),
+    [product]
+  );
 
   useEffect(() => {
     setSelectedProduct(product);
@@ -29,7 +36,11 @@ export default function MerchDetailClientPage({ product }) {
 
   return (
     <ProductDetail
-      backSlot={<BackLink type={from === "books" ? "books" : "merch"} />}
+      backSlot={
+        <Suspense fallback={<BackLink type="merch" />}>
+          <FromAwareBackLink fallbackType="merch" />
+        </Suspense>
+      }
       gallerySlot={<ProductGallery src={view.img} alt={view.name} />}
       infoSlot={<ProductInfo title={view.name} description={view.description} price={view.price} />}
       actionsSlot={
