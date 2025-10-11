@@ -1,4 +1,4 @@
-[
+export const themes = [
   {
     "key": "fractions",
     "title": "Дроби — въведение",
