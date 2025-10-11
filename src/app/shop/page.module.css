@@ -1,0 +1,49 @@
+.container {
+  position: relative;
+  background: var(--cream);
+  padding: 24px;
+  overflow: hidden;
+}
+
+.bubble1,
+.bubble2,
+.bubble3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.bubble1 {
+  top: -2rem;
+  left: -2rem;
+  width: 10rem;
+  height: 10rem;
+  background: var(--sky-blue);
+}
+
+.bubble2 {
+  bottom: -3rem;
+  right: -3rem;
+  width: 12rem;
+  height: 12rem;
+  background: var(--path-gold);
+  opacity: 0.15;
+}
+
+.bubble3 {
+  top: 40%;
+  left: 50%;
+  width: 7rem;
+  height: 7rem;
+  background: var(--forest-mid);
+  opacity: 0.12;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+}

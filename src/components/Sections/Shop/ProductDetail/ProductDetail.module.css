@@ -1,0 +1,45 @@
+.wrap {
+  padding: 20px;
+}
+
+.backRow {
+  margin-bottom: 16px;
+}
+
+.card {
+  background: var(--cream);
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 25%, transparent);
+  border-radius: 12px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.08);
+  padding: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.infoCol {
+  display: grid;
+  align-content: space-between;
+  gap: 14px;
+}
+
+.mediaCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionsRow {
+  margin-top: 6px;
+}
+
+@media (min-width: 860px) {
+  .card { padding: 22px; }
+  .grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 22px;
+  }
+}
