@@ -1,14 +1,14 @@
-import { themes } from "@/data/platform-3-4";
+import { themes_3_4 } from "@/data/platform-3-4";
 import ThemePageClient from "./page.client";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return themes.map((t) => ({ themeId: t.key }));
+  return themes_3_4.map((t) => ({ themeId: t.key }));
 }
 
 export function generateMetathemes({ params }) {
-  const theme = themes.find((t) => t.key === params.themeId);
+  const theme = themes_3_4.find((t) => t.key === params.themeId);
   if (!theme) {
     return {
       title: "Платформа 3–4 кл",
@@ -26,7 +26,7 @@ export function generateMetathemes({ params }) {
 export default function Page({ params }) {
   return (
     <ThemePageClient
-      themes={themes}
+      themes={themes_3_4}
       initialSelectedKey={params.themeId}
       platformLink="https://example.com/subscribe"
     />
