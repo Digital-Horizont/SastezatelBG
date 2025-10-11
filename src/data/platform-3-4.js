@@ -1,4 +1,4 @@
-export const data = [
+export const themes = [
   {
     "key": "Temi1-8",
     "title": "Теми от 1 до 8 : Броене на числа и цифри. Метод на Гаус",
@@ -108,5 +108,3 @@ export const data = [
     "meta_keywords": ["математически", "ребус", "цифри", "букви", "пренос", "оценка", "случай", "изчерпване"]
   }
 ]
-
-export default data;
