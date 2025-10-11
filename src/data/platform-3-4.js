@@ -1,4 +1,4 @@
-export const themes = [
+export const themes_3_4 = [
   {
     "key": "Temi1-8",
     "title": "Теми от 1 до 8 : Броене на числа и цифри. Метод на Гаус",

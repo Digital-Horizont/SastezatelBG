@@ -1,4 +1,4 @@
-export const themes = [
+export const themes_5_7 = [
   {
     "key": "fractions",
     "title": "Дроби — въведение",
