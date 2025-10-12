@@ -7,15 +7,18 @@ export function generateStaticParams() {
   return themes_5_7.map((t) => ({ themeId: t.key }));
 }
 
-export function generateMetathemes({ params }) {
-  const theme = themes_5_7.find((t) => t.key === params.themeId);
+export async function generateMetadata({ params }) {
+  const { themeId } = await params;
+  const theme = themes_5_7.find((t) => t.key === themeId);
+
   if (!theme) {
     return {
-      title: "Платформа 3–5 кл",
-      description: "Образователни теми за 3–5 клас.",
+      title: "Платформа 5–7 кл",
+      description: "Образователни теми за 5–7 клас.",
       keywords: [],
     };
   }
+
   return {
     title: theme.meta_title || theme.title,
     description: theme.meta_description || theme.description,
@@ -23,11 +26,17 @@ export function generateMetathemes({ params }) {
   };
 }
 
-export default function Page({ params }) {
+export const viewport = {
+  themeColor: "#ffffff",
+};
+
+export default async function Page({ params }) {
+  const { themeId } = await params;
+
   return (
     <ThemePageClient
       themes={themes_5_7}
-      initialSelectedKey={params.themeId}
+      initialSelectedKey={themeId}
       platformLink="https://example.com/subscribe"
     />
   );

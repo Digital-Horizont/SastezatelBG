@@ -7,27 +7,39 @@ export function generateStaticParams() {
   return themes_3_4.map((t) => ({ themeId: t.key }));
 }
 
-export function generateMetathemes({ params }) {
-  const theme = themes_3_4.find((t) => t.key === params.themeId);
+export async function generateMetadata({ params }) {
+  const { themeId } = await params;
+  const theme = themes_3_4.find((t) => t.key === themeId);
+
+  const baseUrl = "https://sastezatel.bg";
+
   if (!theme) {
     return {
       title: "Платформа 3–4 кл",
       description: "Образователни теми за 3–4 клас.",
       keywords: [],
+      alternates: { canonical: `${baseUrl}/platform-3-4` },
     };
   }
+
   return {
     title: theme.meta_title || theme.title,
     description: theme.meta_description || theme.description,
     keywords: theme.meta_keywords || [],
+    alternates: { canonical: `${baseUrl}/platform-3-4/${themeId}` },
   };
 }
 
-export default function Page({ params }) {
+export const viewport = {
+  themeColor: "#ffffff",
+};
+
+export default async function Page({ params }) {
+  const { themeId } = await params;
   return (
     <ThemePageClient
       themes={themes_3_4}
-      initialSelectedKey={params.themeId}
+      initialSelectedKey={themeId}
       platformLink="https://example.com/subscribe"
     />
   );
