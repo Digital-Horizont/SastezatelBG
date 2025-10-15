@@ -26,6 +26,7 @@ export default function BookDetailClientPage({ product }) {
       img: product.book_img,
       description: product.book_description,
       price: product.book_price_in_euro,
+      key: product.key
     }),
     [product]
   );
