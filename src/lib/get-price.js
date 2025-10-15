@@ -8,7 +8,7 @@ const books_prices={
 const platform_3_4_price = 22.40;
 const platform_5_7_price = 31.20;
 
-export function getPrice({ payment_type , key }) {
+export function getPrice(payment_type , key) {
   switch(payment_type){
     case "platform-3-4":
       return platform_3_4_price;

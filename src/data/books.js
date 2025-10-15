@@ -1,7 +1,7 @@
 export const booksData = [
   {
     id: 1,
-    key: "golqmoto-prikliuchenie",
+    key: "book1",
     book_img: "/555.jpg",
     book_name: "Голямото приключение",
     book_active: true,
@@ -17,7 +17,7 @@ export const booksData = [
   },
   {
     id: 2,
-    key: "tainata-na-gorata",
+    key: "book2",
     book_img: "/555.jpg",
     book_name: "Тайната на гората",
     book_active: true,
@@ -31,7 +31,7 @@ export const booksData = [
   },
   {
     id: 3,
-    key: "okeanski-prikazki",
+    key: "book3",
     book_img: "/555.jpg",
     book_name: "Океански приказки",
     book_active: true,

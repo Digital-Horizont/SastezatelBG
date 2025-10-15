@@ -1,16 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { X } from "lucide-react";
 import { useShopStore } from "@/stores/Shop/useShopStore";
 import styles from "./PaymentPopup.module.css";
 
 export default function PaymentPopup() {
-  const { isPaymentPopupOpen, paymentMethod, closePaymentPopup, selectedProduct } = useShopStore();
+  const {
+    isPaymentPopupOpen,
+    paymentMethod,
+    closePaymentPopup,
+    selectedProduct,
+  } = useShopStore();
+
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [additionalInfo, setAdditionalInfo] = useState("");
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = isPaymentPopupOpen ? "hidden" : "";
@@ -19,7 +27,7 @@ export default function PaymentPopup() {
     };
   }, [isPaymentPopupOpen]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!agreedToTerms) {
@@ -27,25 +35,58 @@ export default function PaymentPopup() {
       return;
     }
 
-    console.log("[v0] Payment submission:", {
-      phone,
-      email,
-      additionalInfo,
-      paymentMethod,
-      product: selectedProduct,
-    });
+    if (paymentMethod === "easypay") {
+      if (!selectedProduct?.key) {
+        alert("Липсва ключ на избраната книга. Моля, изберете продукт отново.");
+        return;
+      }
+      if (!email) {
+        alert("Моля, въведете имейл.");
+        return;
+      }
+    }
 
-    alert(
-      `Поръчката е изпратена успешно! Метод на плащане: ${
-        paymentMethod === "easypay" ? "Изипей" : "Банка"
-      }`
-    );
+    setIsSubmitting(true);
 
-    setPhone("");
-    setEmail("");
-    setAdditionalInfo("");
-    setAgreedToTerms(false);
-    closePaymentPopup();
+    try {
+      if (paymentMethod === "easypay") {
+        const payload = {
+          payment_type: "book",
+          key: selectedProduct.key,
+          product_name: selectedProduct.book_name,
+          email,
+          phone,
+          description: additionalInfo
+        };
+
+        console.log("➡️ Easypay register payload:", payload);
+
+        const response = await axios.post("/api/easypay/register", payload, {
+          headers: { "Content-Type": "application/json" },
+        });
+
+        const data = response.data;
+
+        console.log("✅ Easypay IDN:", data.idn);
+        console.log("✅ Easypay Expiration Time:", data.expTime);
+      }
+
+      alert(
+        `Поръчката е изпратена успешно! Метод на плащане: ${
+          paymentMethod === "easypay" ? "Изипей" : "Банка"
+        }`
+      );
+
+      setPhone("");
+      setEmail("");
+      setAdditionalInfo("");
+      setAgreedToTerms(false);
+      closePaymentPopup();
+    } catch (error) {
+      alert(error.response?.data?.error || "Възникна грешка при заявката. Моля, опитайте отново.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isPaymentPopupOpen) return null;
@@ -63,7 +104,12 @@ export default function PaymentPopup() {
         <div className={styles.bubble2} />
         <div className={styles.bubble3} />
 
-        <button className={styles.close} onClick={closePaymentPopup} aria-label="Затвори">
+        <button
+          className={styles.close}
+          onClick={closePaymentPopup}
+          aria-label="Затвори"
+          disabled={isSubmitting}
+        >
           <X className={styles.closeIcon} />
         </button>
 
@@ -90,12 +136,13 @@ export default function PaymentPopup() {
                 </div>
               </div>
               <div className={styles.bankWarning}>
-                <strong>⚠️ Важно:</strong> При превода задължително напишете в основанието вашия имейл и телефонен номер!
+                <strong>⚠️ Важно:</strong> При превода задължително напишете в основанието
+                вашия имейл и телефонен номер!
               </div>
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className={styles.form}>
+          <form onSubmit={handleSubmit} className={styles.form} noValidate>
             <div className={styles.field}>
               <label htmlFor="phone" className={styles.label}>
                 Телефонен номер *
@@ -108,6 +155,7 @@ export default function PaymentPopup() {
                 required
                 className={styles.input}
                 placeholder="+359 ..."
+                disabled={isSubmitting}
               />
             </div>
 
@@ -123,6 +171,7 @@ export default function PaymentPopup() {
                 required
                 className={styles.input}
                 placeholder="example@email.com"
+                disabled={isSubmitting}
               />
             </div>
 
@@ -137,10 +186,16 @@ export default function PaymentPopup() {
                 className={styles.textarea}
                 placeholder="Доставка до офис на Спиди, Еконт или от нашата школа - Сикадеми"
                 rows={4}
+                disabled={isSubmitting}
               />
               <p className={styles.hint}>
-                Можете да получите поръчката си само до офиси на Еконт, Спиди или от нашата школа -{" "}
-                <a href="https://sicademy.bg" target="_blank" className={styles.link} rel="noreferrer">
+                Можете да получите поръчката си само до офиси на Еконт, Спиди или от нашата школа —{" "}
+                <a
+                  href="https://sicademy.bg"
+                  target="_blank"
+                  className={styles.link}
+                  rel="noreferrer"
+                >
                   Сикадеми
                 </a>
               </p>
@@ -154,22 +209,33 @@ export default function PaymentPopup() {
                 onChange={(e) => setAgreedToTerms(e.target.checked)}
                 required
                 className={styles.checkbox}
+                disabled={isSubmitting}
               />
               <label htmlFor="terms" className={styles.checkboxLabel}>
                 Съгласявам се с{" "}
-                <a href="/privacy-policy" target="_blank" className={styles.link} rel="noreferrer">
+                <a
+                  href="/privacy-policy"
+                  target="_blank"
+                  className={styles.link}
+                  rel="noreferrer"
+                >
                   политиката за поверителност
                 </a>{" "}
                 и{" "}
-                <a href="/terms-of-services" target="_blank" className={styles.link} rel="noreferrer">
+                <a
+                  href="/terms-of-services"
+                  target="_blank"
+                  className={styles.link}
+                  rel="noreferrer"
+                >
                   общите условия
                 </a>{" "}
                 *
               </label>
             </div>
 
-            <button type="submit" className={styles.submitBtn}>
-              Изпрати поръчка
+            <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+              {isSubmitting ? "Изпращане..." : "Изпрати поръчка"}
             </button>
           </form>
         </div>

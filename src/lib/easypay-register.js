@@ -83,8 +83,7 @@ export async function registerEasyPayBill({ amount }) {
   return {
     idn: match[1],
     expTime: EXP_TIME,
-    env: isProd ? "production" : "development",
-    raw: text,
-    amount
+    amount,
+    invoice,
   };
 }
