@@ -105,7 +105,6 @@
   line-height: 1.2;
 }
 
-/* Added styles for bank account details section */
 .bankDetails {
   background: color-mix(in oklab, var(--sky-blue) 8%, transparent);
   border: 1px solid color-mix(in oklab, var(--sky-blue) 25%, transparent);
@@ -198,7 +197,6 @@
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
-/* Added simple red error text styling */
 .errorText {
   color: #dc2626;
   font-size: 0.9rem;
@@ -207,13 +205,11 @@
   line-height: 1.5;
 }
 
-/* Added error state styling for inputs and textareas with red border and shadow */
 .inputError {
   border-color: #dc2626 !important;
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
 }
 
-/* Updated checkbox error styling to only add red outline to the checkbox itself */
 .checkboxError {
   outline: 2px solid #dc2626 !important;
   outline-offset: 2px;
@@ -294,7 +290,6 @@
   margin: 0;
 }
 
-/* Added styles for status screens (loading, success, error) */
 .statusContent {
   padding: 48px 32px;
   display: flex;
@@ -378,7 +373,7 @@
   transform: scale(0.992);
 }
 
-.statusBtnSecondary {
+.statusBtn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -420,7 +415,6 @@
     font-size: 1.5rem;
   }
 
-  /* Added responsive styles for status screens */
   .statusContent {
     padding: 32px 20px;
   }

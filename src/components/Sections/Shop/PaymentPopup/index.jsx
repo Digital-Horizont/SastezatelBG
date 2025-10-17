@@ -55,7 +55,7 @@ export default function PaymentPopup() {
     setErrors(newErrors)
 
     if (newErrors.contact || newErrors.terms || newErrors.additionalInfo) {
-      return
+      // return
     }
 
     if (!selectedProduct?.key) {
@@ -77,8 +77,6 @@ export default function PaymentPopup() {
       }
 
       const endpoint = paymentMethod === "easypay" ? "/api/easypay/register" : "/api/bank"
-
-      console.log("➡️ Register payload:", payload, "➡️ Endpoint:", endpoint)
 
       const response = await axios.post(endpoint, payload, {
         headers: { "Content-Type": "application/json" },
@@ -180,7 +178,7 @@ export default function PaymentPopup() {
               <button onClick={() => setSubmitStatus("idle")} className={styles.statusBtn}>
                 Опитай отново
               </button>
-              <button onClick={handleClose} className={styles.statusBtnSecondary}>
+              <button onClick={handleClose} className={styles.statusBtn}>
                 Затвори
               </button>
             </div>
