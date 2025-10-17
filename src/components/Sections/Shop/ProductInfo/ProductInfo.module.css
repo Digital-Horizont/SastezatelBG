@@ -1,6 +1,7 @@
 .wrap {
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .title {
@@ -14,13 +15,23 @@
   margin: 0;
   color: var(--forest-mid);
   line-height: 1.6;
+  flex: 1;
+}
+
+/* New bottom section that sticks to bottom */
+.bottomSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 .priceContainer {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  margin: 4px 0 0 0;
 }
 
 .priceBgn {
@@ -36,4 +47,61 @@
   font-size: 1rem;
   color: var(--forest-mid);
   opacity: 0.75;
+}
+
+/* Removed quantityContainer and quantityLabel styles */
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 2px solid var(--forest-mid);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.quantityButton {
+  background: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--forest-dark);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantityButton:hover {
+  background-color: var(--forest-mid);
+  color: white;
+}
+
+.quantityButton:active {
+  transform: scale(0.95);
+}
+
+.quantityInput {
+  min-width: 40px;
+  width: 50px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--forest-dark);
+  padding: 0 8px;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.quantityInput::-webkit-inner-spin-button,
+.quantityInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantityInput[type="number"] {
+  -moz-appearance: textfield;
 }
