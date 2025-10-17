@@ -66,6 +66,10 @@ export default function PaymentPopup() {
 
     setErrors(newErrors)
 
+    if (newErrors.contact || newErrors.terms || newErrors.additionalInfo) {
+      return
+    }
+
     if (!selectedProduct?.key) {
       alert("Липсва ключ на избраната книга. Моля, изберете продукт отново.")
       return
