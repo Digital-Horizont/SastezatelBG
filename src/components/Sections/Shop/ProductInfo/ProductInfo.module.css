@@ -16,9 +16,24 @@
   line-height: 1.6;
 }
 
-.price {
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
   margin: 4px 0 0 0;
-  font-weight: 800;
-  font-size: 1.3rem;
+}
+
+.priceBgn {
+  margin: 0;
+  font-weight: 900;
+  font-size: 1.5rem;
   color: var(--forest-dark);
+}
+
+.priceEur {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--forest-mid);
+  opacity: 0.75;
 }

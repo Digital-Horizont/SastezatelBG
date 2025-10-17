@@ -9,7 +9,6 @@ export async function POST(req) {
   const body = await req.json();
   const { payment_type, key, email , product_name , phone , description } = body;
 
-  console.log(body)
   const amount = getPrice(payment_type, key);
 
   if (amount == null) {
@@ -34,7 +33,7 @@ export async function POST(req) {
       IBAN: BG00 XXXX 0000 0000 0000 00
       BIC: XXXXBGSF
       Титуляр: СъстезателБГ ЕООД
-      Цена: ${amount}
+      Цена: ${amount*1.9557.toFixed(2)}лв
 
       Молим ви в основание на превода да напишете ваш имейл или телефон , с който сте направили поръчката в нашият сайт!
     `
@@ -49,7 +48,7 @@ export async function POST(req) {
     const text_admin = 
     `
       Продукт: ${product_name}
-      Цена: ${amount}
+      Цена: ${amount*1.9557.toFixed(2)}лв
       Email: ${email}
       Телефон: ${phone}
       Описание: ${description}

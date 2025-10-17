@@ -1,34 +1,29 @@
-"use client";
+"use client"
 
-import { useSearchParams, useRouter } from "next/navigation";
-import { Package } from "lucide-react";
-import { booksData } from "@/data/books";
-import { merchData } from "@/data/merch";
-import styles from "./Products.module.css";
+import { useSearchParams, useRouter } from "next/navigation"
+import { Package } from "lucide-react"
+import { booksData } from "@/data/books"
+import { merchData } from "@/data/merch"
+import styles from "./Products.module.css"
 
 export default function Products() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const currentType = searchParams.get("type") || "books";
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const currentType = searchParams.get("type") || "books"
 
-  const products = currentType === "books" ? booksData : merchData;
-  const activeProducts = products.filter((p) =>
-    currentType === "books" ? p.book_active : p.merch_active
-  );
+  const products = currentType === "books" ? booksData : merchData
+  const activeProducts = products.filter((p) => (currentType === "books" ? p.book_active : p.merch_active))
 
   const handleProductClick = (product) => {
-    const key =
-      currentType === "books" ? product.key : product.key;
-    const segment = currentType === "books" ? "book" : "merch";
-    router.push(`/shop/${segment}/${key}`);
-  };
+    const key = currentType === "books" ? product.key : product.key
+    const segment = currentType === "books" ? "book" : "merch"
+    router.push(`/shop/${segment}/${key}`)
+  }
 
   return (
     <div className={styles.productsCard}>
       <div className={styles.productsPad}>
-        <h2 className={styles.sectionTitle}>
-          {currentType === "books" ? "Налични книги" : "Наличен мърч"}
-        </h2>
+        <h2 className={styles.sectionTitle}>{currentType === "books" ? "Налични книги" : "Наличен мърч"}</h2>
 
         {activeProducts.length === 0 ? (
           <div className={styles.empty}>
@@ -38,38 +33,31 @@ export default function Products() {
         ) : (
           <div className={styles.grid}>
             {activeProducts.map((product) => {
-              const img =
-                currentType === "books" ? product.book_img : product.merch_img;
-              const name =
-                currentType === "books" ? product.book_name : product.merch_name;
-              const price =
-                currentType === "books"
-                  ? product.book_price_in_euro
-                  : product.merch_price_in_euro;
+              const img = currentType === "books" ? product.book_img : product.merch_img
+              const name = currentType === "books" ? product.book_name : product.merch_name
+              const price = currentType === "books" ? product.book_price_in_euro : product.merch_price_in_euro
+
+              const priceInBGN = price * 1.9557
+              const priceInEUR = price
 
               return (
-                <button
-                  key={product.id}
-                  onClick={() => handleProductClick(product)}
-                  className={styles.productCard}
-                >
+                <button key={product.id} onClick={() => handleProductClick(product)} className={styles.productCard}>
                   <div className={styles.imageWrap}>
-                    <img
-                      src={img || "/placeholder.svg"}
-                      alt={name}
-                      className={styles.productImage}
-                    />
+                    <img src={img || "/placeholder.svg"} alt={name} className={styles.productImage} />
                   </div>
                   <div className={styles.productInfo}>
                     <h3 className={styles.productName}>{name}</h3>
-                    <p className={styles.productPrice}>€{price.toFixed(2)}</p>
+                    <div className={styles.priceContainer}>
+                      <p className={styles.productPrice}>{priceInBGN.toFixed(2)} лв</p>
+                      <p className={styles.productPriceSecondary}>(€{priceInEUR.toFixed(2)})</p>
+                    </div>
                   </div>
                 </button>
-              );
+              )
             })}
           </div>
         )}
       </div>
     </div>
-  );
+  )
 }
