@@ -35,40 +35,46 @@ export default function PaymentPopup() {
       return;
     }
 
-    if (paymentMethod === "easypay") {
-      if (!selectedProduct?.key) {
-        alert("Липсва ключ на избраната книга. Моля, изберете продукт отново.");
-        return;
-      }
-      if (!email) {
-        alert("Моля, въведете имейл.");
-        return;
-      }
+    // Базови валидации общи за двата метода
+    if (!selectedProduct?.key) {
+      alert("Липсва ключ на избраната книга. Моля, изберете продукт отново.");
+      return;
+    }
+    if (!email) {
+      alert("Моля, въведете имейл.");
+      return;
     }
 
     setIsSubmitting(true);
 
     try {
+      // Едно и също payload за двата ендпойнта
+      const payload = {
+        payment_type: "book",
+        key: selectedProduct.key,
+        product_name: selectedProduct.book_name,
+        email,
+        phone,
+        description: additionalInfo,
+      };
+
+      // Избор на ендпойнт според метода
+      const endpoint =
+        paymentMethod === "easypay" ? "/api/easypay/register" : "/api/bank";
+
+      console.log("➡️ Register payload:", payload, "➡️ Endpoint:", endpoint);
+
+      const response = await axios.post(endpoint, payload, {
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const data = response.data;
+
       if (paymentMethod === "easypay") {
-        const payload = {
-          payment_type: "book",
-          key: selectedProduct.key,
-          product_name: selectedProduct.book_name,
-          email,
-          phone,
-          description: additionalInfo
-        };
-
-        console.log("➡️ Easypay register payload:", payload);
-
-        const response = await axios.post("/api/easypay/register", payload, {
-          headers: { "Content-Type": "application/json" },
-        });
-
-        const data = response.data;
-
         console.log("✅ Easypay IDN:", data.idn);
         console.log("✅ Easypay Expiration Time:", data.expTime);
+      } else {
+        console.log("✅ Bank order created:", data);
       }
 
       alert(
@@ -83,7 +89,10 @@ export default function PaymentPopup() {
       setAgreedToTerms(false);
       closePaymentPopup();
     } catch (error) {
-      alert(error.response?.data?.error || "Възникна грешка при заявката. Моля, опитайте отново.");
+      alert(
+        error?.response?.data?.error ||
+          "Възникна грешка при заявката. Моля, опитайте отново."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -115,16 +124,22 @@ export default function PaymentPopup() {
 
         <div className={styles.content}>
           <h2 className={styles.title}>
-            {paymentMethod === "easypay" ? "Плащане с Изипей" : "Плащане по Банка"}
+            {paymentMethod === "easypay"
+              ? "Плащане с Изипей"
+              : "Плащане по Банка"}
           </h2>
 
           {paymentMethod === "bank" && (
             <div className={styles.bankDetails}>
-              <h3 className={styles.bankDetailsTitle}>Банкови данни за превод:</h3>
+              <h3 className={styles.bankDetailsTitle}>
+                Банкови данни за превод:
+              </h3>
               <div className={styles.bankInfo}>
                 <div className={styles.bankInfoRow}>
                   <span className={styles.bankLabel}>IBAN:</span>
-                  <span className={styles.bankValue}>BG00 XXXX 0000 0000 0000 00</span>
+                  <span className={styles.bankValue}>
+                    BG00 XXXX 0000 0000 0000 00
+                  </span>
                 </div>
                 <div className={styles.bankInfoRow}>
                   <span className={styles.bankLabel}>BIC:</span>
@@ -136,8 +151,8 @@ export default function PaymentPopup() {
                 </div>
               </div>
               <div className={styles.bankWarning}>
-                <strong>⚠️ Важно:</strong> При превода задължително напишете в основанието
-                вашия имейл и телефонен номер!
+                <strong>⚠️ Важно:</strong> При превода задължително напишете в
+                основанието вашия имейл и телефонен номер!
               </div>
             </div>
           )}
@@ -189,7 +204,8 @@ export default function PaymentPopup() {
                 disabled={isSubmitting}
               />
               <p className={styles.hint}>
-                Можете да получите поръчката си само до офиси на Еконт, Спиди или от нашата школа —{" "}
+                Можете да получите поръчката си само до офиси на Еконт, Спиди
+                или от нашата школа —{" "}
                 <a
                   href="https://sicademy.bg"
                   target="_blank"
@@ -234,7 +250,11 @@ export default function PaymentPopup() {
               </label>
             </div>
 
-            <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+            <button
+              type="submit"
+              className={styles.submitBtn}
+              disabled={isSubmitting}
+            >
               {isSubmitting ? "Изпращане..." : "Изпрати поръчка"}
             </button>
           </form>

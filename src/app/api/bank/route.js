@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { registerEasyPayBill } from "@/lib/easypay-register";
 import { getPrice } from "@/lib/get-price";
 import { sendEmail } from "@/lib/emailer";
 
@@ -10,6 +9,7 @@ export async function POST(req) {
   const body = await req.json();
   const { payment_type, key, email , product_name , phone , description } = body;
 
+  console.log(body)
   const amount = getPrice(payment_type, key);
 
   if (amount == null) {
@@ -27,43 +27,35 @@ export async function POST(req) {
   }
 
   try {
-    const result = await registerEasyPayBill({ amount });
-
-    if (!result || !result.idn || !result.expTime || !result.invoice) {
-      return NextResponse.json(
-        { error: "Възникна грешка при създаването на сметката" },
-        { status: 500 }
-      );
-    }
-
     const text = 
     `
-      Вашата поръчка от Състезател.БГ: ${product_name} \n \n 
-       
-      Код за EasyPay: ${result.idn} \n \n
+      Благодарим ви , ча заявихте поръчка в Състезател.БГ. Поръчката ви ще бъде обработена веднага щом заплатите необходимата сума на следната банкова сметка:
       
-      Валиден до: ${result.expTime} \n \n
+      IBAN: BG00 XXXX 0000 0000 0000 00
+      BIC: XXXXBGSF
+      Титуляр: СъстезателБГ ЕООД
+      Цена: ${amount}
 
-      Моля, не го споделяйте с никого!
+      Молим ви в основание на превода да напишете ваш имейл или телефон , с който сте направили поръчката в нашият сайт!
     `
 
     await sendEmail({
       to: email,
-      subject: "Вашата поръчка от Състезател.БГ",
+      subject: `Вашата поръчка от Състезател.БГ: ${product_name}` ,
       text,
     });
 
 
     const text_admin = 
     `
-      Поръчка с фактура Номер: ${result.invoice}
       Продукт: ${product_name}
-      Цена: ${result.amount}
+      Цена: ${amount}
       Email: ${email}
       Телефон: ${phone}
       Описание: ${description}
-      Начин на плащане: EasyPay
-      Е заявена за плащане от клиент.
+      Начин на плащане: Банков превод
+
+      Е заявена за плащане от клиент
     `
 
     await sendEmail({
@@ -72,10 +64,10 @@ export async function POST(req) {
       text: text_admin,
     });
 
-    return NextResponse.json(result, { status: 200 });
+    return NextResponse.json(amount, { status: 200 });
   } catch (err) {
     return NextResponse.json(
-      { error: "Възникна грешка при изпращането на имейла" },
+      { error: err.message },
       { status: 500 }
     );
   }
