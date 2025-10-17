@@ -22,7 +22,7 @@
 
 .infoCol {
   display: grid;
-  align-content: space-between;
+  grid-template-rows: 1fr auto;
   gap: 14px;
 }
 
@@ -33,6 +33,7 @@
 }
 
 .actionsRow {
+  height: min-content;
   margin-top: 6px;
 }
 

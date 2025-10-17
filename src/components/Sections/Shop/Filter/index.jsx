@@ -34,7 +34,7 @@ export default function Filter() {
             <span>Книги</span>
           </button>
 
-          <button
+          {/* <button
             onClick={() => handleTypeChange("merch")}
             className={`${styles.filterBtn} ${
               currentType === "merch" ? styles.filterBtnActive : ""
@@ -42,7 +42,7 @@ export default function Filter() {
           >
             <ShoppingBag className={styles.filterIcon} />
             <span>Мърч</span>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
