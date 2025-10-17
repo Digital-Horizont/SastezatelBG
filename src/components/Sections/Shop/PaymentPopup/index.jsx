@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { X } from "lucide-react"
+import { X, Loader2, CheckCircle2, XCircle } from "lucide-react"
 import { useShopStore } from "@/stores/Shop/useShopStore"
 import styles from "./PaymentPopup.module.css"
 
@@ -13,7 +13,8 @@ export default function PaymentPopup() {
   const [email, setEmail] = useState("")
   const [additionalInfo, setAdditionalInfo] = useState("")
   const [agreedToTerms, setAgreedToTerms] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState("idle") // idle | loading | success | error
+  const [errorMessage, setErrorMessage] = useState("")
   const [errors, setErrors] = useState({
     contact: false,
     terms: false,
@@ -26,6 +27,21 @@ export default function PaymentPopup() {
       document.body.style.overflow = ""
     }
   }, [isPaymentPopupOpen])
+
+  const handleClose = () => {
+    setPhone("")
+    setEmail("")
+    setAdditionalInfo("")
+    setAgreedToTerms(false)
+    setSubmitStatus("idle")
+    setErrorMessage("")
+    setErrors({
+      contact: false,
+      terms: false,
+      additionalInfo: false,
+    })
+    closePaymentPopup()
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -47,7 +63,7 @@ export default function PaymentPopup() {
       return
     }
 
-    setIsSubmitting(true)
+    setSubmitStatus("loading")
 
     try {
       const payload = {
@@ -57,6 +73,7 @@ export default function PaymentPopup() {
         email,
         phone,
         description: additionalInfo,
+        agreed: agreedToTerms,
       }
 
       const endpoint = paymentMethod === "easypay" ? "/api/easypay/register" : "/api/bank"
@@ -76,24 +93,105 @@ export default function PaymentPopup() {
         console.log("✅ Bank order created:", data)
       }
 
-      alert(`Поръчката е изпратена успешно! Метод на плащане: ${paymentMethod === "easypay" ? "Изипей" : "Банка"}`)
-
-      setPhone("")
-      setEmail("")
-      setAdditionalInfo("")
-      setAgreedToTerms(false)
-      closePaymentPopup()
+      setSubmitStatus("success")
     } catch (error) {
-      alert(error?.response?.data?.error || "Възникна грешка при заявката. Моля, опитайте отново.")
-    } finally {
-      setIsSubmitting(false)
+      setSubmitStatus("error")
+      setErrorMessage(error?.response?.data?.error || "Възникна грешка при заявката. Моля, опитайте отново.")
     }
   }
 
   if (!isPaymentPopupOpen) return null
 
+  if (submitStatus === "loading") {
+    return (
+      <div className={styles.mask}>
+        <div className={styles.card} role="dialog" aria-modal="true" aria-label="Обработка на поръчка">
+          <div className={styles.bubble1} />
+          <div className={styles.bubble2} />
+          <div className={styles.bubble3} />
+
+          <div className={styles.statusContent}>
+            <Loader2 className={styles.spinnerIcon} />
+            <h2 className={styles.statusTitle}>Обработка на поръчката...</h2>
+            <p className={styles.statusText}>Моля, изчакайте докато обработим вашата заявка.</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (submitStatus === "success") {
+    return (
+      <div className={styles.mask} onClick={handleClose}>
+        <div
+          className={styles.card}
+          onClick={(e) => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Успешна поръчка"
+        >
+          <div className={styles.bubble1} />
+          <div className={styles.bubble2} />
+          <div className={styles.bubble3} />
+
+          <button className={styles.close} onClick={handleClose} aria-label="Затвори">
+            <X className={styles.closeIcon} />
+          </button>
+
+          <div className={styles.statusContent}>
+            <CheckCircle2 className={styles.successIcon} />
+            <h2 className={styles.statusTitle}>Успешно направена поръчка!</h2>
+            <p className={styles.statusText}>
+              Благодарим ви че направихте поръчка при нас, на посоченият имейл ще ви бъде изпратена информацията и
+              стъпките за плащане!
+            </p>
+            <button onClick={handleClose} className={styles.statusBtn}>
+              Затвори
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (submitStatus === "error") {
+    return (
+      <div className={styles.mask} onClick={handleClose}>
+        <div
+          className={styles.card}
+          onClick={(e) => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Грешка при поръчка"
+        >
+          <div className={styles.bubble1} />
+          <div className={styles.bubble2} />
+          <div className={styles.bubble3} />
+
+          <button className={styles.close} onClick={handleClose} aria-label="Затвори">
+            <X className={styles.closeIcon} />
+          </button>
+
+          <div className={styles.statusContent}>
+            <XCircle className={styles.errorIcon} />
+            <h2 className={styles.statusTitle}>Възникна грешка</h2>
+            <p className={styles.statusText}>{errorMessage}</p>
+            <div className={styles.errorActions}>
+              <button onClick={() => setSubmitStatus("idle")} className={styles.statusBtn}>
+                Опитай отново
+              </button>
+              <button onClick={handleClose} className={styles.statusBtnSecondary}>
+                Затвори
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div className={styles.mask} onClick={closePaymentPopup}>
+    <div className={styles.mask} onClick={handleClose}>
       <div
         className={styles.card}
         onClick={(e) => e.stopPropagation()}
@@ -105,7 +203,7 @@ export default function PaymentPopup() {
         <div className={styles.bubble2} />
         <div className={styles.bubble3} />
 
-        <button className={styles.close} onClick={closePaymentPopup} aria-label="Затвори" disabled={isSubmitting}>
+        <button className={styles.close} onClick={handleClose} aria-label="Затвори">
           <X className={styles.closeIcon} />
         </button>
 
@@ -149,7 +247,6 @@ export default function PaymentPopup() {
                 }}
                 className={styles.input}
                 placeholder="+359 ..."
-                disabled={isSubmitting}
               />
             </div>
 
@@ -169,7 +266,6 @@ export default function PaymentPopup() {
                 }}
                 className={`${styles.input} ${errors.contact ? styles.inputError : ""}`}
                 placeholder="example@email.com"
-                disabled={isSubmitting}
               />
               {errors.contact && <p className={styles.errorText}>* Моля, въведете поне имейл.</p>}
             </div>
@@ -190,7 +286,6 @@ export default function PaymentPopup() {
                 className={`${styles.textarea} ${errors.additionalInfo ? styles.inputError : ""}`}
                 placeholder="Доставка до офис на Спиди, Еконт или от нашата школа — Сикадеми"
                 rows={4}
-                disabled={isSubmitting}
               />
               <p className={styles.hint}>
                 Можете да получите поръчката си само до офиси на Еконт, Спиди или от нашата школа —{" "}
@@ -214,7 +309,6 @@ export default function PaymentPopup() {
                 }}
                 required
                 className={`${styles.checkbox} ${errors.terms ? styles.checkboxError : ""}`}
-                disabled={isSubmitting}
               />
               <label htmlFor="terms" className={styles.checkboxLabel}>
                 Съгласявам се с{" "}
@@ -232,8 +326,8 @@ export default function PaymentPopup() {
               <p className={styles.errorText}>* Моля, приемете политиката за поверителност и общите условия.</p>
             )}
 
-            <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
-              {isSubmitting ? "Изпращане..." : "Изпрати поръчка"}
+            <button type="submit" className={styles.submitBtn}>
+              Изпрати поръчка
             </button>
           </form>
         </div>

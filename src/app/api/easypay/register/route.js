@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req) {
   const body = await req.json();
-  const { payment_type, key, email , product_name , phone , description } = body;
+  const { payment_type, key, email , product_name , phone , description , agreed } = body;
 
   const amount = getPrice(payment_type, key);
 
@@ -19,9 +19,14 @@ export async function POST(req) {
     );
   }
 
+  const email_error = !email ? "Липсва имейл. " : "";
+  const description_error = !description ? "Липсва описание. " : "";
+  const agreed_error = !agreed ? "Трябва да се съгалсите с общите условия. " : ""
+  const final_error = email_error + description_error + agreed_error;
+
   if (!email) {
     return NextResponse.json(
-      { error: "Липсва имейл получател" },
+      { error: final_error },
       { status: 400 }
     );
   }
