@@ -39,9 +39,7 @@ function generateInvoice() {
 }
 
 export async function registerEasyPayBill({ amount }) {
-  if (!amount || Number(amount) <= 0) throw new Error("Invalid amount");
-  amount = amount.toFixed(2);
-  
+  if (!amount || Number(amount) <= 0) throw new Error("Invalid amount");  
   const invoice = generateInvoice();
   const currency = requireEnv("EPAY_CURRENCY");
 

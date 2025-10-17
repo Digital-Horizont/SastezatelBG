@@ -7,7 +7,14 @@ import { useShopStore } from "@/stores/Shop/useShopStore"
 import styles from "./PaymentPopup.module.css"
 
 export default function PaymentPopup() {
-  const { isPaymentPopupOpen, paymentMethod, closePaymentPopup, selectedProduct } = useShopStore()
+  const {
+    isPaymentPopupOpen,
+    paymentMethod,
+    closePaymentPopup,
+    selectedProduct,
+    quantity,
+    setQuantity,
+  } = useShopStore()
 
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
@@ -28,7 +35,7 @@ export default function PaymentPopup() {
     }
   }, [isPaymentPopupOpen])
 
-  const handleClose = () => {
+  const resetLocalState = () => {
     setPhone("")
     setEmail("")
     setAdditionalInfo("")
@@ -40,6 +47,11 @@ export default function PaymentPopup() {
       terms: false,
       additionalInfo: false,
     })
+  }
+
+  const handleClose = () => {
+    resetLocalState()
+    setQuantity(1)
     closePaymentPopup()
   }
 
@@ -53,10 +65,6 @@ export default function PaymentPopup() {
     }
 
     setErrors(newErrors)
-
-    if (newErrors.contact || newErrors.terms || newErrors.additionalInfo) {
-      // return
-    }
 
     if (!selectedProduct?.key) {
       alert("Липсва ключ на избраната книга. Моля, изберете продукт отново.")
@@ -74,6 +82,7 @@ export default function PaymentPopup() {
         phone,
         description: additionalInfo,
         agreed: agreedToTerms,
+        quantity: quantity,
       }
 
       const endpoint = paymentMethod === "easypay" ? "/api/easypay/register" : "/api/bank"
@@ -82,16 +91,8 @@ export default function PaymentPopup() {
         headers: { "Content-Type": "application/json" },
       })
 
-      const data = response.data
-
-      if (paymentMethod === "easypay") {
-        console.log("✅ Easypay IDN:", data.idn)
-        console.log("✅ Easypay Expiration Time:", data.expTime)
-      } else {
-        console.log("✅ Bank order created:", data)
-      }
-
       setSubmitStatus("success")
+      setQuantity(1)
     } catch (error) {
       setSubmitStatus("error")
       setErrorMessage(error?.response?.data?.error || "Възникна грешка при заявката. Моля, опитайте отново.")

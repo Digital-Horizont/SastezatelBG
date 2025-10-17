@@ -8,9 +8,16 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req) {
   const body = await req.json();
-  const { payment_type, key, email , product_name , phone , description , agreed } = body;
+  const { payment_type, key, email , product_name , phone , description , agreed , quantity } = body;
 
-  const amount = getPrice(payment_type, key);
+  if(quantity < 1 || quantity > 20 || !Number.isInteger(quantity)){
+     return NextResponse.json(
+      { error: "Избрана е невалидна бройка продукти!" },
+      { status: 400 }
+    );
+  }
+
+  const amount = getPrice(payment_type, key , quantity);
 
   if (amount == null) {
     return NextResponse.json(
@@ -43,13 +50,11 @@ export async function POST(req) {
 
     const text = 
     `
-      Вашата поръчка от Състезател.БГ: ${product_name} \n \n 
-       
-      Код за EasyPay: ${result.idn} \n \n
-      
-      Валиден до: ${result.expTime} \n \n
+      Вашата поръчка от Състезател.БГ: ${product_name}
 
-      Дължима сума: ${result.amount*1.9557.toFixed(2)}
+      Код за EasyPay: ${result.idn}
+      Валиден до: ${result.expTime}
+      Дължима сума: ${(result.amount*1.95583).toFixed(2)}лв
 
       Моля, не го споделяйте с никого!
     `
@@ -65,7 +70,7 @@ export async function POST(req) {
     `
       Поръчка с фактура Номер: ${result.invoice}
       Продукт: ${product_name}
-      Цена: ${result.amount*1.9557.toFixed(2)}лв
+      Цена: ${(result.amount*1.95583).toFixed(2)}лв
       Email: ${email}
       Телефон: ${phone}
       Описание: ${description}

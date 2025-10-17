@@ -7,9 +7,16 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req) {
   const body = await req.json();
-  const { payment_type, key, email , product_name , phone , description } = body;
+  const { payment_type, key, email , product_name , phone , description , agreed , quantity } = body;
 
-  const amount = getPrice(payment_type, key);
+  if(quantity < 1 || quantity > 20 || !Number.isInteger(quantity)){
+     return NextResponse.json(
+      { error: "Избрана е невалидна бройка продукти!" },
+      { status: 400 }
+    );
+  }
+
+  const amount = getPrice(payment_type, key, quantity);
 
   if (amount == null) {
     return NextResponse.json(
@@ -18,9 +25,14 @@ export async function POST(req) {
     );
   }
 
+  const email_error = !email ? "Липсва имейл. " : "";
+  const description_error = !description ? "Липсва описание. " : "";
+  const agreed_error = !agreed ? "Трябва да се съгалсите с общите условия. " : ""
+  const final_error = email_error + description_error + agreed_error;
+
   if (!email) {
     return NextResponse.json(
-      { error: "Липсва имейл получател" },
+      { error: final_error },
       { status: 400 }
     );
   }
@@ -33,7 +45,7 @@ export async function POST(req) {
       IBAN: BG00 XXXX 0000 0000 0000 00
       BIC: XXXXBGSF
       Титуляр: СъстезателБГ ЕООД
-      Цена: ${amount*1.9557.toFixed(2)}лв
+      Цена: ${(amount*1.95583).toFixed(2)}лв
 
       Молим ви в основание на превода да напишете ваш имейл или телефон , с който сте направили поръчката в нашият сайт!
     `
@@ -48,7 +60,7 @@ export async function POST(req) {
     const text_admin = 
     `
       Продукт: ${product_name}
-      Цена: ${amount*1.9557.toFixed(2)}лв
+      Цена: ${(amount*1.95583).toFixed(2)}лв
       Email: ${email}
       Телефон: ${phone}
       Описание: ${description}

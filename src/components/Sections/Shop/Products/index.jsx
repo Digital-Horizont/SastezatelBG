@@ -37,7 +37,7 @@ export default function Products() {
               const name = currentType === "books" ? product.book_name : product.merch_name
               const price = currentType === "books" ? product.book_price_in_euro : product.merch_price_in_euro
 
-              const priceInBGN = price * 1.9557
+              const priceInBGN = price * 1.95583
               const priceInEUR = price
 
               return (

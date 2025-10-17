@@ -5,6 +5,21 @@ export const useShopStore = create((set, get) => ({
   paymentMethod: null,
   selectedProduct: null,
   selectedProductKey: null,
+  quantity: 1,
+
+  setQuantity: (q) => set({ quantity: q }),
+  incrementQuantity: () =>
+    set((state) => {
+      const current = Number.parseInt(state.quantity, 10);
+      const safe = Number.isFinite(current) && current >= 1 ? current : 1;
+      return { quantity: safe + 1 };
+    }),
+  decrementQuantity: () =>
+    set((state) => {
+      const current = Number.parseInt(state.quantity, 10);
+      const safe = Number.isFinite(current) && current > 1 ? current - 1 : 1;
+      return { quantity: safe };
+    }),
 
   openPaymentPopup: (method) => {
     const currentProduct = get().selectedProduct;
