@@ -44,6 +44,8 @@ export async function POST(req) {
       
       Валиден до: ${result.expTime} \n \n
 
+      Дължима сума: ${result.amount*1.9557.toFixed(2)}
+
       Моля, не го споделяйте с никого!
     `
 
@@ -58,7 +60,7 @@ export async function POST(req) {
     `
       Поръчка с фактура Номер: ${result.invoice}
       Продукт: ${product_name}
-      Цена: ${result.amount}
+      Цена: ${result.amount*1.9557.toFixed(2)}лв
       Email: ${email}
       Телефон: ${phone}
       Описание: ${description}
