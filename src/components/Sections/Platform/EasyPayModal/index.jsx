@@ -231,6 +231,26 @@ export default function EasyPayModal({ price, platform_key, platform_name }) {
 
             <form onSubmit={handleSubmit} className={styles.form} noValidate>
               <div className={styles.field}>
+                <label htmlFor="phone" className={styles.label}>
+                  Телефонен номер (по избор)
+                </label>
+                <div className={styles.inputWrap}>
+                  <Phone className={styles.inputIcon} />
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className={styles.input}
+                    placeholder="+359 ..."
+                    pattern="^[0-9+\\s()-]{7,20}$"
+                    autoComplete="tel"
+                    inputMode="tel"
+                  />
+                </div>
+              </div>
+
+              <div className={styles.field}>
                 <label htmlFor="email" className={styles.label}>
                   Имейл *
                 </label>
@@ -256,26 +276,6 @@ export default function EasyPayModal({ price, platform_key, platform_name }) {
                 {errors.contact && (
                   <p className={styles.errorText}>* Моля, въведете имейл.</p>
                 )}
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="phone" className={styles.label}>
-                  Телефонен номер (по избор)
-                </label>
-                <div className={styles.inputWrap}>
-                  <Phone className={styles.inputIcon} />
-                  <input
-                    type="tel"
-                    id="phone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className={styles.input}
-                    placeholder="+359 ..."
-                    pattern="^[0-9+\\s()-]{7,20}$"
-                    autoComplete="tel"
-                    inputMode="tel"
-                  />
-                </div>
               </div>
 
               <div className={styles.field}>
