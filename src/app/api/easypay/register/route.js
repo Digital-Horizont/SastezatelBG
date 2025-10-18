@@ -52,6 +52,8 @@ export async function POST(req) {
     `
       Вашата поръчка от Състезател.БГ: ${product_name}
 
+      Име на продукт: ${product_name}
+      Количество продукти: ${quantity} 
       Код за EasyPay: ${result.idn}
       Валиден до: ${result.expTime}
       Дължима сума: ${(result.amount*1.95583).toFixed(2)}лв
@@ -70,10 +72,11 @@ export async function POST(req) {
     `
       Поръчка с фактура Номер: ${result.invoice}
       Продукт: ${product_name}
-      Цена: ${(result.amount*1.95583).toFixed(2)}лв
+      Брой продукти: ${result.amount}
+      Обща Цена: ${(result.amount*1.95583).toFixed(2)}лв
       Email: ${email}
-      Телефон: ${phone}
-      Описание: ${description}
+      Телефон: ${phone || "невъведен"}
+      Описание: ${description || "невъведен"}
       Начин на плащане: EasyPay
       Е заявена за плащане от клиент.
     `
