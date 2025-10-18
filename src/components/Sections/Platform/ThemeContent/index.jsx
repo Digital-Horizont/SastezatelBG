@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useMemo, useState } from "react"
 import { Video, Play, Smartphone, BookOpen, Landmark, CreditCard } from "lucide-react"
 import styles from "./ThemeContent.module.css"
@@ -13,7 +14,7 @@ const getYouTubeVideoId = (url) => {
 
 const getYouTubeThumbnail = (id) => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
 
-export default function ThemeContent({ platform_title , platform_link }) {
+export default function ThemeContent({ platform_title, platform_link }) {
   const selectedTheme = useSelectedTheme()
   const openEasyPay = useEasyPayStore((s) => s.open)
   const [showVideo, setShowVideo] = useState(false)
@@ -57,10 +58,24 @@ export default function ThemeContent({ platform_title , platform_link }) {
       <div className={styles.card}>
         <div className={styles.pad}>
           <h1 className={styles.title}>
-            <span className={styles.titleIconWrap} aria-hidden>
-              <BookOpen className={styles.titleIcon} />
-            </span>
-            <span>{platform_title}</span>
+            <div className={styles.titleLeft}>
+              <span className={styles.titleIconWrap} aria-hidden>
+                <BookOpen className={styles.titleIcon} />
+              </span>
+              <span>{platform_title}</span>
+            </div>
+
+            {platform_link && (
+              <a
+                href={platform_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.platformLink}
+                aria-label="Към платформата (отваря се в нов таб)"
+              >
+                Към платформата →
+              </a>
+            )}
           </h1>
         </div>
       </div>

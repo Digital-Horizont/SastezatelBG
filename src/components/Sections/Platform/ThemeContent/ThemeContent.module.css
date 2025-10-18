@@ -59,12 +59,20 @@
 .title {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   color: var(--forest-dark);
   font-weight: 900;
   letter-spacing: 0.2px;
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   margin: 0;
+  flex-wrap: wrap;
+}
+
+.titleLeft {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .titleIconWrap {
@@ -82,6 +90,28 @@
   width: 20px;
   height: 20px;
   color: white;
+}
+
+.platformLink {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--sky-blue);
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 6px 10px;
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  background: color-mix(in oklab, var(--cream) 96%, white);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.platformLink:hover {
+  color: var(--path-gold);
+  transform: translateX(2px);
+  border-color: color-mix(in oklab, var(--path-gold) 35%, transparent);
+  background: color-mix(in oklab, var(--cream) 92%, white);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
 }
 
 .contentStack {
@@ -259,9 +289,9 @@
 }
 
 @media (max-width: 992px) {
-	.wrap{
-		padding: 16px;
-	}
+  .wrap{
+    padding: 16px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -290,6 +320,11 @@
   .titleIcon {
     width: 18px;
     height: 18px;
+  }
+
+  .platformLink {
+    font-size: 0.9rem;
+    padding: 6px 10px;
   }
 
   .ctaRow {
@@ -337,6 +372,11 @@
 
   .title {
     font-size: 1.25rem;
+  }
+
+  .platformLink {
+    font-size: 0.85rem;
+    padding: 5px 9px;
   }
 
   .primaryBtn {
