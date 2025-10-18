@@ -21,12 +21,12 @@
 	overflow: hidden;
 	transition: transform 200ms ease, box-shadow 220ms ease;
 	max-height: 90vh;
-	overflow-y: auto;
 }
 
-.card:focus-within {
-	box-shadow: 0 26px 76px rgba(0, 0, 0, 0.24),
-		0 0 0 2px color-mix(in oklab, var(--sky-blue) 35%, transparent) inset;
+.scrollArea {
+	max-height: 90vh;
+	overflow-y: auto;
+	overscroll-behavior: contain;
 }
 
 .bubble1,
@@ -37,6 +37,7 @@
 	filter: blur(40px);
 	opacity: 0.2;
 	pointer-events: none;
+	contain: paint;
 }
 
 .bubble1 {
@@ -261,7 +262,6 @@
 	box-shadow: 0 0 0 3px color-mix(in oklab, var(--path-gold) 10%, transparent);
 }
 
-
 .selectChevron {
 	position: absolute;
 	right: 12px;
@@ -274,7 +274,7 @@
 	transition: color 160ms ease;
 }
 
-.select:focus~.selectChevron {
+.select:focus ~ .selectChevron {
 	color: var(--forest-dark);
 }
 
@@ -351,7 +351,6 @@
 	from {
 		transform: rotate(0deg);
 	}
-
 	to {
 		transform: rotate(360deg);
 	}
@@ -460,7 +459,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-
 	.card,
 	.close,
 	.submitBtn,

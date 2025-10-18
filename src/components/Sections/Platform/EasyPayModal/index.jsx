@@ -17,7 +17,7 @@ import { useEasyPayStore } from "@/stores/Platform/useEasyPayStore";
 
 const EUR_TO_BGN = 1.95583;
 
-export default function EasyPayModal({ price , platform_key , platform_name }) {
+export default function EasyPayModal({ price, platform_key, platform_name }) {
   const isOpen = useEasyPayStore((s) => s.isOpen);
   const close = useEasyPayStore((s) => s.close);
 
@@ -35,7 +35,7 @@ export default function EasyPayModal({ price , platform_key , platform_name }) {
     const eur = price * Number(months || 0);
     const bgn = eur * EUR_TO_BGN;
     return { totalPriceInEur: eur, totalPriceInLeva: bgn };
-  }, [months]);
+  }, [months, price]); // include price in dependency list
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -76,7 +76,7 @@ export default function EasyPayModal({ price , platform_key , platform_name }) {
         phone,
         description: additionalInfo,
         agreed: agreedToTerms,
-        quantity: months
+        quantity: months,
       };
 
       await axios.post("/api/easypay/register", payload, {
@@ -222,155 +222,160 @@ export default function EasyPayModal({ price , platform_key , platform_name }) {
           <X className={styles.closeIcon} />
         </button>
 
-        <div className={styles.content}>
-          <div className={styles.logoCircle} aria-hidden="true">
-            <Smartphone className={styles.logoIcon} />
-          </div>
-          <h2 className={styles.title}>Абонамент с ИзиПей</h2>
+        <div className={styles.scrollArea}>
+          <div className={styles.content}>
+            <div className={styles.logoCircle} aria-hidden="true">
+              <Smartphone className={styles.logoIcon} />
+            </div>
+            <h2 className={styles.title}>Абонамент с ИзиПей</h2>
 
-          <form onSubmit={handleSubmit} className={styles.form} noValidate>
-            <div className={styles.field}>
-              <label htmlFor="email" className={styles.label}>
-                Имейл *
-              </label>
-              <div className={styles.inputWrap}>
-                <Mail className={styles.inputIcon} />
+            <form onSubmit={handleSubmit} className={styles.form} noValidate>
+              <div className={styles.field}>
+                <label htmlFor="email" className={styles.label}>
+                  Имейл *
+                </label>
+                <div className={styles.inputWrap}>
+                  <Mail className={styles.inputIcon} />
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (errors.contact)
+                        setErrors((p) => ({ ...p, contact: false }));
+                    }}
+                    className={`${styles.input} ${
+                      errors.contact ? styles.inputError : ""
+                    }`}
+                    placeholder="example@email.com"
+                    inputMode="email"
+                    autoComplete="email"
+                  />
+                </div>
+                {errors.contact && (
+                  <p className={styles.errorText}>* Моля, въведете имейл.</p>
+                )}
+              </div>
+
+              <div className={styles.field}>
+                <label htmlFor="phone" className={styles.label}>
+                  Телефонен номер (по избор)
+                </label>
+                <div className={styles.inputWrap}>
+                  <Phone className={styles.inputIcon} />
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className={styles.input}
+                    placeholder="+359 ..."
+                    pattern="^[0-9+\\s()-]{7,20}$"
+                    autoComplete="tel"
+                    inputMode="tel"
+                  />
+                </div>
+              </div>
+
+              <div className={styles.field}>
+                <label htmlFor="months" className={styles.label}>
+                  Срок на абонамента
+                </label>
+
+                <div className={styles.monthsRow}>
+                  <div className={styles.selectWrap}>
+                    <select
+                      id="months"
+                      value={months}
+                      onChange={(e) => setMonths(Number(e.target.value))}
+                      className={styles.select}
+                    >
+                      {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
+                        <option key={m} value={m}>
+                          {m} {m === 1 ? "месец" : "месеца"}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown
+                      className={styles.selectChevron}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <div className={styles.priceContainer}>
+                    <p className={styles.priceBgn}>
+                      {totalPriceInLeva.toFixed(2)} лв
+                    </p>
+                    <p className={styles.priceEur}>
+                      (&#8364;{totalPriceInEur.toFixed(2)})
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.field}>
+                <label htmlFor="additionalInfo" className={styles.label}>
+                  Допълнителна информация (по избор)
+                </label>
+                <textarea
+                  id="additionalInfo"
+                  value={additionalInfo}
+                  onChange={(e) => setAdditionalInfo(e.target.value)}
+                  className={styles.textarea}
+                  placeholder="Ако имате бележки към заявката, добавете ги тук."
+                  rows={4}
+                />
+              </div>
+
+              <div className={styles.checkboxField}>
                 <input
-                  type="email"
-                  id="email"
-                  value={email}
+                  type="checkbox"
+                  id="terms"
+                  checked={agreedToTerms}
                   onChange={(e) => {
-                    setEmail(e.target.value);
-                    if (errors.contact)
-                      setErrors((p) => ({ ...p, contact: false }));
+                    setAgreedToTerms(e.target.checked);
+                    if (errors.terms)
+                      setErrors((p) => ({ ...p, terms: false }));
                   }}
-                  className={`${styles.input} ${
-                    errors.contact ? styles.inputError : ""
+                  className={`${styles.checkbox} ${
+                    errors.terms ? styles.checkboxError : ""
                   }`}
-                  placeholder="example@email.com"
-                  inputMode="email"
-                  autoComplete="email"
+                  required
                 />
-              </div>
-              {errors.contact && (
-                <p className={styles.errorText}>* Моля, въведете имейл.</p>
-              )}
-            </div>
-
-            <div className={styles.field}>
-              <label htmlFor="phone" className={styles.label}>
-                Телефонен номер (по избор)
-              </label>
-              <div className={styles.inputWrap}>
-                <Phone className={styles.inputIcon} />
-                <input
-                  type="tel"
-                  id="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className={styles.input}
-                  placeholder="+359 ..."
-                  pattern="^[0-9+\\s()-]{7,20}$"
-                  autoComplete="tel"
-                  inputMode="tel"
-                />
-              </div>
-            </div>
-
-            <div className={styles.field}>
-              <label htmlFor="months" className={styles.label}>
-                Срок на абонамента
-              </label>
-
-              <div className={styles.monthsRow}>
-                <div className={styles.selectWrap}>
-                  <select
-                    id="months"
-                    value={months}
-                    onChange={(e) => setMonths(Number(e.target.value))}
-                    className={styles.select}
+                <label htmlFor="terms" className={styles.checkboxLabel}>
+                  Съгласявам се с{" "}
+                  <a
+                    href="/privacy-policy"
+                    target="_blank"
+                    className={styles.link}
+                    rel="noreferrer"
                   >
-                    {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
-                      <option key={m} value={m}>
-                        {m} {m === 1 ? "месец" : "месеца"}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronDown className={styles.selectChevron} aria-hidden="true" />
-                </div>
-
-                <div className={styles.priceContainer}>
-                  <p className={styles.priceBgn}>
-                    {totalPriceInLeva.toFixed(2)} лв
-                  </p>
-                  <p className={styles.priceEur}>
-                    (&#8364;{totalPriceInEur.toFixed(2)})
-                  </p>
-                </div>
+                    политиката за поверителност
+                  </a>{" "}
+                  и{" "}
+                  <a
+                    href="/terms-of-services"
+                    target="_blank"
+                    className={styles.link}
+                    rel="noreferrer"
+                  >
+                    общите условия
+                  </a>{" "}
+                  *
+                </label>
               </div>
-            </div>
+              {errors.terms && (
+                <p className={styles.errorText}>
+                  * Моля, приемете политиката за поверителност и общите условия.
+                </p>
+              )}
 
-            <div className={styles.field}>
-              <label htmlFor="additionalInfo" className={styles.label}>
-                Допълнителна информация (по избор)
-              </label>
-              <textarea
-                id="additionalInfo"
-                value={additionalInfo}
-                onChange={(e) => setAdditionalInfo(e.target.value)}
-                className={styles.textarea}
-                placeholder="Ако имате бележки към заявката, добавете ги тук."
-                rows={4}
-              />
-            </div>
-
-            <div className={styles.checkboxField}>
-              <input
-                type="checkbox"
-                id="terms"
-                checked={agreedToTerms}
-                onChange={(e) => {
-                  setAgreedToTerms(e.target.checked);
-                  if (errors.terms)
-                    setErrors((p) => ({ ...p, terms: false }));
-                }}
-                className={`${styles.checkbox} ${
-                  errors.terms ? styles.checkboxError : ""
-                }`}
-                required
-              />
-              <label htmlFor="terms" className={styles.checkboxLabel}>
-                Съгласявам се с{" "}
-                <a
-                  href="/privacy-policy"
-                  target="_blank"
-                  className={styles.link}
-                  rel="noreferrer"
-                >
-                  политиката за поверителност
-                </a>{" "}
-                и{" "}
-                <a
-                  href="/terms-of-services"
-                  target="_blank"
-                  className={styles.link}
-                  rel="noreferrer"
-                >
-                  общите условия
-                </a>{" "}
-                *
-              </label>
-            </div>
-            {errors.terms && (
-              <p className={styles.errorText}>
-                * Моля, приемете политиката за поверителност и общите условия.
-              </p>
-            )}
-
-            <button type="submit" className={styles.submitBtn}>
-              Изпрати заявка
-            </button>
-          </form>
+              <button type="submit" className={styles.submitBtn}>
+                Изпрати заявка
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
