@@ -13,14 +13,14 @@ const getYouTubeVideoId = (url) => {
 
 const getYouTubeThumbnail = (id) => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
 
-export default function ThemeContent() {
+export default function ThemeContent({ platform_title , platform_link }) {
   const selectedTheme = useSelectedTheme()
   const openEasyPay = useEasyPayStore((s) => s.open)
   const [showVideo, setShowVideo] = useState(false)
 
   const handleBankTransfer = () => {}
   const handleCardPayment = () => {
-    window.open("https://sicademybg.skillplate.com/course/platforma-3-4kl", "_blank")
+    window.open(platform_link, "_blank")
   }
 
   useEffect(() => setShowVideo(false), [selectedTheme?.key])
@@ -62,7 +62,7 @@ export default function ThemeContent() {
             <span className={styles.titleIconWrap} aria-hidden>
               <BookOpen className={styles.titleIcon} />
             </span>
-            <span>Платформа 3-4 кл</span>
+            <span>{platform_title}</span>
           </h1>
         </div>
       </div>
