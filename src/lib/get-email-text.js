@@ -1,5 +1,6 @@
 import 'server-only';
 import { ACCOUNT_NAME , BIC , IBAN } from "@/constants/bank_details";
+import { EUR_TO_BGN } from '@/constants/common';
 
 // EASYPAY EMAIL TEXTS
 export function getEasyPayCustomerEmailText(product_name , payment_type , result , email , phone , description , quantity){
@@ -10,7 +11,7 @@ export function getEasyPayCustomerEmailText(product_name , payment_type , result
     ${payment_type !== 'merch' && payment_type !== 'book' ? 'Брой месеци' : 'Количество продукти'}: ${quantity}
     Код за EasyPay: ${result.idn}
     Валиден до: ${result.expTime}
-    Дължима сума: ${(result.amount*1.95583).toFixed(2)}лв
+    Дължима сума: ${(result.amount*EUR_TO_BGN).toFixed(2)}лв
 
     Можете да заплатите поръчката на всеки един пункт на EasyPay , използвайки еднократният код 10-цифрен изпратен по-горе. Моля, не го споделяйте с никого!
 
@@ -24,7 +25,7 @@ export function getEasyPayAdminEmailText(product_name , payment_type , result , 
     Фактура_No: ${result.invoice}
     Продукт: ${product_name}
     ${payment_type !== 'merch' && payment_type !== 'book' ? 'Брой месеци' : 'Количество продукти'}: ${quantity}
-    Обща Цена: ${(result.amount*1.95583).toFixed(2)}лв
+    Обща Цена: ${(result.amount*EUR_TO_BGN).toFixed(2)}лв
     Email: ${email}
     Телефон: ${phone || "НЕВЪВЕДЕН"}
     Описание: ${description || "НЯМА"}
@@ -47,7 +48,7 @@ export function getBankCustomerEmailText(product_name , amount , email , phone ,
     IBAN: ${IBAN}
     BIC: ${BIC}
     Титуляр: ${ACCOUNT_NAME}
-    Цена: ${(amount*1.95583).toFixed(2)}лв
+    Цена: ${(amount*EUR_TO_BGN).toFixed(2)}лв
 
     Молим ви в основание на превода да напишете ваш имейл или телефон , с който сте направили поръчката в нашият сайт!
    
@@ -61,7 +62,7 @@ export function getBankAdminEmailText(product_name , amount , email , phone , de
   
     Продукт: ${product_name}
     ${payment_type !== 'merch' && payment_type !== 'book' ? 'Брой месеци' : 'Количество продукти'}: ${quantity}
-    Обща Цена: ${(amount*1.95583).toFixed(2)}лв
+    Обща Цена: ${(amount*EUR_TO_BGN).toFixed(2)}лв
     Email: ${email}
     Телефон: ${phone}
     Описание: ${description}
