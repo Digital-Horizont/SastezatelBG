@@ -50,12 +50,10 @@ export default function ThemeContent({ platform_title , platform_link }) {
 
   return (
     <section className={styles.wrap}>
-      {/* background bubbles */}
       <div className={`${styles.bubble} ${styles.bubble1}`} />
       <div className={`${styles.bubble} ${styles.bubble2}`} />
       <div className={`${styles.bubble} ${styles.bubble3}`} />
 
-      {/* Заглавие */}
       <div className={styles.card}>
         <div className={styles.pad}>
           <h1 className={styles.title}>
@@ -67,7 +65,6 @@ export default function ThemeContent({ platform_title , platform_link }) {
         </div>
       </div>
 
-      {/* CTA зона без card – между заглавието и съдържанието */}
       <div>
         <div className={styles.ctaRow}>
           <button className={styles.primaryBtn} onClick={openEasyPay}>
@@ -87,11 +84,9 @@ export default function ThemeContent({ platform_title , platform_link }) {
         </div>
       </div>
 
-      {/* Основно съдържание на темата */}
       <div className={styles.card}>
         <div className={`${styles.pad} ${styles.contentStack}`}>
           <div className={styles.article}>
-            {/* Видеото е първо в DOM и „плува“ вдясно, текстът го обтича */}
             {videoId ? (
               <div className={styles.videoFloat}>
                 <h3 className={styles.videoTitle}>
@@ -131,7 +126,6 @@ export default function ThemeContent({ platform_title , platform_link }) {
               </div>
             ) : null}
 
-            {/* Текстът започва вляво и при нужда продължава под видеото */}
             <div>
               <h2 className={styles.themeHeading}>{selectedTheme.title}</h2>
               <p className={styles.desc}>{selectedTheme.description}</p>

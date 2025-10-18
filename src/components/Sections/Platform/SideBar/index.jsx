@@ -51,7 +51,6 @@ export default function SideBar({ platform_url }) {
             </div>
           </div>
 
-          {/* Desktop list (hidden under 992px) */}
           <div className={`${styles.list} ${styles.desktopOnly}`}>
             {themes.map((t) => {
               const active = selectedTheme?.key === t.key
