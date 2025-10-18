@@ -239,7 +239,7 @@ export default function PaymentPopup() {
           <form onSubmit={handleSubmit} className={styles.form} noValidate>
             <div className={styles.field}>
               <label htmlFor="phone" className={styles.label}>
-                Телефонен номер
+                Телефонен номер (по избор)
               </label>
               <input
                 type="tel"
