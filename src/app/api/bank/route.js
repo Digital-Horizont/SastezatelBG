@@ -39,7 +39,7 @@ export async function POST(req) {
   }
 
   try {
-    const customer_text = getBankCustomerEmailText(product_name , amount , email , phone , description , quantity)
+    const customer_text = getBankCustomerEmailText(payment_type , product_name , amount , email , phone , description , quantity)
 
     await sendEmail({
       to: email,
@@ -48,7 +48,7 @@ export async function POST(req) {
     });
 
 
-    const admin_text = getBankAdminEmailText(product_name , amount , email , phone , description , quantity);
+    const admin_text = getBankAdminEmailText(payment_type , product_name , amount , email , phone , description , quantity);
 
     await sendEmail({
       to: process.env.EMAIL_USER,

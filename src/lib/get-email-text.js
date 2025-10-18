@@ -37,7 +37,7 @@ export function getEasyPayAdminEmailText(product_name , payment_type , result , 
 
 
 // BANK EMAIL TEXTS
-export function getBankCustomerEmailText(product_name , amount , email , phone , description , quantity){
+export function getBankCustomerEmailText(payment_type , product_name , amount , email , phone , description , quantity){
   return `
     Вашата поръчка от Състезател.БГ:
     Име на продукт: ${product_name}
@@ -56,7 +56,7 @@ export function getBankCustomerEmailText(product_name , amount , email , phone ,
   `
 }
 
-export function getBankAdminEmailText(product_name , amount , email , phone , description , quantity){
+export function getBankAdminEmailText(payment_type , product_name , amount , email , phone , description , quantity){
   return   `
     Нова поръчка:
   
