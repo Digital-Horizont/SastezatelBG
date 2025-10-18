@@ -411,6 +411,67 @@
 	justify-content: center;
 }
 
+.bankDetails {
+  background: color-mix(in oklab, var(--sky-blue) 8%, transparent);
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 25%, transparent);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 0 0 24px 0;
+}
+
+.bankDetailsTitle {
+  color: var(--forest-dark);
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0 0 16px 0;
+}
+
+.bankInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.bankInfoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.bankLabel {
+  color: var(--forest-mid);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.bankValue {
+  color: var(--forest-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: monospace;
+  background: color-mix(in oklab, var(--cream) 95%, white);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in oklab, var(--path-gold) 20%, transparent);
+}
+
+.bankWarning {
+  background: color-mix(in oklab, var(--path-gold) 15%, transparent);
+  border: 1px solid color-mix(in oklab, var(--path-gold) 35%, transparent);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--forest-dark);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.bankWarning strong {
+  color: var(--forest-dark);
+  font-weight: 800;
+}
+
 @media (max-width: 768px) {
 	.content {
 		padding: 24px 16px 16px;

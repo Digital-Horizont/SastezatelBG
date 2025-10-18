@@ -12,14 +12,14 @@ import {
   Phone,
   ChevronDown,
 } from "lucide-react";
-import styles from "./EasyPayModal.module.css";
-import { useEasyPayStore } from "@/stores/Platform/useEasyPayStore";
+import styles from "./BankModal.module.css";
+import { useBankStore } from "@/stores/Platform/useBankStore";
 
 const EUR_TO_BGN = 1.95583;
 
-export default function EasyPayModal({ price, platform_key, platform_name }) {
-  const isOpen = useEasyPayStore((s) => s.isOpen);
-  const close = useEasyPayStore((s) => s.close);
+export default function BankModal({ price, platform_key, platform_name }) {
+  const isOpen = useBankStore((s) => s.isOpen);
+  const close = useBankStore((s) => s.close);
 
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ export default function EasyPayModal({ price, platform_key, platform_name }) {
     const eur = price * Number(months || 0);
     const bgn = eur * EUR_TO_BGN;
     return { totalPriceInEur: eur, totalPriceInLeva: bgn };
-  }, [months, price]); // include price in dependency list
+  }, [months, price]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -79,7 +79,7 @@ export default function EasyPayModal({ price, platform_key, platform_name }) {
         quantity: months,
       };
 
-      await axios.post("/api/easypay/register", payload, {
+      await axios.post("/api/bank", payload, {
         headers: { "Content-Type": "application/json" },
       });
 
@@ -147,7 +147,7 @@ export default function EasyPayModal({ price, platform_key, platform_name }) {
             <h2 className={styles.statusTitle}>Успешно изпратена заявка!</h2>
             <p className={styles.statusText}>
               Благодарим Ви! На посочения имейл ще получите информацията за
-              плащане с ИзиПей.
+              плащане с банка.
             </p>
             <button onClick={handleClose} className={styles.statusBtn}>
               Затвори
@@ -208,7 +208,7 @@ export default function EasyPayModal({ price, platform_key, platform_name }) {
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
-        aria-label="Абонамент с ИзиПей"
+        aria-label="Абонамент с Банка"
       >
         <div className={styles.bubble1} />
         <div className={styles.bubble2} />
@@ -227,7 +227,28 @@ export default function EasyPayModal({ price, platform_key, platform_name }) {
             <div className={styles.logoCircle} aria-hidden="true">
               <Smartphone className={styles.logoIcon} />
             </div>
-            <h2 className={styles.title}>Абонамент с ИзиПей</h2>
+            <h2 className={styles.title}>Абонамент с Банка</h2>
+
+            <div className={styles.bankDetails}>
+              <h3 className={styles.bankDetailsTitle}>Банкови данни за превод:</h3>
+              <div className={styles.bankInfo}>
+                <div className={styles.bankInfoRow}>
+                  <span className={styles.bankLabel}>IBAN:</span>
+                  <span className={styles.bankValue}>BG00 XXXX 0000 0000 0000 00</span>
+                </div>
+                <div className={styles.bankInfoRow}>
+                  <span className={styles.bankLabel}>BIC:</span>
+                  <span className={styles.bankValue}>XXXXBGSF</span>
+                </div>
+                <div className={styles.bankInfoRow}>
+                  <span className={styles.bankLabel}>Титуляр:</span>
+                  <span className={styles.bankValue}>Сикадеми ЕООД</span>
+                </div>
+              </div>
+              <div className={styles.bankWarning}>
+                <strong>⚠️ Важно:</strong> При превода задължително напишете в основанието вашия имейл и телефонен номер!
+              </div>
+            </div>
 
             <form onSubmit={handleSubmit} className={styles.form} noValidate>
               <div className={styles.field}>
