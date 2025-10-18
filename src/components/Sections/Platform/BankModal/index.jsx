@@ -263,7 +263,6 @@ export default function BankModal({ price, platform_key, platform_name }) {
                     onChange={(e) => setPhone(e.target.value)}
                     className={styles.input}
                     placeholder="+359 ..."
-                    pattern="^[0-9+\\s()-]{7,20}$"
                     autoComplete="tel"
                     inputMode="tel"
                   />
