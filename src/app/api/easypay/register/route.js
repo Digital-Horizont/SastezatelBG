@@ -53,7 +53,7 @@ export async function POST(req) {
       Вашата поръчка от Състезател.БГ: ${product_name}
 
       Име на продукт: ${product_name}
-      Количество продукти: ${quantity} 
+      ${payment_type !== 'merch' && payment_type !== 'book' ? 'Брой месеци' : 'Количество продукти'}: ${quantity}
       Код за EasyPay: ${result.idn}
       Валиден до: ${result.expTime}
       Дължима сума: ${(result.amount*1.95583).toFixed(2)}лв
@@ -72,7 +72,7 @@ export async function POST(req) {
     `
       Поръчка с фактура Номер: ${result.invoice}
       Продукт: ${product_name}
-      Брой продукти: ${result.amount}
+      ${payment_type !== 'merch' && payment_type !== 'book' ? 'Брой месеци' : 'Количество продукти'}: ${quantity}
       Обща Цена: ${(result.amount*1.95583).toFixed(2)}лв
       Email: ${email}
       Телефон: ${phone || "невъведен"}
@@ -89,6 +89,7 @@ export async function POST(req) {
 
     return NextResponse.json(result, { status: 200 });
   } catch (err) {
+     console.error("Email sending error:", err);
     return NextResponse.json(
       { error: "Възникна грешка при изпращането на имейла" },
       { status: 500 }

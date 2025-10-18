@@ -8,8 +8,8 @@ const merch_prices={
 
 }
 
-const platform_3_4_price = 22.40;
-const platform_5_7_price = 31.20;
+const platform_3_4_price = 20.99;
+const platform_5_7_price = 21.99;
 
 export function getPrice(payment_type , key , quantity) {
   switch(payment_type){
