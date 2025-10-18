@@ -1,5 +1,5 @@
 import 'server-only';
-
+import { ACCOUNT_NAME , BIC , IBAN } from "@/constants/bank_details";
 
 // EASYPAY EMAIL TEXTS
 export function getEasyPayCustomerEmailText(product_name , payment_type , result , email , phone , description , quantity){
@@ -44,9 +44,9 @@ export function getBankCustomerEmailText(product_name , amount , email , phone ,
 
     Благодарим ви , ча заявихте поръчка в Състезател.БГ. Поръчката ви ще бъде обработена веднага щом заплатите необходимата сума на следната банкова сметка:
 
-    IBAN: BG00 XXXX 0000 0000 0000 00
-    BIC: XXXXBGSF
-    Титуляр: СъстезателБГ ЕООД
+    IBAN: ${IBAN}
+    BIC: ${BIC}
+    Титуляр: ${ACCOUNT_NAME}
     Цена: ${(amount*1.95583).toFixed(2)}лв
 
     Молим ви в основание на превода да напишете ваш имейл или телефон , с който сте направили поръчката в нашият сайт!

@@ -15,6 +15,7 @@ import {
 import styles from "./BankModal.module.css";
 import { useBankStore } from "@/stores/Platform/useBankStore";
 import { EUR_TO_BGN } from "@/constants/common";
+import { ACCOUNT_NAME , BIC , IBAN } from "@/constants/bank_details";
 
 export default function BankModal({ price, platform_key, platform_name }) {
   const isOpen = useBankStore((s) => s.isOpen);
@@ -233,15 +234,15 @@ export default function BankModal({ price, platform_key, platform_name }) {
               <div className={styles.bankInfo}>
                 <div className={styles.bankInfoRow}>
                   <span className={styles.bankLabel}>IBAN:</span>
-                  <span className={styles.bankValue}>BG00 XXXX 0000 0000 0000 00</span>
+                  <span className={styles.bankValue}>{IBAN}</span>
                 </div>
                 <div className={styles.bankInfoRow}>
                   <span className={styles.bankLabel}>BIC:</span>
-                  <span className={styles.bankValue}>XXXXBGSF</span>
+                  <span className={styles.bankValue}>{BIC}</span>
                 </div>
                 <div className={styles.bankInfoRow}>
                   <span className={styles.bankLabel}>Титуляр:</span>
-                  <span className={styles.bankValue}>Сикадеми ЕООД</span>
+                  <span className={styles.bankValue}>{ACCOUNT_NAME}</span>
                 </div>
               </div>
               <div className={styles.bankWarning}>
