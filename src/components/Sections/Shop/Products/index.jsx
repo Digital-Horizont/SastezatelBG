@@ -5,6 +5,7 @@ import { Package } from "lucide-react"
 import { booksData } from "@/data/books"
 import { merchData } from "@/data/merch"
 import styles from "./Products.module.css"
+import { EUR_TO_BGN } from "@/constants/common"
 
 export default function Products() {
   const router = useRouter()
@@ -37,7 +38,7 @@ export default function Products() {
               const name = currentType === "books" ? product.book_name : product.merch_name
               const price = currentType === "books" ? product.book_price_in_euro : product.merch_price_in_euro
 
-              const priceInBGN = price * 1.95583
+              const priceInBGN = price * EUR_TO_BGN
               const priceInEUR = price
 
               return (

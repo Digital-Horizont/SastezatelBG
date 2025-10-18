@@ -2,11 +2,12 @@
 
 import { useShopStore } from "@/stores/Shop/useShopStore";
 import styles from "./ProductInfo.module.css";
+import { EUR_TO_BGN } from "@/constants/common";
 
 export default function ProductInfo({ title, description, price }) {
   const { quantity, setQuantity, incrementQuantity, decrementQuantity } = useShopStore();
 
-  const priceInLeva = price * 1.95583;
+  const priceInLeva = price * EUR_TO_BGN;
 
   const qtyNumber = Number.parseInt(quantity, 10);
   const safeQty = Number.isFinite(qtyNumber) && qtyNumber >= 1 ? qtyNumber : 0;

@@ -14,8 +14,7 @@ import {
 } from "lucide-react";
 import styles from "./BankModal.module.css";
 import { useBankStore } from "@/stores/Platform/useBankStore";
-
-const EUR_TO_BGN = 1.95583;
+import { EUR_TO_BGN } from "@/constants/common";
 
 export default function BankModal({ price, platform_key, platform_name }) {
   const isOpen = useBankStore((s) => s.isOpen);
