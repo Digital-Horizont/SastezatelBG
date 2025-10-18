@@ -1,4 +1,18 @@
-.grid{
+.grid {
   display: grid;
   grid-template-columns: auto 1fr;
+}
+
+/* Removed mobile dropdown container styles - now handled in SideBar component */
+
+/* Making layout responsive on screens below 992px */
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .themeContent {
+    width: 100%;
+  }
 }
