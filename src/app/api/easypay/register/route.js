@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { registerEasyPayBill } from "@/lib/easypay-register";
 import { getPrice } from "@/lib/get-price";
 import { sendEmail } from "@/lib/emailer";
+import { getEasyPayCustomerEmailText , getEasyPayAdminEmailText } from "@/lib/get-email-text";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -48,43 +49,20 @@ export async function POST(req) {
       );
     }
 
-    const text = 
-    `
-      Вашата поръчка от Състезател.БГ: ${product_name}
-
-      Име на продукт: ${product_name}
-      ${payment_type !== 'merch' && payment_type !== 'book' ? 'Брой месеци' : 'Количество продукти'}: ${quantity}
-      Код за EasyPay: ${result.idn}
-      Валиден до: ${result.expTime}
-      Дължима сума: ${(result.amount*1.95583).toFixed(2)}лв
-
-      Моля, не го споделяйте с никого!
-    `
-
+    const customer_text = getEasyPayCustomerEmailText(product_name , payment_type , result , email , phone , description , quantity); 
     await sendEmail({
       to: email,
-      subject: "Вашата поръчка от Състезател.БГ",
-      text,
+      subject: `Вашата поръчка от Състезател.БГ: ${product_name}` ,
+      text: customer_text,
     });
 
 
-    const text_admin = 
-    `
-      Поръчка с фактура Номер: ${result.invoice}
-      Продукт: ${product_name}
-      ${payment_type !== 'merch' && payment_type !== 'book' ? 'Брой месеци' : 'Количество продукти'}: ${quantity}
-      Обща Цена: ${(result.amount*1.95583).toFixed(2)}лв
-      Email: ${email}
-      Телефон: ${phone || "невъведен"}
-      Описание: ${description || "невъведен"}
-      Начин на плащане: EasyPay
-      Е заявена за плащане от клиент.
-    `
+    const admin_text = getEasyPayAdminEmailText(product_name , payment_type , result , email , phone , description , quantity); 
 
     await sendEmail({
       to: process.env.EMAIL_USER,
       subject: "Заявена поръчка от Състезател.БГ",
-      text: text_admin,
+      text: admin_text,
     });
 
     return NextResponse.json(result, { status: 200 });

@@ -5,6 +5,7 @@ import axios from "axios"
 import { X, Loader2, CheckCircle2, XCircle } from "lucide-react"
 import { useShopStore } from "@/stores/Shop/useShopStore"
 import styles from "./PaymentPopup.module.css"
+import { ACCOUNT_NAME , BIC , IBAN } from "@/constants/bank_details";
 
 export default function PaymentPopup() {
   const {
@@ -219,15 +220,15 @@ export default function PaymentPopup() {
               <div className={styles.bankInfo}>
                 <div className={styles.bankInfoRow}>
                   <span className={styles.bankLabel}>IBAN:</span>
-                  <span className={styles.bankValue}>BG00 XXXX 0000 0000 0000 00</span>
+                  <span className={styles.bankValue}>{IBAN}</span>
                 </div>
                 <div className={styles.bankInfoRow}>
                   <span className={styles.bankLabel}>BIC:</span>
-                  <span className={styles.bankValue}>XXXXBGSF</span>
+                  <span className={styles.bankValue}>{BIC}</span>
                 </div>
                 <div className={styles.bankInfoRow}>
                   <span className={styles.bankLabel}>Титуляр:</span>
-                  <span className={styles.bankValue}>Сикадеми ЕООД</span>
+                  <span className={styles.bankValue}>{ACCOUNT_NAME}</span>
                 </div>
               </div>
               <div className={styles.bankWarning}>

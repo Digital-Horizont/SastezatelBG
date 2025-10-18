@@ -6,9 +6,11 @@ import { useParams } from "next/navigation";
 import SideBar from "@/components/Sections/Platform/SideBar";
 import ThemeContent from "@/components/Sections/Platform/ThemeContent";
 import EasyPayModal from "@/components/Sections/Platform/EasyPayModal";
+import BankModal from "@/components/Sections/Platform/BankModal";
 import DecorativeWave from "@/components/Sections/Shared/DecorativeWave";
 
 import { useThemeStore } from "@/stores/Platform/useThemeStore";
+import { PLATFORM_5_7_PRICE } from "@/constants/platform";
 
 import styles from "./page.module.css";
 
@@ -30,9 +32,10 @@ export default function ThemePageClient({ themes, initialSelectedKey, platformLi
     <>
       <DecorativeWave />
       <div className={styles.grid}>
-        <SideBar className={styles.sideBar} platform_url="platform-5-7" />
-        <ThemeContent className={styles.themeContent} platform_title={"Платорма 5-7 кл"} platform_link={"https://sicademybg.skillplate.com/course/platforma-5-7kl"}/>
-        <EasyPayModal className={styles.easyPayModal} />
+        <SideBar platform_url="platform-5-7" />
+        <ThemeContent platform_title={"Платорма 5-7 кл"} platform_link={"https://sicademybg.skillplate.com/course/platforma-5-7kl"}/>
+        <EasyPayModal price={PLATFORM_5_7_PRICE} platform_key="platform-5-7" platform_name="Абонамент за платформа 5-7 клас"/>
+        <BankModal price={PLATFORM_5_7_PRICE} platform_key="platform-5-7" platform_name="Абонамент за платформа 5-7 клас"/>
       </div>
       <DecorativeWave rotated />
     </>

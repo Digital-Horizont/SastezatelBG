@@ -14,8 +14,7 @@ import {
 } from "lucide-react";
 import styles from "./EasyPayModal.module.css";
 import { useEasyPayStore } from "@/stores/Platform/useEasyPayStore";
-
-const EUR_TO_BGN = 1.95583;
+import { EUR_TO_BGN } from "@/constants/common";
 
 export default function EasyPayModal({ price, platform_key, platform_name }) {
   const isOpen = useEasyPayStore((s) => s.isOpen);
@@ -243,7 +242,6 @@ export default function EasyPayModal({ price, platform_key, platform_name }) {
                     onChange={(e) => setPhone(e.target.value)}
                     className={styles.input}
                     placeholder="+359 ..."
-                    pattern="^[0-9+\\s()-]{7,20}$"
                     autoComplete="tel"
                     inputMode="tel"
                   />
