@@ -5,14 +5,16 @@ import { Video, Play, Smartphone, BookOpen, Landmark, CreditCard } from "lucide-
 import styles from "./ThemeContent.module.css"
 import { useSelectedTheme } from "@/stores/Platform/useThemeStore"
 import { useEasyPayStore } from "@/stores/Platform/useEasyPayStore"
+import { useBankStore } from "@/stores/Platform/useBankStore"
 import { getYouTubeThumbnail , getYouTubeVideoId } from "@/utils/yt"
 
 export default function ThemeContent({ platform_title, platform_link }) {
   const selectedTheme = useSelectedTheme()
   const openEasyPay = useEasyPayStore((s) => s.open)
+  const openBank = useBankStore((s) => s.open)
+
   const [showVideo, setShowVideo] = useState(false)
 
-  const handleBankTransfer = () => {}
   const handleCardPayment = () => {
     window.open(platform_link, "_blank")
   }
@@ -80,7 +82,7 @@ export default function ThemeContent({ platform_title, platform_link }) {
             Абонамент с ИзиПей
           </button>
 
-          <button className={styles.primaryBtn} onClick={handleBankTransfer} aria-label="Плащане по банков път">
+          <button className={styles.primaryBtn} onClick={openBank} aria-label="Плащане по банков път">
             <Landmark className={styles.btnIcon} aria-hidden />
             Банков превод
           </button>
