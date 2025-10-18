@@ -5,14 +5,7 @@ import { Video, Play, Smartphone, BookOpen, Landmark, CreditCard } from "lucide-
 import styles from "./ThemeContent.module.css"
 import { useSelectedTheme } from "@/stores/Platform/useThemeStore"
 import { useEasyPayStore } from "@/stores/Platform/useEasyPayStore"
-
-const getYouTubeVideoId = (url) => {
-  const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/
-  const match = url?.match(regex)
-  return match ? match[1] : null
-}
-
-const getYouTubeThumbnail = (id) => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
+import { getYouTubeThumbnail , getYouTubeVideoId } from "@/utils/yt"
 
 export default function ThemeContent({ platform_title, platform_link }) {
   const selectedTheme = useSelectedTheme()
