@@ -1,260 +1,355 @@
 .wrap {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	gap: 14px;
-	z-index: 1;
-	padding: 16px 16px 16px 0;
-	background: var(--cream);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 1;
+  padding: 16px 16px 16px 0;
+  background: var(--cream);
 }
 
 .bubble {
-	position: absolute;
-	border-radius: 50%;
-	filter: blur(40px);
-	opacity: 0.2;
-	pointer-events: none;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .bubble1 {
-	top: -1rem;
-	left: -2rem;
-	width: 9rem;
-	height: 9rem;
-	background: var(--sky-blue);
+  top: -1rem;
+  left: -2rem;
+  width: 9rem;
+  height: 9rem;
+  background: var(--sky-blue);
 }
 
 .bubble2 {
-	bottom: -2rem;
-	right: -3rem;
-	width: 11rem;
-	height: 11rem;
-	background: var(--path-gold);
-	opacity: 0.15;
+  bottom: -2rem;
+  right: -3rem;
+  width: 11rem;
+  height: 11rem;
+  background: var(--path-gold);
+  opacity: 0.15;
 }
 
 .bubble3 {
-	top: 35%;
-	left: 55%;
-	width: 6rem;
-	height: 6rem;
-	background: var(--forest-mid);
-	opacity: 0.12;
+  top: 35%;
+  left: 55%;
+  width: 6rem;
+  height: 6rem;
+  background: var(--forest-mid);
+  opacity: 0.12;
 }
 
 .card {
-	background: var(--cream);
-	border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
-	border-radius: 1rem;
-	transition: transform 300ms ease, box-shadow 300ms ease;
-	will-change: transform, box-shadow;
-	backdrop-filter: saturate(1.05) blur(2px);
-	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  background: var(--cream);
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  border-radius: 1rem;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  will-change: transform, box-shadow;
+  backdrop-filter: saturate(1.05) blur(2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
 }
 
 .pad {
-	padding: 16px;
+  padding: 16px;
 }
 
 .title {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	color: var(--forest-dark);
-	font-weight: 900;
-	letter-spacing: 0.2px;
-	font-size: clamp(1.5rem, 2.5vw, 2rem);
-	margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest-dark);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin: 0;
 }
 
 .titleIconWrap {
-	display: inline-flex;
-	width: 38px;
-	height: 38px;
-	border-radius: 999px;
-	align-items: center;
-	justify-content: center;
-	background: linear-gradient(to bottom right, var(--sky-blue), var(--path-gold));
-	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, var(--sky-blue), var(--path-gold));
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .titleIcon {
-	width: 20px;
-	height: 20px;
-	color: white;
+  width: 20px;
+  height: 20px;
+  color: white;
 }
 
 .contentStack {
-	display: grid;
-	gap: 20px;
+  display: block;
+  gap: 20px;
+}
+
+.article::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .themeHeading {
-	color: var(--forest-dark);
-	font-weight: 900;
-	font-size: 1.25rem;
-	margin-bottom: 6px;
-	letter-spacing: 0.1px;
+  color: var(--forest-dark);
+  font-weight: 900;
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.1px;
 }
 
 .desc {
-	color: var(--forest-mid);
-	line-height: 1.7;
+  color: var(--forest-mid);
+  line-height: 1.7;
+  white-space: pre-line;
 }
 
 .videoTitle {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	color: var(--forest-dark);
-	font-weight: 800;
-	margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--forest-dark);
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
 .videoIcon {
-	width: 22px;
-	height: 22px;
-	color: #047857;
+  width: 22px;
+  height: 22px;
+  color: #047857;
+}
+
+.videoFloat {
+  float: right;
+  width: min(42vw, 520px);
+  margin: 32px 0 12px 16px;
 }
 
 .poster {
-	position: relative;
-	display: block;
-	cursor: pointer;
-	max-width: 900px;
-	width: 100%;
-	border-radius: 14px;
-	padding: 0;
-	border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
-	background: var(--cream);
-	overflow: hidden;
-	transition: transform 160ms ease, box-shadow 220ms ease, border-color 160ms ease;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 14px;
+  padding: 0;
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  background: var(--cream);
+  overflow: hidden;
+  transition: transform 160ms ease, box-shadow 220ms ease, border-color 160ms ease;
 }
 
 .poster:hover {
-	transform: translateY(-1px);
-	border-color: color-mix(in oklab, var(--path-gold) 38%, transparent);
-	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--path-gold) 38%, transparent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .posterImg {
-	width: 100%;
-	display: block;
-	aspect-ratio: 16/9;
-	object-fit: cover;
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .posterOverlay {
-	position: absolute;
-	inset: 0;
-	display: grid;
-	place-items: center;
-	background: color-mix(in oklab, black 18%, transparent);
-	transition: background 150ms ease;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: color-mix(in oklab, black 18%, transparent);
+  transition: background 150ms ease;
 }
 
 .poster:hover .posterOverlay {
-	background: color-mix(in oklab, black 28%, transparent);
+  background: color-mix(in oklab, black 28%, transparent);
 }
 
 .playCircle {
-	display: flex;
-	background: linear-gradient(to bottom right, var(--sky-blue), var(--path-gold));
-	border-radius: 9999px;
-	padding: 14px;
-	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  display: flex;
+  background: linear-gradient(to bottom right, var(--sky-blue), var(--path-gold));
+  border-radius: 9999px;
+  padding: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .playIcon {
-	width: 30px;
-	height: 30px;
-	color: #fff;
+  width: 30px;
+  height: 30px;
+  color: #fff;
 }
 
 .iframeWrap {
-	position: relative;
-	aspect-ratio: 16/9;
-	max-width: 900px;
-	border-radius: 14px;
-	overflow: hidden;
-	border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
-	background: var(--cream);
-	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 900px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  background: var(--cream);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .iframe {
-	position: absolute;
-	inset: 0;
-	width: 100%;
-	height: 100%;
-	border: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .ctaRow {
-	display: flex;
-	justify-content: center;
-	margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .primaryBtn {
-	display: inline-flex;
-	align-items: center;
-	gap: 8px;
-	font-weight: 800;
-	color: var(--forest-dark);
-	padding: 12px 18px;
-	border-radius: 12px;
-	border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
-	background: color-mix(in oklab, var(--cream) 92%, white);
-	box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-	cursor: pointer;
-	transition:
-		box-shadow 220ms ease,
-		transform 160ms ease,
-		background 160ms ease,
-		border-color 160ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 800;
+  color: var(--forest-dark);
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);
+  background: color-mix(in oklab, var(--cream) 92%, white);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: box-shadow 220ms ease, transform 160ms ease, background 160ms ease, border-color 160ms ease;
+  width: 250px;
 }
 
 .primaryBtn:hover {
-	border-color: color-mix(in oklab, var(--path-gold) 35%, transparent);
-	background: color-mix(in oklab, var(--cream) 90%, white);
-	box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
-	transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--path-gold) 35%, transparent);
+  background: color-mix(in oklab, var(--cream) 90%, white);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
 }
 
 .primaryBtn:active {
-	transform: scale(0.992);
+  transform: scale(0.992);
 }
 
 .btnIcon {
-	width: 18px;
-	height: 18px;
-	color: #047857;
+  width: 18px;
+  height: 18px;
+  color: #047857;
 }
 
 .empty {
-	text-align: center;
-	color: var(--forest-mid);
-	padding: 40px 0;
+  text-align: center;
+  color: var(--forest-mid);
+  padding: 40px 0;
 }
 
 .emptyIcon {
-	width: 48px;
-	height: 48px;
-	margin: 0 auto 10px;
-	color: #047857;
-	opacity: 0.5;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 10px;
+  color: #047857;
+  opacity: 0.5;
 }
 
-@media (max-width: 960px) {
-
-	.poster,
-	.iframeWrap {
-		max-width: 100%;
+@media (max-width: 992px) {
+	.wrap{
+		padding: 16px;
 	}
 }
 
-.desc {
-  white-space: pre-line;
-  line-height: 1.7;
+/* Enhanced mobile responsive styles */
+@media (max-width: 768px) {
+  .wrap {
+    padding: 12px;
+  }
+
+  .card {
+    border-radius: 0.75rem;
+  }
+
+  .pad {
+    padding: 12px;
+  }
+
+  .title {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    gap: 8px;
+  }
+
+  .titleIconWrap {
+    width: 32px;
+    height: 32px;
+  }
+
+  .titleIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ctaRow {
+    gap: 8px;
+  }
+
+  .primaryBtn {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .btnIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .videoFloat {
+    float: none;
+    width: 100%;
+    margin: 0 0 12px 0;
+  }
+
+  .themeHeading {
+    font-size: 1.1rem;
+  }
+
+  .poster,
+  .iframeWrap {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .pad {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .primaryBtn {
+    padding: 9px 12px;
+    font-size: 0.85rem;
+  }
+
+  .themeHeading {
+    font-size: 1rem;
+  }
+
+  .desc {
+    font-size: 0.9rem;
+  }
 }
