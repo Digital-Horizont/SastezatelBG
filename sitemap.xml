@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ********* -->
+  <!-- HOME PAGE -->
+  <!-- ********* -->
+  <url>
+    <loc>https://sastezatel.bg/</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- ***************** -->
+  <!-- PLATFORM 3-4 PAGE -->
+  <!-- ***************** -->
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi1-8</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi9-11</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi12-20</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi21-23</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi24-30</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi31-37</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi38-40</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi41-43</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi44-45</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi46-53</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi54-56</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/Temi57-58</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- ***************** -->
+  <!-- PLATFORM 5-7 PAGE -->
+  <!-- ***************** -->
+  <url>
+    <loc>https://sastezatel.bg/platform-5-7/fractions</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- ********* -->
+  <!-- SHOP PAGE -->
+  <!-- ********* -->
+  <url>
+    <loc>https://sastezatel.bg/shop</loc>
+    <lastmod>2025-10-18T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+</urlset>
