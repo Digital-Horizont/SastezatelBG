@@ -40,7 +40,7 @@ export default function Platform3to4Section() {
             <div className={styles.mediaGlow} />
             <div className={styles.card}>
               <img
-                src="/children-learning-on-tablets-and-computers-in-colo.png"
+                src="/assets/reklama_3_4_klas.png"
                 alt="Платформа за ученици 3-4 клас"
                 className={styles.cardImg}
               />
