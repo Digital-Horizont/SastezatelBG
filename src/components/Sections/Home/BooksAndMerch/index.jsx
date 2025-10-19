@@ -40,7 +40,7 @@ export default function BooksAndMerchSection() {
             </div>
             <div className={styles.cardBody}>
               <h3 className={styles.cardTitle}>Книги</h3>
-              <p className={styles.cardText}>Образователни книги за всички възрасти</p>
+              <p className={styles.cardText}>Сборници за подготовка за 3-4 клас</p>
             </div>
             <div className={`${styles.overlay} ${styles.overlayEmerald}`}>
               <FaEye className={styles.icon} />

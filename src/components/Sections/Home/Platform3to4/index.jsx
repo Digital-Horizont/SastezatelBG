@@ -28,7 +28,7 @@ export default function Platform3to4Section() {
               </p>
             </div>
 
-            <Link href="/platform-5-7/info-5-8">
+            <Link href="/platform-3-4/info-3-4">
               <button className={styles.cta}>
                   <span className={styles.ctaInner}>
                     Вижте повече

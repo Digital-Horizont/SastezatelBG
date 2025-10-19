@@ -1,8 +1,8 @@
 import 'server-only';
 
 const books_prices={
-    "book1": 12,
-    "book2": 12,
+    "sasetzatel-bg-chast-1": 12,
+    "sasetzatel-bg-chast-2": 12,
 }
 
 const merch_prices={

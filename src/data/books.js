@@ -1,7 +1,7 @@
 export const booksData = [
   {
     id: 1,
-    key: "book1",
+    key: "sasetzatel-bg-chast-1",
     book_img: "/assets/kniga_1_chast_1.png",
     book_name: "Състезател.БГ - Част 1, Състезателни задачи за 3-4 клас",
     book_active: true,
@@ -15,10 +15,10 @@ export const booksData = [
   },
   {
     id: 2,
-    key: "book2",
+    key: "sasetzatel-bg-chast-2",
     book_img: "/assets/kniga_1_chast_2.png",
     book_name: "Състезател.БГ - Част 2, Състезателни задачи за 3-4 клас",
-    book_active: true,
+    book_active: false,
     book_description:
       "Това е втората част на поредицата Състезател.БГ за 3-4 клас. Тя съдържа следващите 28 теми, които могат да се видят в секцията 'Платформа 3-4 клас', както и следващите 3 основни теми. Ако желаете да закупите по-голямо количество или да станете наш партньор, пишете на sales@sastezatel.bg.",
     book_price_in_euro: 12,

@@ -20,8 +20,16 @@ export default function Filter() {
           <span className={styles.titleIconWrap}>
             <ShoppingBag className={styles.titleIcon} />
           </span>
-          <span>Магазин</span>
+          <span>Книжарница</span>
         </h1>
+
+        <p className={styles.subtitle}>
+          Искате и вашите сборници да бъдат достъпни на нашият сайт?{" "}
+          <a href="mailto:sales@sastezatel.bg" className={styles.emailLink}>
+            Свържете се с нас
+          </a>
+          .
+        </p>
 
         <div className={styles.filterButtons}>
           <button

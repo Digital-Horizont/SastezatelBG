@@ -17,7 +17,7 @@ export default function Products() {
 
   const handleProductClick = (product) => {
     const key = currentType === "books" ? product.key : product.key
-    const segment = currentType === "books" ? "book" : "merch"
+    const segment = currentType === "books" ? "books" : "merch"
     router.push(`/shop/${segment}/${key}`)
   }
 

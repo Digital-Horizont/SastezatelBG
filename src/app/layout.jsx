@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Layout/Navbar";
 import Footer from "@/components/Layout/Footer";
+import ScrollToTop from "@/components/Layout/ScrollToTop";
 
 export const metadata = {
   metadataBase: new URL("https://sastezatel.bg"),
@@ -21,15 +22,18 @@ export const metadata = {
   manifest: "/site.webmanifest",
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="bg">
       <body>
+        <ScrollToTop />
+
         <header>
           <Navbar />
         </header>
+
         <main>{children}</main>
+
         <footer>
           <Footer />
         </footer>
