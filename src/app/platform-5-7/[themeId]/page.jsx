@@ -4,6 +4,7 @@ import ThemePageClient from "./page.client";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
+  console.log(themes_5_7[0])
   return themes_5_7.map((t) => ({ themeId: t.key }));
 }
 
