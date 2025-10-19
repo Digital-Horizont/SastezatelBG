@@ -1,7 +1,8 @@
 import 'server-only';
 
 const books_prices={
-    "book1": 19.99,
+    "book1": 12,
+    "book2": 12,
 }
 
 const merch_prices={

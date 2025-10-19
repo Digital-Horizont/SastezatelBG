@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Platform5to7Section.module.css";
+import Link from "next/link";
 import { FaArrowRight, FaLaptopCode } from "react-icons/fa";
 
 export default function Platform5to7Section() {
@@ -40,12 +41,14 @@ export default function Platform5to7Section() {
               </p>
             </div>
 
-            <button className={styles.cta}>
-              <span className={styles.ctaInner}>
-                Вижте повече
-                <FaArrowRight className={styles.ctaIcon} />
-              </span>
-            </button>
+            <Link href="/platform-5-7/info-5-8">
+              <button className={styles.cta}>
+                <span className={styles.ctaInner}>
+                  Вижте повече
+                  <FaArrowRight className={styles.ctaIcon} />
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

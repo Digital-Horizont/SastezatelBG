@@ -51,7 +51,6 @@
 
 .imageWrap {
   width: 100%;
-  aspect-ratio: 1;
   overflow: hidden;
   background: color-mix(in oklab, var(--cream) 85%, white);
   display: flex;

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { FaEye, FaArrowRight } from "react-icons/fa";
 
 import styles from "./BooksAndMerchSection.module.css";
@@ -66,12 +67,12 @@ export default function BooksAndMerchSection() {
         </div>
 
         {/* Button */}
-        <button className={styles.ctaBtn} type="button">
+        <Link href="/shop" className={styles.ctaBtn}>
           <span className={styles.ctaContent}>
             Вижте повече
             <FaArrowRight className={styles.ctaIcon} />
           </span>
-        </button>
+        </Link>
       </div>
     </section>
   );

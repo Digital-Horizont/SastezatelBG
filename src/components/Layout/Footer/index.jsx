@@ -1,4 +1,5 @@
 import styles from "./Footer.module.css";
+import Link from "next/link";
 import {
   LuUser,
   LuGraduationCap,
@@ -35,22 +36,22 @@ export default function Footer() {
             <h4 className={styles.columnTitle}>Платформи</h4>
             <ul className={styles.list}>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/platform-3-4/info-3-4" className={styles.link}>
                   <LuUser className={styles.icon} aria-hidden="true" />
                   <span>Платформа 3-4 клас</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/platform-5-7/info-5-8" className={styles.link}>
                   <LuGraduationCap className={styles.icon} aria-hidden="true" />
                   <span>Платформа 5-7 клас</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/shop" className={styles.link}>
                   <LuShoppingBag className={styles.icon} aria-hidden="true" />
                   <span>Книги и Мърч</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -59,22 +60,22 @@ export default function Footer() {
             <h4 className={styles.columnTitle}>Информация</h4>
             <ul className={styles.list}>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/privacy-policy" className={styles.link}>
                   <LuShieldCheck className={styles.icon} aria-hidden="true" />
                   <span>Политика за поверителност</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/terms-of-services" className={styles.link}>
                   <LuFileText className={styles.icon} aria-hidden="true" />
                   <span>Условия за ползване</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/cookies" className={styles.link}>
                   <LuCookie className={styles.icon} aria-hidden="true" />
                   <span>Бисквитки</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
