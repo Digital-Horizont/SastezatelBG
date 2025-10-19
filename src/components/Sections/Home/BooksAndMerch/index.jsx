@@ -14,11 +14,11 @@ export default function BooksAndMerchSection() {
         {/* Header */}
         <div className={styles.header}>
           <h2 className={styles.title}>
-            Книги и{" "}
-            <span className={styles.highlight}>
+            Книги{" "}
+            {/* <span className={styles.highlight}>
               мърч
               <span className={styles.highlightUnderline} />
-            </span>
+            </span> */}
           </h2>
           <p className={styles.subtitle}>
             Разгледайте нашата колекция от сборници със задачи, подходящи за подготовка за математически олимпиади и състезания.
@@ -27,11 +27,12 @@ export default function BooksAndMerchSection() {
 
         {/* Gallery */}
         <div className={styles.grid}>
+          <div></div>
           {/* Книги */}
           <div className={styles.card}>
             <div className={`${styles.media} ${styles.mediaBooks}`}>
               <img
-                src="/children-educational-books.png"
+                src="/assets/kniga_reklama.png"
                 alt="Образователни книги"
                 className={styles.mediaImg}
               />
@@ -44,9 +45,9 @@ export default function BooksAndMerchSection() {
               <FaEye className={styles.icon} />
             </div>
           </div>
-
+          <div></div>
           {/* Мърч */}
-          <div className={styles.card}>
+          {/* <div className={styles.card}>
             <div className={`${styles.media} ${styles.mediaMerch}`}>
               <img
                 src="/educational-merchandise-t-shirts-mugs-backpacks.png"
@@ -61,7 +62,7 @@ export default function BooksAndMerchSection() {
             <div className={`${styles.overlay} ${styles.overlayTeal}`}>
               <FaEye className={styles.icon} />
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Button */}

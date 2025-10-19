@@ -14,7 +14,7 @@ export default function Platform5to7Section() {
             <div className={styles.mediaGlow} />
             <div className={styles.card}>
               <img
-                src="/teenagers-studying-with-advanced-technology-and-la.png"
+                src="/assets/reklama_5_8_klas.png"
                 alt="Платформа за ученици 5-7 клас"
                 className={styles.cardImg}
               />

@@ -96,20 +96,7 @@
 .cardImg {
   display: block;
   width: 100%;
-  height: 16rem;
   object-fit: cover;
-}
-
-@media (min-width: 768px) {
-  .cardImg {
-    height: 20rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .cardImg {
-    height: 24rem;
-  }
 }
 
 .cardOverlay {
