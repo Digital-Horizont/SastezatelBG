@@ -32,7 +32,7 @@ export function generateMetadata({ params }) {
       ],
       siteName: "Състезател.БГ",
       locale: "bg_BG",
-      type: "product",
+      type: "website",
     },
     twitter: {
       card: "summary_large_image",
