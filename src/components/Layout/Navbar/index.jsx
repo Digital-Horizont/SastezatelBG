@@ -5,11 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 import { themes_3_4 } from "@/data/platform-3-4";
-import { themes_5_7 } from "@/data/platform-5-7";
+import { themes_5_8 } from "@/data/platform-5-8";
 
 export default function Navbar() {
   const first_3_4 = themes_3_4[0]?.key;
-  const first_5_7 = themes_5_7[0]?.key;
+  const first_5_8 = themes_5_8[0]?.key;
   
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -48,8 +48,8 @@ export default function Navbar() {
             <Link href={`/platform-3-4/${first_3_4}`} className={getLinkClasses("/platform-3-4")}>
               Платформа 3 - 4 клас
             </Link>
-            <Link href={`/platform-5-7/${first_5_7}`} className={getLinkClasses("/platform-5-7")}>
-              Платформа 5 - 7 клас
+            <Link href={`/platform-5-8/${first_5_8}`} className={getLinkClasses("/platform-5-8")}>
+              Платформа 5 - 8 клас
             </Link>
             <Link href="/shop" className={getLinkClasses("/shop")}>
               Книги
@@ -85,11 +85,11 @@ export default function Navbar() {
                 Платформа 3 - 5 клас
               </Link>
               <Link
-                href="/platform-5-7"
-                className={getLinkClasses("/platform-5-7", true)}
+                href="/platform-5-8"
+                className={getLinkClasses("/platform-5-8", true)}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Платформа 5 - 7 клас
+                Платформа 5 - 8 клас
               </Link>
               <Link
                 href="/shop"

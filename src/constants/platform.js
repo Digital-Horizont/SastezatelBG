@@ -1,2 +1,2 @@
-export const PLATFORM_3_4_PRICE = 20.99; //In EUR
-export const PLATFORM_5_7_PRICE = 21.99; //In EUR
+export const PLATFORM_3_4_PRICE = 17.8952158; //In EUR
+export const PLATFORM_5_8_PRICE = 20.4516752; //In EUR

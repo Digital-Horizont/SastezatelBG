@@ -1,16 +1,16 @@
-import { themes_5_7 } from "@/data/platform-5-7";
+import { themes_5_8 } from "@/data/platform-5-8";
 import ThemePageClient from "./page.client";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  console.log(themes_5_7[0])
-  return themes_5_7.map((t) => ({ themeId: t.key }));
+  console.log(themes_5_8[0])
+  return themes_5_8.map((t) => ({ themeId: t.key }));
 }
 
 export async function generateMetadata({ params }) {
   const { themeId } = await params;
-  const theme = themes_5_7.find((t) => t.key === themeId);
+  const theme = themes_5_8.find((t) => t.key === themeId);
 
   if (!theme) {
     return {
@@ -36,7 +36,7 @@ export default async function Page({ params }) {
 
   return (
     <ThemePageClient
-      themes={themes_5_7}
+      themes={themes_5_8}
       initialSelectedKey={themeId}
       platformLink="https://example.com/subscribe"
     />

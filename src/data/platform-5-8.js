@@ -1,4 +1,4 @@
-export const themes_5_7 = [
+export const themes_5_8 = [
   {
     "key": "info-5-8",
     "title": "Инфо платформa 5-8 кл",

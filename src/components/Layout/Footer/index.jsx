@@ -42,9 +42,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/platform-5-7/info-5-8" className={styles.link}>
+                <Link href="/platform-5-8/info-5-8" className={styles.link}>
                   <LuGraduationCap className={styles.icon} aria-hidden="true" />
-                  <span>Платформа 5-7 клас</span>
+                  <span>Платформа 5-8 клас</span>
                 </Link>
               </li>
               <li>
