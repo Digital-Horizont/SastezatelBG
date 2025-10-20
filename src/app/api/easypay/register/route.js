@@ -19,7 +19,8 @@ export async function POST(req) {
   }
 
   const amount = getPrice(payment_type, key , quantity);
-
+  console.log(quantity)
+  console.log(amount)
   if (amount == null) {
     return NextResponse.json(
       { error: "Невалиден продукт" },

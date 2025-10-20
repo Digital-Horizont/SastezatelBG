@@ -96,7 +96,7 @@ export default function Navbar() {
                 className={getLinkClasses("/shop", true)}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Книги и Мърч
+                Книги
               </Link>
             </div>
           </div>

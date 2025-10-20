@@ -50,7 +50,7 @@ export default function Footer() {
               <li>
                 <Link href="/shop" className={styles.link}>
                   <LuShoppingBag className={styles.icon} aria-hidden="true" />
-                  <span>Книги и Мърч</span>
+                  <span>Книги</span>
                 </Link>
               </li>
             </ul>
