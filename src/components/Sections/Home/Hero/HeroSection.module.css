@@ -7,6 +7,7 @@
 	background: var(--cream);
 }
 
+/* ===== Header ===== */
 .header {
 	max-width: 800px;
 	margin-bottom: 2rem;
@@ -41,6 +42,7 @@
 	transform: rotate(-2deg);
 }
 
+/* ===== Decorative bubbles ===== */
 .bubble {
 	position: absolute;
 	border-radius: 50%;
@@ -74,6 +76,7 @@
 	opacity: 0.12;
 }
 
+/* ===== Desktop grid ===== */
 .desktopGrid {
 	display: none;
 }
@@ -121,6 +124,7 @@
 	line-height: 1.6;
 }
 
+/* ===== Mobile Accordion ===== */
 .mobileList {
 	display: grid;
 	gap: 0.75rem;
@@ -138,7 +142,10 @@
 	cursor: pointer;
 	overflow: hidden;
 	transform: translateZ(0);
-	transition: box-shadow 240ms ease, transform 180ms ease, background 180ms ease;
+	transition:
+		box-shadow 240ms ease,
+		transform 180ms ease,
+		background 180ms ease;
 }
 
 .mobileCard:active {
@@ -156,6 +163,7 @@
 		0 0 0 6px color-mix(in oklab, var(--path-gold) 35%, transparent);
 }
 
+/* header inside accordion */
 .mobileHeader {
 	display: grid;
 	grid-template-columns: 56px 1fr 18px;
@@ -170,6 +178,7 @@
 	margin: 0;
 }
 
+/* Chevron icon */
 .chevron {
 	width: 10px;
 	height: 10px;
@@ -184,11 +193,17 @@
 	transform: rotate(45deg);
 }
 
+/* Accordion panel */
 .revealWrap {
-	height: 0;
+	max-height: 0;
 	overflow: hidden;
-	transition: height 320ms ease, opacity 220ms ease;
 	opacity: 0;
+	transition: max-height 320ms ease, opacity 220ms ease;
+}
+
+.revealOpen {
+	max-height: 400px; /* large enough for content */
+	opacity: 1;
 }
 
 .revealContent {
@@ -198,6 +213,7 @@
 	padding: 0.5rem 0.25rem 0.9rem 0.25rem;
 }
 
+/* Active accordion */
 .active {
 	box-shadow:
 		0 8px 28px color-mix(in oklab, var(--sky-blue) 25%, transparent),
@@ -210,13 +226,16 @@
 	opacity: 1;
 }
 
+/* ===== Ripple effect ===== */
 .ripple {
 	pointer-events: none;
 	position: absolute;
 	inset: 0;
-	background: radial-gradient(circle at var(--rx, 50%) var(--ry, 50%),
-			color-mix(in oklab, var(--path-gold) 30%, transparent),
-			transparent 40%);
+	background: radial-gradient(
+		circle at var(--rx, 50%) var(--ry, 50%),
+		color-mix(in oklab, var(--path-gold) 30%, transparent),
+		transparent 40%
+	);
 	opacity: 0;
 	animation: none;
 }
@@ -231,18 +250,17 @@
 		transform: scale(0.6);
 		opacity: 0.35;
 	}
-
 	80% {
 		transform: scale(1.4);
 		opacity: 0.12;
 	}
-
 	100% {
 		transform: scale(1.8);
 		opacity: 0;
 	}
 }
 
+/* ===== Responsive ===== */
 @media (min-width: 768px) {
 	.desktopGrid {
 		display: grid;
@@ -256,8 +274,8 @@
 	}
 }
 
+/* ===== Accessibility: reduce motion ===== */
 @media (prefers-reduced-motion: reduce) {
-
 	.mobileCard,
 	.revealWrap,
 	.chevron {
