@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { FaEye, FaArrowRight } from "react-icons/fa";
 
 import styles from "./BooksAndMerchSection.module.css";
@@ -39,7 +40,7 @@ export default function BooksAndMerchSection() {
             </div>
             <div className={styles.cardBody}>
               <h3 className={styles.cardTitle}>Книги</h3>
-              <p className={styles.cardText}>Образователни книги за всички възрасти</p>
+              <p className={styles.cardText}>Сборници за подготовка за 3-4 клас</p>
             </div>
             <div className={`${styles.overlay} ${styles.overlayEmerald}`}>
               <FaEye className={styles.icon} />
@@ -66,12 +67,12 @@ export default function BooksAndMerchSection() {
         </div>
 
         {/* Button */}
-        <button className={styles.ctaBtn} type="button">
+        <Link href="/shop" className={styles.ctaBtn}>
           <span className={styles.ctaContent}>
             Вижте повече
             <FaArrowRight className={styles.ctaIcon} />
           </span>
-        </button>
+        </Link>
       </div>
     </section>
   );

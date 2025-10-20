@@ -1,8 +1,9 @@
 import React from "react";
-import styles from "./Platform5to7Section.module.css";
+import styles from "./Platform5to8Section.module.css";
+import Link from "next/link";
 import { FaArrowRight, FaLaptopCode } from "react-icons/fa";
 
-export default function Platform5to7Section() {
+export default function Platform5to8Section() {
   return (
     <section className={styles.section}>
       <div className={styles.decoTopRight} />
@@ -15,7 +16,7 @@ export default function Platform5to7Section() {
             <div className={styles.card}>
               <img
                 src="/assets/reklama_5_8_klas.png"
-                alt="Платформа за ученици 5-7 клас"
+                alt="Платформа за ученици 5-8 клас"
                 className={styles.cardImg}
               />
               <div className={styles.cardOverlay} />
@@ -40,12 +41,14 @@ export default function Platform5to7Section() {
               </p>
             </div>
 
-            <button className={styles.cta}>
-              <span className={styles.ctaInner}>
-                Вижте повече
-                <FaArrowRight className={styles.ctaIcon} />
-              </span>
-            </button>
+            <Link href="/platform-5-8/info-5-8">
+              <button className={styles.cta}>
+                <span className={styles.ctaInner}>
+                  Вижте повече
+                  <FaArrowRight className={styles.ctaIcon} />
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

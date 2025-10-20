@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./Platform3to5Section.module.css";
+import styles from "./Platform3to4Section.module.css";
+import Link from "next/link";
 import { FaArrowRight, FaGraduationCap } from "react-icons/fa";
 
 export default function Platform3to4Section() {
@@ -27,12 +28,14 @@ export default function Platform3to4Section() {
               </p>
             </div>
 
-            <button className={styles.cta}>
-              <span className={styles.ctaInner}>
-                Вижте повече
-                <FaArrowRight className={styles.ctaIcon} />
-              </span>
-            </button>
+            <Link href="/platform-3-4/info-3-4">
+              <button className={styles.cta}>
+                  <span className={styles.ctaInner}>
+                    Вижте повече
+                    <FaArrowRight className={styles.ctaIcon} />
+                  </span>
+              </button>
+            </Link>
           </div>
 
           {/* Image */}
