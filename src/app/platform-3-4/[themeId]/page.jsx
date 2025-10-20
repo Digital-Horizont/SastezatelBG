@@ -13,20 +13,31 @@ export async function generateMetadata({ params }) {
 
   const baseUrl = "https://sastezatel.bg";
 
-  if (!theme) {
-    return {
-      title: "Платформа 3–4 кл",
-      description: "Образователни теми за 3–4 клас.",
-      keywords: [],
-      alternates: { canonical: `${baseUrl}/platform-3-4` },
-    };
-  }
-
   return {
-    title: theme.meta_title || theme.title,
-    description: theme.meta_description || theme.description,
+    title: theme.meta_title,
+    description: theme.meta_description,
     keywords: theme.meta_keywords || [],
-    alternates: { canonical: `${baseUrl}/platform-3-4/${themeId}` },
+    openGraph: {
+      title: theme.meta_title,
+      description: theme.meta_description,
+      url: `${baseUrl}/platform-3-4/${themeId}`,
+      type: "website",
+      images: [{
+        url: "https://www.sastezatel.bg/kniga_reklama.png",
+        width: 512,
+        height: 512,
+        alt: "Състезател.БГ – платформа и книги по състезателна математика",
+      }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: theme.meta_title,
+      description: theme.meta_description,
+      images: ["https://www.sastezatel.bg/kniga_reklama.png"],
+    },
+    alternates: { 
+      canonical: `${baseUrl}/platform-3-4/${themeId}` 
+    },
   };
 }
 
