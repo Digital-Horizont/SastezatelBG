@@ -82,14 +82,14 @@ export default function Navbar() {
                 Начало
               </Link>
               <Link
-                href="/platform-3-4"
+                href={`/platform-3-4/${first_3_4}`}
                 className={getLinkClasses("/platform-3-4", true)}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Платформа 3 - 5 клас
               </Link>
               <Link
-                href="/platform-5-8"
+                href={`/platform-5-8/${first_5_8}`}
                 className={getLinkClasses("/platform-5-8", true)}
                 onClick={() => setIsMenuOpen(false)}
               >
