@@ -44,10 +44,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export const viewport = {
-  themeColor: "#ffffff",
-};
-
 export default async function Page({ params }) {
   const { themeId } = await params;
 
