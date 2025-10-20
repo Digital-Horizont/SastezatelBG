@@ -7,10 +7,6 @@ import Script from "next/script";
 
 export const metadata = {
   metadataBase: new URL("https://sastezatel.bg"),
-  title: {
-    default: "Състезател БГ",
-    template: "%s | Състезател БГ",
-  },
   icons: {
     icon: [
       { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
@@ -22,6 +18,15 @@ export const metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   manifest: "/site.webmanifest",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
+  charset: "UTF-8",
 };
 
 export default function RootLayout({ children }) {
