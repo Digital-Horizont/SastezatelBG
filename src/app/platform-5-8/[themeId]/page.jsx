@@ -12,18 +12,33 @@ export async function generateMetadata({ params }) {
   const { themeId } = await params;
   const theme = themes_5_8.find((t) => t.key === themeId);
 
-  if (!theme) {
-    return {
-      title: "Платформа 5–7 кл",
-      description: "Образователни теми за 5–7 клас.",
-      keywords: [],
-    };
-  }
+  const baseUrl = "https://sastezatel.bg";
 
   return {
-    title: theme.meta_title || theme.title,
-    description: theme.meta_description || theme.description,
+    title: theme.meta_title,
+    description: theme.meta_description,
     keywords: theme.meta_keywords || [],
+    openGraph: {
+      title: theme.meta_title,
+      description: theme.meta_description,
+      url: `${baseUrl}/platform-5-8/${themeId}`,
+      type: "website",
+      images: [{
+        url: "https://www.sastezatel.bg/kniga_reklama.png",
+        width: 512,
+        height: 512,
+        alt: "Състезател.БГ – платформа и книги по състезателна математика",
+      }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: theme.meta_title,
+      description: theme.meta_description,
+      images: ["https://www.sastezatel.bg/kniga_reklama.png"],
+    },
+    alternates: { 
+      canonical: `${baseUrl}/platform-5-8/${themeId}` 
+    },
   };
 }
 
