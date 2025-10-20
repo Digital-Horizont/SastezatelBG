@@ -1,4 +1,3 @@
-import DecorativeWave from "@/components/Sections/Shared/DecorativeWave";
 import styles from "./page.module.css";
 
 export const metadata = {
@@ -9,8 +8,6 @@ export const metadata = {
 
 export default function TermsOfServicesPage() {
   return (
-    <>
-    <DecorativeWave/>
     <main className={styles.main}>
       <h1 className={styles.heading1}>Общи условия за ползване</h1>
       <p>
@@ -89,7 +86,5 @@ export default function TermsOfServicesPage() {
         </a>
       </p>
     </main>
-    <DecorativeWave rotated={true}/>
-  </>
   );
 }

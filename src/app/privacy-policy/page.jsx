@@ -1,5 +1,4 @@
 import Head from "next/head";
-import DecorativeWave from "@/components/Sections/Shared/DecorativeWave";
 import styles from "./page.module.css";
 
 export const metadata = {
@@ -11,15 +10,6 @@ export const metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <DecorativeWave />
-      <Head>
-        <title>Политика за поверителност</title>
-        <meta
-          name="description"
-          content="Научете как събираме, използваме и съхраняваме Вашите лични данни съгласно GDPR."
-        />
-      </Head>
-
       <main className={styles.main}>
         <h1 className={styles.heading1}>Политика за поверителност</h1>
         <p>
@@ -109,7 +99,6 @@ export default function PrivacyPolicyPage() {
           </a>
         </p>
       </main>
-      <DecorativeWave rotated={true}/>
     </>
   );
 }
