@@ -22,13 +22,15 @@ export async function generateMetadata({ params }) {
       title: theme.meta_title,
       description: theme.meta_description,
       url: `${baseUrl}/platform-5-8/${themeId}`,
-      type: "website",
       images: [{
         url: "https://www.sastezatel.bg/kniga_reklama.png",
         width: 512,
         height: 512,
         alt: "Състезател.БГ – платформа и книги по състезателна математика",
       }],
+      locale: "bg_BG",
+      type: "website",
+      siteName: "Състезател.БГ",
     },
     twitter: {
       card: "summary_large_image",

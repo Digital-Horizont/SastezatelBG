@@ -15,7 +15,6 @@ export const metadata = {
     description:
       "Видео уроци, задачи и книги за подготовка по състезателна математика за ученици от 3-8 клас. Учи и постигай успехи със Състезател.БГ!",
     url: "https://www.sastezatel.bg/",
-    type: "website",
     images: [
       {
         url: "https://www.sastezatel.bg/kniga_reklama.png",
@@ -24,6 +23,9 @@ export const metadata = {
         alt: "Състезател.БГ – платформа и книги по състезателна математика",
       },
     ],
+    locale: "bg_BG",
+    type: "website",
+    siteName: "Състезател.БГ",
   },
   twitter: {
     card: "summary_large_image",
