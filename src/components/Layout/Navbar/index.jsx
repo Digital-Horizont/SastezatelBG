@@ -10,7 +10,7 @@ import { themes_5_8 } from "@/data/platform-5-8";
 export default function Navbar() {
   const first_3_4 = themes_3_4[0]?.key;
   const first_5_8 = themes_5_8[0]?.key;
-  
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -33,12 +33,16 @@ export default function Navbar() {
     <nav className={styles.nav}>
       <div className={styles.wrap}>
         <div className={styles.row}>
-          <div className={styles.brandWrap}>
+          <Link href="/" className={styles.brandWrap}>
             <div className={styles.brandMark}>
-              <span className={styles.brandLetter}>С</span>
+              <img
+                src="/favicon-192x192.png"
+                alt="СъстезателБГ Logo"
+                className={styles.brandLogo}
+              />
             </div>
             <span className={styles.brandName}>СъстезателБГ</span>
-          </div>
+          </Link>
 
           {/* Desktop navigation */}
           <div className={styles.desktopNav}>
