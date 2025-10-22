@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Platform3to4Section.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import { FaArrowRight, FaGraduationCap } from "react-icons/fa";
 
 export default function Platform3to4Section() {
@@ -24,16 +25,16 @@ export default function Platform3to4Section() {
 
             <div className={styles.paragraphs}>
               <p className={styles.lead}>
-               Нашата платформа за 3 и 4 клас съдържа всичкия необходим материал, който се изучава в извънкласната подготовка за тези класове. Всички задачи са синтезирани по методи и трудност, като са събирани от всички по-известни състезания за 3 и 4 клас. Платформата е с платен абонамент, който дава достъп до видео съдържание, както и до онлайн общност.
+                Нашата платформа за 3 и 4 клас съдържа всичкия необходим материал, който се изучава в извънкласната подготовка за тези класове. Всички задачи са синтезирани по методи и трудност, като са събирани от всички по-известни състезания за 3 и 4 клас. Платформата е с платен абонамент, който дава достъп до видео съдържание, както и до онлайн общност.
               </p>
             </div>
 
             <Link href="/platform-3-4/info-3-4">
               <button className={styles.cta}>
-                  <span className={styles.ctaInner}>
-                    Вижте повече
-                    <FaArrowRight className={styles.ctaIcon} />
-                  </span>
+                <span className={styles.ctaInner}>
+                  Вижте повече
+                  <FaArrowRight className={styles.ctaIcon} />
+                </span>
               </button>
             </Link>
           </div>
@@ -42,10 +43,14 @@ export default function Platform3to4Section() {
           <div className={styles.mediaGroup}>
             <div className={styles.mediaGlow} />
             <div className={styles.card}>
-              <img
+              <Image
                 src="/assets/reklama_3_4_klas.png"
                 alt="Платформа за ученици 3-4 клас"
                 className={styles.cardImg}
+                fill
+                placeholder="blur"
+                blurDataURL="/assets/reklama_3_4_klas.png"
+                priority={false}
               />
               <div className={styles.cardOverlay} />
               <div className={styles.badge}>

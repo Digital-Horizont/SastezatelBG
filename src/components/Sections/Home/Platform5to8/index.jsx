@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Platform5to8Section.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import { FaArrowRight, FaLaptopCode } from "react-icons/fa";
 
 export default function Platform5to8Section() {
@@ -14,10 +15,14 @@ export default function Platform5to8Section() {
           <div className={styles.mediaGroup}>
             <div className={styles.mediaGlow} />
             <div className={styles.card}>
-              <img
+              <Image
                 src="/assets/reklama_5_8_klas.png"
                 alt="Платформа за ученици 5-8 клас"
                 className={styles.cardImg}
+                fill
+                placeholder="blur"
+                blurDataURL="/assets/reklama_5_8_klas.png"
+                priority={false}
               />
               <div className={styles.cardOverlay} />
               <div className={styles.badge}>
