@@ -4,4 +4,5 @@ export const getYouTubeVideoId = (url) => {
   return match ? match[1] : null
 }
 
+
 export const getYouTubeThumbnail = (id) => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`

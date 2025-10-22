@@ -137,7 +137,21 @@
   color: var(--forest-mid);
   line-height: 1.7;
   white-space: pre-line;
+  text-align: justify;
 }
+
+.desc a {
+  color: var(--path-gold);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.desc a:hover {
+  color: var(--sky-blue);
+  text-decoration: none;
+}
+
 
 .videoTitle {
   display: flex;

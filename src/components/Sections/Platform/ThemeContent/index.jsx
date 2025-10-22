@@ -138,7 +138,15 @@ export default function ThemeContent({ platform_title, platform_link }) {
 
             <div>
               <h2 className={styles.themeHeading}>{selectedTheme.title}</h2>
-              <p className={styles.desc}>{selectedTheme.description}</p>
+              <p
+                className={styles.desc}
+                dangerouslySetInnerHTML={{
+                  __html: selectedTheme.description.replace(
+                    /\(([^)]+)\)<((?:https?:\/\/|mailto:)[^>]+)>/g,
+                    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+                  ),
+                }}
+              ></p>
             </div>
           </div>
         </div>

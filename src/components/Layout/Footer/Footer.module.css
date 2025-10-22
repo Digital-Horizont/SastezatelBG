@@ -184,6 +184,21 @@
 	rotate: 12deg;
 }
 
+.yt:hover {
+  background: #ff0000;
+  rotate: -8deg;
+}
+
+.x:hover {
+  background: #000000;
+  rotate: 8deg;
+}
+
+.in:hover {
+  background: #0a66c2;
+  rotate: -6deg;
+}
+
 .copyWrap {
 	text-align: center;
 }
