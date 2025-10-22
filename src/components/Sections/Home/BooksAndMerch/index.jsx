@@ -1,6 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import { FaEye, FaArrowRight } from "react-icons/fa";
+
+import Link from "next/link";
+import Image from "next/image";
 
 import styles from "./BooksAndMerchSection.module.css";
 
@@ -32,10 +34,13 @@ export default function BooksAndMerchSection() {
           {/* Книги */}
           <div className={styles.card}>
             <div className={`${styles.media} ${styles.mediaBooks}`}>
-              <img
+              <Image
                 src="/assets/kniga_reklama.png"
                 alt="Образователни книги"
-                className={styles.mediaImg}
+                fill
+                placeholder="blur"
+                blurDataURL="/assets/kniga_reklama.png"
+                priority={false}
               />
             </div>
             <div className={styles.cardBody}>

@@ -180,6 +180,7 @@
   cursor: pointer;
   max-width: 900px;
   width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: 14px;
   padding: 0;
   border: 1px solid color-mix(in oklab, var(--sky-blue) 30%, transparent);

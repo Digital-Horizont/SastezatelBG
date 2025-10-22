@@ -16,6 +16,12 @@ const fs = require("fs").promises;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'img.youtube.com', pathname: '/vi/**' },
+      { protocol: 'https', hostname: 'i.ytimg.com',   pathname: '/vi/**' },
+    ],
+  },
 };
 
 class MinifyHtmlPlugin {
@@ -85,17 +91,17 @@ nextConfig.webpack = (config, { dev, isServer }) => {
 const obfuscatorPlugin = withNextJsObfuscator(
   {
     compact: true,
-    controlFlowFlattening: true,
-    controlFlowFlatteningThreshold: 0.9,
-    deadCodeInjection: true,
-    deadCodeInjectionThreshold: 0.4,
+    controlFlowFlattening: false,
+    controlFlowFlatteningThreshold: 0.0,
+    deadCodeInjection: false,
+    deadCodeInjectionThreshold: 0.0,
     disableConsoleOutput: true,
     stringArray: true,
-    stringArrayEncoding: ["rc4"],
-    stringArrayThreshold: 0.9,
-    rotateStringArray: true,
-    unicodeEscapeSequence: true,
-    numbersToExpressions: true,
+    stringArrayEncoding: [],
+    stringArrayThreshold: 0.3,
+    rotateStringArray: false,
+    unicodeEscapeSequence: false,
+    numbersToExpressions: false,
     simplify: true,
     debugProtection: false,
   },

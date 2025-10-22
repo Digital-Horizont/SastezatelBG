@@ -43,6 +43,7 @@
 }
 
 .brandMark {
+	position: relative;
 	width: 2.5rem;
 	height: 2.5rem;
 	background-image: linear-gradient(to bottom right, var(--sky-blue), var(--path-gold));
@@ -51,13 +52,6 @@
 	align-items: center;
 	justify-content: center;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.brandLogo {
-	width: 2rem;
-	height: 2rem;
-	border-radius: 0.375rem;
-	object-fit: cover;
 }
 
 .brandName {

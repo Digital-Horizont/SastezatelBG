@@ -7,6 +7,8 @@ import { merchData } from "@/data/merch"
 import styles from "./Products.module.css"
 import { EUR_TO_BGN } from "@/constants/common"
 
+import Image from "next/image"
+
 export default function Products() {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -44,7 +46,14 @@ export default function Products() {
               return (
                 <button key={product.id} onClick={() => handleProductClick(product)} className={styles.productCard}>
                   <div className={styles.imageWrap}>
-                    <img src={img || "/placeholder.svg"} alt={name} className={styles.productImage} />
+                    <Image
+                      src={img}
+                      alt={name} 
+                      fill
+                      placeholder="blur"
+                      blurDataURL={img}
+                      priority
+                    />
                   </div>
                   <div className={styles.productInfo}>
                     <h3 className={styles.productName}>{name}</h3>

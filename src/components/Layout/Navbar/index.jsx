@@ -1,11 +1,15 @@
 "use client";
 
 import { useState } from "react";
+
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "./Navbar.module.css";
+
 import { themes_3_4 } from "@/data/platform-3-4";
 import { themes_5_8 } from "@/data/platform-5-8";
+
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const first_3_4 = themes_3_4[0]?.key;
@@ -35,10 +39,14 @@ export default function Navbar() {
         <div className={styles.row}>
           <Link href="/" className={styles.brandWrap}>
             <div className={styles.brandMark}>
-              <img
+              <Image
                 src="/favicon-192x192.png"
-                alt="СъстезателБГ Logo"
-                className={styles.brandLogo}
+                alt="Състезател.БГ Logo"
+                width="40"
+                height="40"
+                placeholder="blur"
+                blurDataURL="/favicon-192x192.png"
+                priority
               />
             </div>
             <span className={styles.brandName}>СъстезателБГ</span>

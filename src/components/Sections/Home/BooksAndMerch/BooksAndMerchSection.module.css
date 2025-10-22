@@ -132,13 +132,6 @@
   background: linear-gradient(135deg, var(--sky-blue), var(--path-gold));
 }
 
-.mediaImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
 .card:hover .mediaImg {
   transform: scale(1.10);
 }

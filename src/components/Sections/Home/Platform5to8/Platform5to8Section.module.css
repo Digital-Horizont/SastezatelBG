@@ -87,6 +87,7 @@
   border: 4px solid color-mix(in oklab, var(--cream) 20%, transparent);
   transform: translateZ(0);
   transition: transform 500ms ease;
+  aspect-ratio: 1220 / 786;
 }
 
 .mediaGroup:hover .card {
