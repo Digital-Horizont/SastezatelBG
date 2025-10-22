@@ -23,9 +23,9 @@ export async function generateMetadata({ params }) {
       description: theme.meta_description,
       url: `${baseUrl}/platform-5-8/${themeId}`,
       images: [{
-        url: "https://www.sastezatel.bg/kniga_reklama.png",
-        width: 512,
-        height: 512,
+        url: "https://www.sastezatel.bg/reklama_5_8_klas.png",
+        width: 1220,
+        height: 786,
         alt: "Състезател.БГ – платформа и книги по състезателна математика",
       }],
       locale: "bg_BG",
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: theme.meta_title,
       description: theme.meta_description,
-      images: ["https://www.sastezatel.bg/kniga_reklama.png"],
+      images: ["https://www.sastezatel.bg/reklama_5_8_klas.png"],
     },
     alternates: { 
       canonical: `${baseUrl}/platform-5-8/${themeId}` 

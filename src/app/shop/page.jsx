@@ -17,9 +17,9 @@ export const metadata = {
     url: "https://www.sastezatel.bg/shop",
     images: [
       {
-        url: "https://www.sastezatel.bg/og-image-shop.jpg",
-        width: 1200,
-        height: 630,
+        url: "https://www.sastezatel.bg/favicon-512x512.png",
+        width: 512,
+        height: 512,
         alt: "Онлайн книжарница с книги по състезателна математика – Състезател.БГ",
       },
     ],
@@ -31,7 +31,7 @@ export const metadata = {
     card: "summary_large_image",
     title: meta_title,
     description: meta_description,
-    images: ["https://www.sastezatel.bg/og-image-shop.jpg"],
+    images: ["https://www.sastezatel.bg/favicon-512x512.png"],
   },
   alternates: {
     canonical: "https://www.sastezatel.bg/shop",
