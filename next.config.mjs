@@ -16,6 +16,12 @@ const fs = require("fs").promises;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'img.youtube.com', pathname: '/vi/**' },
+      { protocol: 'https', hostname: 'i.ytimg.com',   pathname: '/vi/**' },
+    ],
+  },
 };
 
 class MinifyHtmlPlugin {

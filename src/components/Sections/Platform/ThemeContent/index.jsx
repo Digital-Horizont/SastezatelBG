@@ -2,11 +2,12 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { Video, Play, Smartphone, BookOpen, Landmark, CreditCard } from "lucide-react"
-import styles from "./ThemeContent.module.css"
 import { useSelectedTheme } from "@/stores/Platform/useThemeStore"
 import { useEasyPayStore } from "@/stores/Platform/useEasyPayStore"
 import { useBankStore } from "@/stores/Platform/useBankStore"
 import { getYouTubeThumbnail , getYouTubeVideoId } from "@/utils/yt"
+import Image from "next/image"
+import styles from "./ThemeContent.module.css"
 
 export default function ThemeContent({ platform_title, platform_link }) {
   const selectedTheme = useSelectedTheme()
@@ -110,11 +111,13 @@ export default function ThemeContent({ platform_title, platform_link }) {
                     onClick={() => setShowVideo(true)}
                     aria-label={`Пусни видеото: ${selectedTheme.title}`}
                   >
-                    <img
+                    <Image
                       src={getYouTubeThumbnail(videoId)}
-                      alt=""
-                      className={styles.posterImg}
-                      onError={(e) => (e.currentTarget.src = "/placeholder.svg")}
+                      alt="Видео урок"
+                      fill
+                      placeholder="blur"
+                      blurDataURL={getYouTubeThumbnail(videoId)}
+                      priority
                     />
                     <span className={styles.posterOverlay} aria-hidden>
                       <span className={styles.playCircle}>
