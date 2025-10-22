@@ -19,8 +19,8 @@ export const metadata = {
     images: [
       {
         url: "https://www.sastezatel.bg/kniga_reklama.png",
-        width: 512,
-        height: 512,
+        width: 1200,
+        height: 902,
         alt: meta_title,
       },
     ],

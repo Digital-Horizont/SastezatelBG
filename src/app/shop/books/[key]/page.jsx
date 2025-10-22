@@ -25,8 +25,8 @@ export function generateMetadata({ params }) {
       images: [
         {
           url: productImage,
-          width: 1200,
-          height: 630,
+          width: 800,
+          height: 1200,
           alt: product.book_name,
         },
       ],
