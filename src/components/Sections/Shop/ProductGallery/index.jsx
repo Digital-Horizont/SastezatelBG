@@ -2,11 +2,20 @@
 
 import styles from "./ProductGallery.module.css";
 
+import Image from "next/image";
+
 export default function ProductGallery({ src, alt }) {
   return (
     <div className={styles.wrap}>
       <div className={styles.bordered}>
-        <img className={styles.image} src={src || "/placeholder.svg"} alt={alt} />
+        <Image
+          src={src}
+          alt={alt} 
+          fill
+          placeholder="blur"
+          blurDataURL={src}
+          priority
+        />
       </div>
     </div>
   );
