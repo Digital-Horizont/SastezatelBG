@@ -39,7 +39,7 @@ export default function BooksAndMerchSection() {
                 alt="Образователни книги"
                 fill
                 placeholder="blur"
-                blurDataURL="/favicon-192x192.png"
+                blurDataURL="/assets/kniga_reklama.png"
                 priority={false}
               />
             </div>
