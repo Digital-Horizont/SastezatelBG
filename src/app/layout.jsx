@@ -36,6 +36,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="bg">
       <head>
+        {/* Ahrefs Ownership Link */}
+        <Script 
+          src="https://analytics.ahrefs.com/analytics.js" 
+          data-key="zZL32CzGboCY42bpcmeIHw" 
+          async
+        ></Script>
+
         {/* ✅ Google Tag Manager */}
         <Script id="gtm-init" strategy="afterInteractive">
           {`
