@@ -1,5 +1,6 @@
 import styles from "./Footer.module.css";
 import Link from "next/link";
+
 import {
   LuUser,
   LuGraduationCap,
@@ -11,7 +12,10 @@ import {
   LuInstagram,
   LuMail,
   LuPhone,
-} from "react-icons/lu"
+  LuYoutube,
+  LuLinkedin,
+} from "react-icons/lu";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -103,11 +107,50 @@ export default function Footer() {
           <div className={styles.socialWrap}>
             <span className={styles.followText}>Следвайте ни:</span>
             <div className={styles.socials}>
-              <a href="#" className={`${styles.socialBtn} ${styles.fb}`} aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/SIcademy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.socialBtn} ${styles.fb}`}
+                aria-label="Facebook"
+              >
                 <LuFacebook aria-hidden="true" />
               </a>
-              <a href="#" className={`${styles.socialBtn} ${styles.ig}`} aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/sicademybg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.socialBtn} ${styles.ig}`}
+                aria-label="Instagram"
+              >
                 <LuInstagram aria-hidden="true" />
+              </a>
+              <a
+                href="https://www.youtube.com/@SicademyBG"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.socialBtn} ${styles.yt}`}
+                aria-label="YouTube"
+              >
+                <LuYoutube aria-hidden="true" />
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.socialBtn} ${styles.x}`}
+                aria-label="X (Twitter)"
+              >
+                <FaXTwitter aria-hidden="true" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/sicademy/people/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.socialBtn} ${styles.in}`}
+                aria-label="LinkedIn"
+              >
+                <LuLinkedin aria-hidden="true" />
               </a>
             </div>
           </div>
