@@ -7,7 +7,7 @@
   <!-- ********* -->
   <url>
     <loc>https://sastezatel.bg/</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.00</priority>
   </url>
@@ -16,128 +16,140 @@
   <!-- PLATFORM 3-4 PAGE -->
   <!-- ***************** -->
   <url>
-    <loc>https://sastezatel.bg/platform-3-4/info-3-4</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <loc>https://sastezatel.bg/platform-3-4</loc>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-3-4/info-3-4</loc>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/osnovni-temi</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/metod-na-gaus</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/racheshki-zadachi</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/pazarski-zadachi</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/zadachi-za-glavi-i-kraka</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/diofantovi-uravneniq</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/lica-i-obikolki</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/figuri-i-stulbi</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/dopirane-zastupvane-razrqzvane-sglobqvane</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/delenie-s-ostatuk-i-dinamichni-zadachi</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-3-4/krugove-na-oiler-kombinatorika-princip-na-dirihle</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
     <url>
     <loc>https://sastezatel.bg/platform-3-4/zadachi-za-dvijenie-i-rabota</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
     <url>
     <loc>https://sastezatel.bg/platform-3-4/matematicheski-rebusi</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
 
   <!-- ***************** -->
   <!-- PLATFORM 5-8 PAGE -->
   <!-- ***************** -->
   <url>
-    <loc>https://sastezatel.bg/platform-5-8/info-5-8</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <loc>https://sastezatel.bg/platform-5-8</loc>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/platform-5-8/info-5-8</loc>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/platform-5-8/temi-tch-5</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
     <url>
     <loc>https://sastezatel.bg/platform-5-8/temi-tch-5-8</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
     <url>
     <loc>https://sastezatel.bg/platform-5-8/temi-tch-6-8</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
     <url>
     <loc>https://sastezatel.bg/platform-5-8/temi-tch-7-8</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
     <url>
     <loc>https://sastezatel.bg/platform-5-8/matematicheski-rebusi</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
 
   <!-- ********* -->
@@ -145,21 +157,27 @@
   <!-- ********* -->
   <url>
     <loc>https://sastezatel.bg/shop</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://sastezatel.bg/shop/books</loc>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/shop/books/sasetzatel-bg-chast-1</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://sastezatel.bg/books/sasetzatel-bg-chast-2</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.00</priority>
   </url>
 
   <!-- ********* -->
@@ -167,7 +185,7 @@
   <!-- ********* -->
   <url>
     <loc>https://sastezatel.bg/privacy-policy</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.20</priority>
   </url>
@@ -177,7 +195,7 @@
   <!-- ********* -->
   <url>
     <loc>https://sastezatel.bg/cookies</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.20</priority>
   </url>
@@ -187,7 +205,7 @@
   <!-- ********* -->
   <url>
     <loc>https://sastezatel.bg/terms-of-service</loc>
-    <lastmod>2025-10-20T16:27:03+00:00</lastmod>
+    <lastmod>2025-10-26T16:27:03+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.20</priority>
   </url>
