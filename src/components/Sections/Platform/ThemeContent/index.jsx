@@ -9,7 +9,7 @@ import { getYouTubeThumbnail , getYouTubeVideoId } from "@/utils/yt"
 import Image from "next/image"
 import styles from "./ThemeContent.module.css"
 
-export default function ThemeContent({ platform_title, platform_link }) {
+export default function ThemeContent({ platform_title, platform_link, payment_link }) {
   const selectedTheme = useSelectedTheme()
   const openEasyPay = useEasyPayStore((s) => s.open)
   const openBank = useBankStore((s) => s.open)
@@ -17,7 +17,7 @@ export default function ThemeContent({ platform_title, platform_link }) {
   const [showVideo, setShowVideo] = useState(false)
 
   const handleCardPayment = () => {
-    window.open(platform_link, "_blank")
+    window.open(payment_link, "_blank")
   }
 
   useEffect(() => setShowVideo(false), [selectedTheme?.key])

@@ -33,7 +33,7 @@ export default function ThemePageClient({ themes, initialSelectedKey, platformLi
       <DecorativeWave />
       <div className={styles.grid}>
         <SideBar platform_url="platform-5-8" />
-        <ThemeContent platform_title={"Платорма 5-8 кл"} platform_link={"https://sicademybg.skillplate.com/course/platforma-5-8kl"}/>
+        <ThemeContent platform_title={"Платорма 5-8 кл"} platform_link={"https://platform.sastezatel.bg/course/platforma-5-8kl"} payment_link={"https://platform.sastezatel.bg/checkout/bqpwpvxgurriv4z "} />
         <EasyPayModal price={PLATFORM_5_8_PRICE} platform_key="platform-5-8" platform_name="Абонамент за платформа 5-8 клас"/>
         <BankModal price={PLATFORM_5_8_PRICE} platform_key="platform-5-8" platform_name="Абонамент за платформа 5-8 клас"/>
       </div>

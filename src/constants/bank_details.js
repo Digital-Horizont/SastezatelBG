@@ -1,3 +1,3 @@
-export const IBAN = "BG00 XXXX 0000 0000 0000 00";
-export const BIC = "XXXXBGSF";
-export const ACCOUNT_NAME = "Сикадеми ЕООД"; 
+export const IBAN = "BG30 TEXI 9545 1008 9133 00";
+export const BIC = "TEXIBGSF";
+export const ACCOUNT_NAME = "ДИ ЕС МАРКЕТПЛЕЙС ЕООД"; 
