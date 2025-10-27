@@ -94,9 +94,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:support@sastezatel.bg" className={styles.link}>
+                <a href="mailto:sales@sastezatel.bg" className={styles.link}>
                   <LuMail className={styles.icon} aria-hidden="true" />
-                  <span>support@sastezatel.bg</span>
+                  <span>sales@sastezatel.bg</span>
                 </a>
               </li>
             </ul>
