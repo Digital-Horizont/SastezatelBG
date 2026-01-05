@@ -58,8 +58,8 @@ export default function Products() {
                   <div className={styles.productInfo}>
                     <h3 className={styles.productName}>{name}</h3>
                     <div className={styles.priceContainer}>
-                      <p className={styles.productPrice}>{priceInBGN.toFixed(2)} лв</p>
-                      <p className={styles.productPriceSecondary}>(€{priceInEUR.toFixed(2)})</p>
+                      <p className={styles.productPriceSecondary}>€{priceInEUR.toFixed(2)}</p>
+                      <p className={styles.productPrice}>({priceInBGN.toFixed(2)} лв)</p>
                     </div>
                   </div>
                 </button>

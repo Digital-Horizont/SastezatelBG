@@ -79,18 +79,18 @@
 }
 
 .productPrice {
-  color: var(--forest-dark);
-  font-weight: 800;
-  font-size: 1.3rem;
-  margin: 0;
-}
-
-.productPriceSecondary {
   color: var(--forest-mid);
   font-weight: 600;
   font-size: 0.9rem;
   margin: 0;
   opacity: 0.7;
+}
+
+.productPriceSecondary {
+  color: var(--forest-dark);
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
 .empty {

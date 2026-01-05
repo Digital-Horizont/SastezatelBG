@@ -32,7 +32,7 @@ export default function BankModal({ price, platform_key, platform_name }) {
   const [errors, setErrors] = useState({ contact: false, terms: false });
 
   const { totalPriceInEur, totalPriceInLeva } = useMemo(() => {
-    const eur = price * Number(months || 0);
+    const eur = price;
     const bgn = eur * EUR_TO_BGN;
     return { totalPriceInEur: eur, totalPriceInLeva: bgn };
   }, [months, price]);
@@ -324,11 +324,11 @@ export default function BankModal({ price, platform_key, platform_name }) {
                   </div>
 
                   <div className={styles.priceContainer}>
-                    <p className={styles.priceBgn}>
-                      {totalPriceInLeva.toFixed(2)} лв
-                    </p>
                     <p className={styles.priceEur}>
-                      (&#8364;{totalPriceInEur.toFixed(2)})
+                      &#8364;{totalPriceInEur.toFixed(2)}
+                    </p>
+                    <p className={styles.priceBgn}>
+                      ({totalPriceInLeva.toFixed(2)} лв)
                     </p>
                   </div>
                 </div>

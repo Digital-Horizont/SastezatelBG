@@ -288,17 +288,17 @@
 
 .priceBgn {
 	margin: 0;
-	font-weight: 900;
-	font-size: 1.5rem;
-	color: var(--forest-dark);
-}
-
-.priceEur {
-	margin: 0;
 	font-weight: 600;
 	font-size: 1rem;
 	color: var(--forest-mid);
 	opacity: 0.75;
+}
+
+.priceEur {
+	margin: 0;
+	font-weight: 900;
+	font-size: 1.5rem;
+	color: var(--forest-dark);
 }
 
 /* Submit */

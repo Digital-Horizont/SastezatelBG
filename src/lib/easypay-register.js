@@ -1,5 +1,6 @@
 import 'server-only';
 import crypto from "crypto";
+import { EUR_TO_BGN } from '@/constants/common';
 
 function requireEnv(name) {
   const v = process.env[name];
@@ -46,6 +47,8 @@ export async function registerEasyPayBill({ amount }) {
   const EPAY_KIN = requireEnv("EPAY_KIN");
   const EPAY_SECRET = requireEnv("EPAY_SECRET");
 
+  const amount_in_eur = (amount / EUR_TO_BGN).toFixed(2);
+
   const isProd = process.env.NODE_ENV === "production";
   const endpoint = isProd
     ? "https://www.epay.bg/ezp/reg_bill.cgi"
@@ -56,7 +59,7 @@ export async function registerEasyPayBill({ amount }) {
   const ENCODED = buildEncodedData({
     MIN: EPAY_KIN,
     INVOICE: String(invoice),
-    AMOUNT: String(amount),
+    AMOUNT: String(amount_in_eur),
     CURRENCY: currency,
     EXP_TIME,
   });

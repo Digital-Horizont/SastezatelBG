@@ -39,8 +39,8 @@ export default function ProductInfo({ title, description, price }) {
 
       <div className={styles.bottomSection}>
         <div className={styles.priceContainer}>
-          <p className={styles.priceBgn}>{totalPriceInLeva.toFixed(2)} лв</p>
-          <p className={styles.priceEur}>(€{totalPriceInEur.toFixed(2)})</p>
+          <p className={styles.priceEur}>€{totalPriceInEur.toFixed(2)}</p>
+          <p className={styles.priceBgn}>({totalPriceInLeva.toFixed(2)} лв)</p>
         </div>
 
         <div className={styles.quantityControls}>
