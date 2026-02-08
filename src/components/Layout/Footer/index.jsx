@@ -108,7 +108,7 @@ export default function Footer() {
             <span className={styles.followText}>Следвайте ни:</span>
             <div className={styles.socials}>
               <a
-                href="https://www.facebook.com/SIcademy"
+                href="https://www.facebook.com/profile.php?id=61585129928991"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles.socialBtn} ${styles.fb}`}
