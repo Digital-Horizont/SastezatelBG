@@ -21,11 +21,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
-    "css-minimizer-webpack-plugin": "^8.0.0",
     "eslint": "^10.3.0",
-    "eslint-config-next": "^16.2.4",
-    "glob": "^13.0.6",
-    "html-minifier-terser": "^7.2.0",
-    "javascript-obfuscator": "^5.4.2"
+    "eslint-config-next": "^16.2.4"
   }
 }
