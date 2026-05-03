@@ -12,6 +12,7 @@ export default function ProductGallery({ src, alt }) {
           src={src}
           alt={alt} 
           fill
+          sizes="252px"
           placeholder="blur"
           blurDataURL={src}
           priority

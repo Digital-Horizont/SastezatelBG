@@ -115,6 +115,7 @@ export default function ThemeContent({ platform_title, platform_link, payment_li
                       src={getYouTubeThumbnail(videoId)}
                       alt="Видео урок"
                       fill
+                      sizes="(min-width: 1240px) 520px, (min-width: 768px) 42vw, 100vw"
                       placeholder="blur"
                       blurDataURL={getYouTubeThumbnail(videoId)}
                       priority

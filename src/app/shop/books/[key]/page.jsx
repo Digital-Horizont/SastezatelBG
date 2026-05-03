@@ -6,12 +6,13 @@ export function generateStaticParams() {
   return booksData.map((b) => ({ key: b.key }));
 }
 
-export function generateMetadata({ params }) {
-  const product = booksData.find((b) => b.key === params.key);
+export async function generateMetadata({ params }) {
+  const { key } = await params;
+  const product = booksData.find((b) => b.key === key);
   if (!product) return {};
 
   const baseUrl = "https://www.sastezatel.bg";
-  const productUrl = `${baseUrl}/shop/${product.key}`;
+  const productUrl = `${baseUrl}/shop/books/${product.key}`;
   const productImage = `${baseUrl}${product.book_img}`;
 
   return {
@@ -46,8 +47,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function BookDetailServerPage({ params }) {
-  const product = booksData.find((b) => b.key === params.key);
+export default async function BookDetailServerPage({ params }) {
+  const { key } = await params;
+  const product = booksData.find((b) => b.key === key);
   if (!product) return notFound();
 
   return <ClientPage product={product} />;

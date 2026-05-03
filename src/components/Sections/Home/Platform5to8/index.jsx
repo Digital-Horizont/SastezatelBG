@@ -20,6 +20,7 @@ export default function Platform5to8Section() {
                 alt="Платформа за ученици 5-8 клас"
                 className={styles.cardImg}
                 fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 placeholder="blur"
                 blurDataURL="/assets/reklama_5_8_klas.png"
                 priority={false}

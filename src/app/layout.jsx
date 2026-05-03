@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html lang="bg">
+    <html lang="bg" data-scroll-behavior="smooth">
       <head>
         {/* Ahrefs Ownership Link */}
         <Script 

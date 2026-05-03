@@ -38,6 +38,7 @@ export default function BooksAndMerchSection() {
                 src="/assets/kniga_reklama.png"
                 alt="Образователни книги"
                 fill
+                sizes="(min-width: 768px) 33vw, 100vw"
                 placeholder="blur"
                 blurDataURL="/assets/kniga_reklama.png"
                 priority={false}

@@ -6,8 +6,9 @@ export function generateStaticParams() {
   return merchData.map((m) => ({ key: m.key }));
 }
 
-export function generateMetadata({ params }) {
-  const product = merchData.find((m) => m.key === params.key);
+export async function generateMetadata({ params }) {
+  const { key } = await params;
+  const product = merchData.find((m) => m.key === key);
   if (!product) return {};
   return {
     title: product.meta_title,
@@ -16,8 +17,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function MerchDetailServerPage({ params }) {
-  const product = merchData.find((m) => m.key === params.key);
+export default async function MerchDetailServerPage({ params }) {
+  const { key } = await params;
+  const product = merchData.find((m) => m.key === key);
   if (!product) return notFound();
 
   return <ClientPage product={product} />;

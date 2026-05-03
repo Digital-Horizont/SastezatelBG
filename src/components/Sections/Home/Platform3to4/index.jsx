@@ -48,6 +48,7 @@ export default function Platform3to4Section() {
                 alt="Платформа за ученици 3-4 клас"
                 className={styles.cardImg}
                 fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 placeholder="blur"
                 blurDataURL="/assets/reklama_3_4_klas.png"
                 priority={false}
